@@ -6,5 +6,10 @@
     "node": true
   },
   "parser": "babel-eslint",
-  "ignorePatterns": ["app.js"]
+  "ignorePatterns": ["app.js"],
+  "rules": {
+    "import/extensions": 0,
+    "react/react-in-jsx-scope": 0,
+    "no-undef": 0
+  }
 }
