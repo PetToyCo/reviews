@@ -1,3 +1,5 @@
-const rootReducer = Redux.combineReducers({});
+const { combineReducers } = Redux;
+
+const rootReducer = combineReducers({});
 
 export default rootReducer;

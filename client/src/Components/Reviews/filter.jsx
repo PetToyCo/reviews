@@ -1,4 +1,4 @@
-class HighlightedReviews extends React.Component {
+class Filter extends React.Component {
   constructor(props) {
     super();
   }
@@ -14,4 +14,4 @@ class HighlightedReviews extends React.Component {
   }
 }
 
-export default HighlightedReviews;
+export default Filter;

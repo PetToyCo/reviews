@@ -11,8 +11,9 @@ class ReviewsModule extends React.Component {
   }
 
   render() {
+    // console.log('Review freshly mounted')
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div id="reviews-module" style={{ display: 'flex', flexDirection: 'column' }}>
         <ReviewHeader />
         <ReviewBody />
         <Reviews />

@@ -6,10 +6,12 @@
     "node": true
   },
   "parser": "babel-eslint",
-  "ignorePatterns": ["app.js"],
+  "ignorePatterns": ["app.js", "bundle.js"],
   "rules": {
     "import/extensions": 0,
     "react/react-in-jsx-scope": 0,
-    "no-undef": 0
+    "no-undef": 0,
+    "prefer-arrow-callback": 0,
+    "no-unused-expressions": 0
   }
 }
