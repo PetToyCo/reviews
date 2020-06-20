@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "testSeed": "mocha server/seed/seed.test.js",
+    "seedDb": "node server/seedDatabase.js",
     "lint": "eslint . --ext .js,.jsx",
     "build": "webpack -D"
   },

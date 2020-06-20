@@ -38,3 +38,5 @@ const retrieveIndividualReview = function(reviewId) {
 module.exports.db = db;
 module.exports.retrieveAggregateReview = retrieveAggregateReview;
 module.exports.retrieveIndividualReview = retrieveIndividualReview;
+module.exports.AggregateReview = AggregateReview;
+module.exports.IndividualReview = IndividualReview;

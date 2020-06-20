@@ -82,7 +82,7 @@ describe('The seed.js file', () => {
       });
     });
 
-    it('all numberOfReviews for items 101-199 are within the range 4-17', () => {
+    it('all numberOfReviews for items 101 and above are within the range 4-17', () => {
       detailedItemReviews.forEach((record) => {
         if (record.itemId !== '100') {
           const { numberOfReviews } = record;
