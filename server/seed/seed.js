@@ -17,7 +17,7 @@ const detailedIndividualReviews = [
   {
     reviewId: 1,
     score: 5,
-    date: '2020-06-06T22:07:57.603Z',
+    date: '2020-05-06T22:07:57.603Z',
     review: 'Morbi commodo justo tortor, malesuada imperdiet justo condimentum eget. Nam fringilla orci dui, non semper nisl venenatis eget. Phasellus nec.',
     username: 'ChonkyCat',
     recommended: true,
@@ -125,7 +125,7 @@ const detailedIndividualReviews = [
   {
     reviewId: 10,
     score: 4,
-    date: '2020-06-05T22:07:57.603Z',
+    date: '2020-05-05T22:07:57.603Z',
     review: 'Fusce quis erat ornare, tincidunt odio eget, tempor velit. Donec placerat vestibulum diam. Maecenas molestie congue mauris.',
     username: 'ElGatoSupreme',
     recommended: true,
@@ -370,7 +370,7 @@ const mapMonth = {
 };
 
 const thirtyOneDayMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
-const thirtyDayMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+const thirtyDayMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 const twentyEightDayMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28];
 
 const mapDay = {
@@ -394,10 +394,10 @@ const generateDate = function() {
   const rollYear = Math.floor(Math.random() * 3);
   const year = mapYear[rollYear];
 
-  const rollMonth = Math.floor(Math.random() * mapMonth[year].length * 10);
+  const rollMonth = Math.floor(Math.random() * mapMonth[year].length);
   let month = mapMonth[year][rollMonth];
 
-  const rollDay = Math.floor(Math.random() * mapDay[month].length * 10);
+  const rollDay = Math.floor(Math.random() * mapDay[month].length);
   let day = mapDay[month][rollDay];
 
   let rollHour = Math.floor(Math.random() * 24);
@@ -488,7 +488,6 @@ const generateReviews = function(numberToGenerate) {
 };
 
 const generateRecord = function() {
-  let splitFinalNumber;
   const itemId = itemIdTracker;
   const numberOfReviews = Math.floor(Math.random() * 14 + 4);
   const randomlyGeneratedReviews = generateReviews(numberOfReviews);
@@ -517,12 +516,10 @@ const generateRecord = function() {
           reviewAverageArray[2] = '0';
           reviewAverageArray[0] = (Number.parseInt(reviewAverageArray[0], 10) + 1).toString();
         }
-
-        splitFinalNumber = reviewAverageArray.slice(0, 3);
       }
-
-      reviewAverage = splitFinalNumber.join('');
     }
+    const splitFinalNumber = reviewAverageArray.slice(0, 3);
+    reviewAverage = splitFinalNumber.join('');
   }
 
   detailedItemReviews.push({

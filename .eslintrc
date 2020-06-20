@@ -18,5 +18,6 @@
     "no-plusplus": 0,
     "max-len": 0,
     "no-else-return": 0,
+    "quote-props": 0,
   }
 }

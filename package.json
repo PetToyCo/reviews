@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "testSeed": "mocha server/seed/seed.test.js",
     "lint": "eslint . --ext .js,.jsx",
     "build": "webpack -D"
   },
