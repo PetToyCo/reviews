@@ -20,6 +20,7 @@ From project's root folder:
 1. In terminal: npm install
 2. To see service's current status, open the following HTML file in a browser: ./client/public/index.html
 3. To see service's current test specs, open the following HTML file in a browser: ./test/SpecRunner.html
+4. All of the files necessary for seeding a database with fake data are in ./server/seed  . To run the tests located in seed.test.js, in terminal: npm run testSeed
 
 
 ## Requirements
