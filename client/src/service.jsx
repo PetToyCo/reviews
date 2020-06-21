@@ -14,6 +14,9 @@ class ReviewsModule extends React.Component {
     axios.get('/reviews/100')
       .then((res) => {
         console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
