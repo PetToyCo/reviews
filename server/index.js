@@ -6,7 +6,8 @@ const db = require('./db.js');
 const server = express();
 
 server.use(morgan('dev'));
-server.use(serveStatic('../client/public'));
+server.use(serveStatic('./client/public'));
+server.use('/test', serveStatic('./test'));
 
 server.get('/averageReviews/:itemId', (req, res) => {
   const { itemId } = req.params;

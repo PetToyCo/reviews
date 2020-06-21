@@ -10,6 +10,13 @@ class ReviewsModule extends React.Component {
     super();
   }
 
+  componentDidMount() {
+    axios.get('/reviews/100')
+      .then((res) => {
+        console.log(res.data);
+      });
+  }
+
   render() {
     // console.log('Review freshly mounted')
     return (

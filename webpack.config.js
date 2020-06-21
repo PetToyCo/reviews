@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     './client/public/app.js': path.resolve(__dirname, 'client', 'src', 'service.jsx'),
     './test/bundle.js': path.resolve(__dirname, 'test', 'tests', 'index.jsx'),
+    './test/bundleServerTests.js': path.resolve(__dirname, 'test', 'tests', 'indexServerTests.jsx'),
   },
   output: {
     path: path.resolve(__dirname),

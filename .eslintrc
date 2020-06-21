@@ -6,7 +6,7 @@
     "node": true
   },
   "parser": "babel-eslint",
-  "ignorePatterns": ["app.js", "bundle.js"],
+  "ignorePatterns": ["app.js", "bundle.js", "bundleServerTests.js"],
   "rules": {
     "import/extensions": 0,
     "react/react-in-jsx-scope": 0,
@@ -20,5 +20,6 @@
     "no-else-return": 0,
     "quote-props": 0,
     "func-names": 0,
+    "arrow-body-style": 0,
   }
 }
