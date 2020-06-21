@@ -18,11 +18,28 @@ Handles all reviews and review-related visuals for PetToyCo
 
 From project's root folder:
 1. In terminal: npm install
-2. To see service's current status, open the following HTML file in a browser: ./client/public/index.html
-3. To see service's current test specs, open the following HTML file in a browser: ./test/SpecRunner.html
-4. All of the files necessary for seeding a database with fake data are in ./server/seed  . To run the tests located in seed.test.js, in terminal: npm run testSeed
+2. If you need to seed database with fake data, follow the "Seeding Database" instructions below.
+3. Once you have seed data in your MongoDB instance, you can start the server with: npm run server
+4. To see the actual service in action, in a browser, type:
+http://127.0.0.1:3001
+Note: service currently hardcoded to only view item 100.
+5. To run the service's test specs, in a browser, type:
+http://127.0.0.1:3001/est/SpecRunner.html
+6. To test the service's server endpoints, in a browser, type:
+http://127.0.0.1:3001/est/ServerSpecRunner.html
+
+
 
 To connect this service to a proxy server:
+
+
+
+Seeding Database:
+1. From preject's root directory in terminal: npm run testSeed
+2. If all tests pass, run: npm run seedDb
+3. Note: if you try to reseed databse, you will error out. To reseed, you first have to manually drop the PTCReviewsService database from your MongoDB instance and then repeat step2.
+
+
 
 To upscale mock data:
 1. All files that need an update are located in /server/seed/
