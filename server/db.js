@@ -31,12 +31,12 @@ const retrieveAggregateReview = function(itemId) {
   return AggregateReview.findOne({ itemId }).exec();
 };
 
-const retrieveIndividualReview = function(reviewId) {
-  return IndividualReview.findOne({ reviewId }).exec();
+const retrieveIndividualReviews = function(reviewIds) {
+  return IndividualReview.find({ reviewId: { $in: reviewIds } }).select('-_id -reviewId -__v').exec();
 };
 
 module.exports.db = db;
 module.exports.retrieveAggregateReview = retrieveAggregateReview;
-module.exports.retrieveIndividualReview = retrieveIndividualReview;
+module.exports.retrieveIndividualReviews = retrieveIndividualReviews;
 module.exports.AggregateReview = AggregateReview;
 module.exports.IndividualReview = IndividualReview;

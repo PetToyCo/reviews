@@ -19,5 +19,6 @@
     "max-len": 0,
     "no-else-return": 0,
     "quote-props": 0,
+    "func-names": 0,
   }
 }
