@@ -1,5 +1,7 @@
 import DynamicReviewStars from '../General/dynamicReviewStars.jsx';
 
+const { connect } = ReactRedux;
+
 class ReviewHeader extends React.Component {
   constructor(props) {
     super();
@@ -17,13 +19,13 @@ class ReviewHeader extends React.Component {
       }}>
         <div style={{ display: 'flex' }}>
           <DynamicReviewStars />
-          <div> number score </div>
+          <div>{this.props.reviewAverage}</div>
           <div> | </div>
-          <div> Number of Reviews</div>
+          <div>{this.props.numberOfReviews}</div>
         </div>
         <div style={{ display: 'flex' }}>
           <div>Search bar</div>
-          <div> Number of Reviews </div>
+          <div>{this.props.numberOfReviews}</div>
           <div> Number of Questions </div>
           <div> Number of Answers</div>
         </div>
@@ -33,4 +35,13 @@ class ReviewHeader extends React.Component {
   }
 }
 
-export default ReviewHeader;
+const mapState = function(state) {
+  return {
+    reviewAverage: state.reviewAverage,
+    numberOfReviews: state.numberOfReviews,
+  };
+};
+
+const wrappedReviewHeader = connect(mapState)(ReviewHeader);
+
+export default wrappedReviewHeader;

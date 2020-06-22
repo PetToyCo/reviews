@@ -11,13 +11,12 @@ const { Provider } = ReactRedux;
 class ReviewsModule extends React.Component {
   constructor(props) {
     super();
-
   }
 
   componentDidMount() {
     axios.get('/reviews/100')
       .then((results) => {
-        const { reviewAverage, numberOfReviews, allReviews } = results;
+        const { reviewAverage, numberOfReviews, allReviews } = results.data;
 
         store.dispatch(updateReviewAverage(reviewAverage));
         store.dispatch(updateNumberOfReviews(numberOfReviews));
