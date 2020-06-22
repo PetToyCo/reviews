@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest",
     "testSeed": "mocha server/seed/seed.test.js",
+    "seedDb": "node server/seedDatabase.js",
+    "server": "node server/index.js",
     "lint": "eslint . --ext .js,.jsx",
     "build": "webpack -D"
   },
@@ -46,11 +48,13 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "lorem-ipsum": "^2.0.3",
     "mongoose": "^5.9.19",
     "morgan": "^1.10.0",
+    "nock": "^12.0.3",
     "path": "^0.12.7",
     "serve-static": "^1.14.1",
-    "lorem-ipsum": "^2.0.3"
+    "thunk": "0.0.1"
   },
   "pre-commit": [
     "lint"
