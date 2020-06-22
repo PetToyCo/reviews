@@ -7,7 +7,14 @@ class ReviewHeader extends React.Component {
 
   render() {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: 'auto',
+        width: '100%',
+        backgroundColor: 'hsl(0, 0%, 96.9%)',
+        flexShrink: '0',
+      }}>
         <div style={{ display: 'flex' }}>
           <DynamicReviewStars />
           <div> number score </div>
