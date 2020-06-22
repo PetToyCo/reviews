@@ -14,8 +14,7 @@ server.get('/averageReviews/:itemId', (req, res) => {
 
   db.retrieveAggregateReview(itemId)
     .then((data) => {
-      const { reviewAverage, numberOfReviews } = data;
-      res.status(200).send({ reviewAverage, numberOfReviews });
+      res.status(200).send(data);
     })
     .catch((err) => {
       res.status(500).send(err);
