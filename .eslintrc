@@ -21,5 +21,7 @@
     "quote-props": 0,
     "func-names": 0,
     "arrow-body-style": 0,
+    "react/jsx-closing-bracket-location": 0,
+    "react/prop-types": 0,
   }
 }

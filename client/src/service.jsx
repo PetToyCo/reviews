@@ -34,6 +34,7 @@ class ReviewsModule extends React.Component {
         <ReviewHeader />
         <ReviewBody />
         <Reviews />
+        <div id="place-holder-questions"></div>
       </div>
     );
   }
