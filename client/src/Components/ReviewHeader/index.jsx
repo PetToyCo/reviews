@@ -30,6 +30,26 @@ class ReviewHeader extends React.Component {
     return newStyles;
   }
 
+  changeColorOnMouseEnter(e) {
+    const { id } = e.target;
+    document.getElementById(id).style.color = '#009cd9';
+  }
+
+  changeColorOnMouseLeave(e) {
+    const { id } = e.target;
+    document.getElementById(id).style.color = '#005891';
+  }
+
+  changeImageOnMouseEnter(e) {
+    const { id } = e.target;
+    document.getElementById(id).style.backgroundImage = 'url("/searchMagnifyingGlassHover.png")';
+  }
+
+  changeImageOnMouseLeave(e) {
+    const { id } = e.target;
+    document.getElementById(id).style.backgroundImage = 'url("/searchMagnifyingGlass.png")';
+  }
+
   render() {
     const { reviewAverage, numberOfReviews } = this.props;
     return (
@@ -41,32 +61,32 @@ class ReviewHeader extends React.Component {
             </a>
             <div style={reviewHeaderReviewAverage}>{reviewAverage}</div>
             <div style={{ paddingLeft: '10px' }}>
-              <a href='#review-link' style={reviewHeaderItemLinkLinklike}>{`${numberOfReviews} Reviews`}</a>
+              <a id='header-upper-reviews' onMouseLeave={this.changeColorOnMouseLeave} onMouseEnter={this.changeColorOnMouseEnter} href='#review-link' style={reviewHeaderItemLinkLinklike}>{`${numberOfReviews} Reviews`}</a>
             </div>
           </div>
         </div>
         <div style={{ display: 'flex', height: '52px' }}>
-          <div style={{ width: '525px', display: 'flex', marginLeft: '10px' }}>
+          <div style={{ width: '529px', display: 'flex', marginLeft: '10px' }}>
             <input style={reviewHeaderSearchBar} placeholder='Search topics and reviews' />
-            <button style={reviewHeaderSearchBarButton} />
+            <button type='button' id='magnifying-glass' onMouseLeave={this.changeImageOnMouseLeave} onMouseEnter={this.changeImageOnMouseEnter} style={reviewHeaderSearchBarButton} />
           </div>
           <ul style={reviewHeaderList}>
             <li style={reviewHeaderListItem}>
               <a href='#review-link' style={reviewHeaderItemLink}>
                 <span style={reviewHeaderItemLinkLinkNatureHidden}>{numberOfReviews}</span>
-                <span style={reviewHeaderItemLinkLinklike}>Reviews</span>
+                <span id='item-link-reviews' onMouseLeave={this.changeColorOnMouseLeave} onMouseEnter={this.changeColorOnMouseEnter} style={reviewHeaderItemLinkLinklike}>Reviews</span>
               </a>
             </li>
             <li style={reviewHeaderListItem}>
               <a href='#place-holder-questions' style={this.modifiedStyleForReviewHeaderItemLink(reviewHeaderItemLink)}>
                 <span style={reviewHeaderItemLinkLinkNatureHidden}>0</span>
-                <span style={reviewHeaderItemLinkLinklike}>Questions</span>
+                <span id='item-link-questions' onMouseLeave={this.changeColorOnMouseLeave} onMouseEnter={this.changeColorOnMouseEnter} style={reviewHeaderItemLinkLinklike}>Questions</span>
               </a>
             </li>
             <li style={reviewHeaderListItem}>
               <a href='#place-holder-questions' style={reviewHeaderItemLink}>
                 <span style={reviewHeaderItemLinkLinkNatureHidden}>0</span>
-                <span style={reviewHeaderItemLinkLinklike}>Answers</span>
+                <span id='item-link-answers' onMouseLeave={this.changeColorOnMouseLeave} onMouseEnter={this.changeColorOnMouseEnter} style={reviewHeaderItemLinkLinklike}>Answers</span>
               </a>
             </li>
           </ul>

@@ -38,9 +38,7 @@ const reviewHeaderItemLinkLinkNatureHidden = {
 };
 
 const reviewHeaderListItem = {
-  // display: 'inline',
   display: 'list-item',
-  // listStylePosition: 'outside',
   float: 'left',
   height: 'auto',
   width: '160px',
@@ -76,7 +74,7 @@ const reviewHeaderReviewAverage = {
 
 const reviewHeaderSearchBar = {
   fontSize: '14px',
-  width: '83.5%',
+  width: '416px',
   height: '16px',
   borderColor: '#bbb',
   margin: '10px 0',
@@ -91,6 +89,8 @@ const reviewHeaderSearchBarButton = {
   width: '88px',
   border: 'none',
   margin: '10px 0',
+  padding: '1px 0',
+  cursor: 'pointer',
 };
 
 const reviewHeaderList = {
@@ -98,7 +98,7 @@ const reviewHeaderList = {
   height: '52px',
   width: '480px',
   float: 'right',
-  margin: '0 0 0 40px',
+  margin: '0 0 0 36px',
 };
 
 export {
