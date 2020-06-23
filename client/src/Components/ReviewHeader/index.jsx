@@ -37,11 +37,14 @@ class ReviewHeader extends React.Component {
         borderBottom: '1px solid',
         borderColor: '#ccc',
       }}>
-        <div style={{ display: 'flex', borderBottom: '1px solid', borderColor: '#ccc', width: 'auto', height: 'auto',}}>
-          <DynamicReviewStars />
-          <div>{reviewAverage}</div>
-          <div> | </div>
-          <div>{numberOfReviews}</div>
+        <div style={{ borderBottom: '1px solid', borderColor: '#ccc', width: 'auto', height: '30px', padding: '10px 20px'}}>
+          <div style={{display: 'flex', marginTop: '5px'}}>
+            <DynamicReviewStars />
+            <div style={{paddingLeft: '10px', paddingRight: '10px', borderRight: '1px solid #ccc', height: '18px', color: '#666'}}>{reviewAverage}</div>
+            <div style={{paddingLeft: '10px',}}>
+              <div style={reviewHeaderItemLinkLinklike}>{`${numberOfReviews} Reviews`}</div>
+            </div>
+          </div>
         </div>
         <div style={{ display: 'flex', height: '52px' }}>
           <div style={{width: '525px', display: 'flex', marginLeft: '10px'}}>
@@ -54,6 +57,7 @@ class ReviewHeader extends React.Component {
               margin: '10px 0',
               borderWidth: '1px',
               padding: '7px 10px',
+              fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
             }} placeholder='Search topics and reviews'></input>
             <button style={{backgroundImage: 'url("/searchMagnifyingGlass.png")', height: '32px', width: '88px', border: 'none', margin: '10px 0',}}></button>
           </div>

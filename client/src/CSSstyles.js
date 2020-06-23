@@ -1,3 +1,7 @@
+//////dynamic stars
+
+
+//////reviewHeader
 const reviewHeaderItemLink = {
   display: 'flex',
   flexDirection: 'column',
@@ -6,19 +10,23 @@ const reviewHeaderItemLink = {
   color: 'inherit',
   alignItems: 'center',
   padding: '8px 10px',
-  height: '37px'
+  height: '37px',
+  fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
 };
 
 const reviewHeaderItemLinkLinklike = {
   textDecoration: 'underline',
   color: '#005891',
   fontSize: '14px',
+  fontWeight: '400',
+  fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
 };
 
 const reviewHeaderItemLinkLinkNatureHidden = {
   color: '#333',
   fontSize: '17px',
   fontWeight: '700',
+  fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
 };
 
 const reviewHeaderListItem = {
