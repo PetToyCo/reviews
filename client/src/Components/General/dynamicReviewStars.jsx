@@ -1,33 +1,43 @@
+import { dynamicStarsGrayStars } from '../../CSSstyles.js';
+
 const { connect } = ReactRedux;
 
 class DynamicReviewStars extends React.Component {
-  constructor(props) {
-    super();
+  // constructor() {
+  //   super();
+  // }
+
+  //Makes a copy of dynamicStarsGrayStars and then overwrites/adds fields to correctly render blackStars
+  modifiedStyleForDynamicStarsGrayStars(originalStyle, reviewAverage) {
+    const newStyles = {};
+    Object.assign(newStyles, originalStyle);
+    //the 12 in this equation is for font size. If the fontSize property is changed from 12px, this needs to change also
+    newStyles.width = `${Number.parseFloat(reviewAverage) * 12}px`;
+    newStyles.color = '#333';
+    newStyles.overflow = 'hidden';
+
+    return newStyles;
   }
 
   render() {
-    const { reviewAverage, numberOfReviews } = this.props;
+    const { reviewAverage } = this.props;
 
     return (
-      <div style={{height: '30px', width: '60px'}}>
-        <a title={`Read ${numberOfReviews} Reviews`} style={{position: 'relative', height: 'inherit', width: 'inherit'}}>
-          <div style={{position: 'absolute', top: '0', left: '0', height: 'inherit', width: '57px', fontSize: '12px', color: '#ccc',}}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <div style={{position: 'absolute', top: '0', left: '0', height: 'inherit', width: `${Number.parseFloat(reviewAverage) * 12}px`, fontSize: '12px', color: '#333', overflow: 'hidden'}}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        </a>
+      <div style={{ height: '30px', width: '60px', position: 'relative' }}>
+        <div style={dynamicStarsGrayStars}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div style={this.modifiedStyleForDynamicStarsGrayStars(dynamicStarsGrayStars, reviewAverage)}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       </div>
     );
   }
 }
 
 const mapState = function(state) {
-  const { reviewAverage, numberOfReviews } = state;
+  const { reviewAverage } = state;
 
   return {
     reviewAverage,
-    numberOfReviews,
   };
 };
-
 
 const wrappedDynamicReviewStars = connect(mapState)(DynamicReviewStars);
 

@@ -1,5 +1,13 @@
 //////dynamic stars
-
+const dynamicStarsGrayStars = {
+  position: 'absolute',
+  top: '0',
+  left: '0',
+  height: 'inherit',
+  width: '57px',
+  fontSize: '12px',
+  color: '#ccc',
+};
 
 //////reviewHeader
 const reviewHeaderItemLink = {
@@ -36,7 +44,61 @@ const reviewHeaderListItem = {
   float: 'left',
   height: 'auto',
   width: '160px',
-  left: 'auto'
+  left: 'auto',
+};
+
+const reviewHeaderWrapper = {
+  display: 'flex',
+  flexDirection: 'column',
+  height: 'auto',
+  width: '1095px',
+  backgroundColor: '#f7f7f7',
+  flexShrink: '0',
+  borderBottom: '1px solid',
+  borderColor: '#ccc',
+};
+
+const reviewHeaderTopHalf = {
+  borderBottom: '1px solid',
+  borderColor: '#ccc',
+  width: 'auto',
+  height: '30px',
+  padding: '10px 20px',
+};
+
+const reviewHeaderReviewAverage = {
+  paddingLeft: '10px',
+  paddingRight: '10px',
+  borderRight: '1px solid #ccc',
+  height: '18px',
+  color: '#666',
+};
+
+const reviewHeaderSearchBar = {
+  fontSize: '14px',
+  width: '83.5%',
+  height: '16px',
+  borderColor: '#bbb',
+  margin: '10px 0',
+  borderWidth: '1px',
+  padding: '7px 10px',
+  fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+};
+
+const reviewHeaderSearchBarButton = {
+  backgroundImage: 'url("/searchMagnifyingGlass.png")',
+  height: '32px',
+  width: '88px',
+  border: 'none',
+  margin: '10px 0',
+};
+
+const reviewHeaderList = {
+  listStyleType: 'none',
+  height: '52px',
+  width: '480px',
+  float: 'right',
+  margin: '0 0 0 40px',
 };
 
 export {
@@ -44,4 +106,11 @@ export {
   reviewHeaderItemLinkLinklike,
   reviewHeaderItemLinkLinkNatureHidden,
   reviewHeaderListItem,
+  reviewHeaderWrapper,
+  reviewHeaderTopHalf,
+  reviewHeaderReviewAverage,
+  reviewHeaderSearchBar,
+  reviewHeaderSearchBarButton,
+  reviewHeaderList,
+  dynamicStarsGrayStars,
 };
