@@ -85,9 +85,11 @@ class ReviewHeader extends React.Component {
 }
 
 const mapState = function(state) {
+  const { reviewAverage, numberOfReviews } = state;
+
   return {
-    reviewAverage: state.reviewAverage,
-    numberOfReviews: state.numberOfReviews,
+    reviewAverage,
+    numberOfReviews,
   };
 };
 
