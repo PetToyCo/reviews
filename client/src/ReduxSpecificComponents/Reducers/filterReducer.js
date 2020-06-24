@@ -8,7 +8,7 @@ const initialState = {
   'MostHelpful': false,
   'HighToLow': false,
   'LowToHigh': false,
-},
+};
 
 const filterReducer = function(state = initialState, action) {
   if (action.type === 'UPDATE_FILTER') {

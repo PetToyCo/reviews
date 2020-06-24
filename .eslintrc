@@ -29,5 +29,6 @@
     "react/button-has-type": 0,
     "jsx-a11y/mouse-events-have-key-events": 0,
     "no-mixed-operators": 0,
+    "dot-notation": 0,
   }
 }
