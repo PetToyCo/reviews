@@ -18,6 +18,7 @@ const detailedIndividualReviews = [
     reviewId: 1,
     score: 5,
     date: '2020-05-06T22:07:57.603Z',
+    title: 'Lorem ipsum dolor sit amet',
     review: 'Morbi commodo justo tortor, malesuada imperdiet justo condimentum eget. Nam fringilla orci dui, non semper nisl venenatis eget. Phasellus nec.',
     username: 'ChonkyCat',
     recommended: true,
@@ -30,6 +31,7 @@ const detailedIndividualReviews = [
     reviewId: 2,
     score: 5,
     date: '2019-05-06T22:07:57.603Z',
+    title: 'consectetur adipiscing elit',
     review: 'Mauris eget libero ex. Nulla facilisis luctus maximus. Proin eget euismod orci. Cras finibus, magna.',
     username: 'TummyScratcher',
     recommended: true,
@@ -42,6 +44,7 @@ const detailedIndividualReviews = [
     reviewId: 3,
     score: 5,
     date: '2019-12-06T22:07:57.603Z',
+    title: 'Ut vestibulum',
     review: 'Aenean semper nunc ac consectetur vestibulum. Morbi et quam placerat, tincidunt lectus in, aliquam sapien. Fusce ultrices nibh in sapien imperdiet, nec semper urna consectetur. Proin accumsan nec mauris ac vehicula. In hac habitasse platea.',
     username: 'NotACatLady',
     recommended: true,
@@ -54,6 +57,7 @@ const detailedIndividualReviews = [
     reviewId: 4,
     score: 5,
     date: '2020-03-15T22:07:57.603Z',
+    title: 'massa vulputate bibendum auctor',
     review: 'Suspendisse bibendum lectus sit amet ante auctor consequat. Sed malesuada urna erat, tempus sollicitudin augue porttitor sit amet. Duis viverra.',
     username: 'CatButt',
     recommended: true,
@@ -66,6 +70,7 @@ const detailedIndividualReviews = [
     reviewId: 5,
     score: 5,
     date: '2018-07-06T22:07:57.603Z',
+    title: 'felis odio accumsan ex',
     review: 'Suspendisse bibendum lectus sit amet ante auctor consequat. Sed malesuada urna erat, tempus sollicitudin augue porttitor sit amet. Duis viverra.',
     username: 'Froggy',
     recommended: true,
@@ -78,6 +83,7 @@ const detailedIndividualReviews = [
     reviewId: 6,
     score: 5,
     date: '2019-01-30T22:07:57.603Z',
+    title: 'eget',
     review: 'Suspendisse arcu dolor, hendrerit ultrices lacus et, vulputate finibus nulla. Cras enim augue, molestie vitae arcu fermentum, commodo egestas nunc. Curabitur massa tellus, iaculis in turpis nec, rutrum scelerisque turpis. Donec mattis, lorem.',
     username: 'PikaPika',
     recommended: true,
@@ -90,6 +96,7 @@ const detailedIndividualReviews = [
     reviewId: 7,
     score: 5,
     date: '2020-01-06T22:07:57.603Z',
+    title: 'Lorem ipsum dolor sit amet',
     review: 'Nunc ex massa, porttitor pulvinar pharetra sit amet, consequat quis lorem. Vestibulum efficitur.',
     username: 'catdude',
     recommended: true,
@@ -102,6 +109,7 @@ const detailedIndividualReviews = [
     reviewId: 8,
     score: 4,
     date: '2020-01-21T21:07:57.603Z',
+    title: 'consectetur adipiscing elit',
     review: 'Nullam accumsan metus justo, non semper quam iaculis vel. Proin in eros lacus. Integer at velit.',
     username: 'CVCat',
     recommended: true,
@@ -114,6 +122,7 @@ const detailedIndividualReviews = [
     reviewId: 9,
     score: 4,
     date: '2018-04-06T22:07:57.603Z',
+    title: 'Curabitur ultrices tempus lorem',
     review: 'Quisque dapibus, urna ac varius mattis, nisi nunc venenatis urna, a.',
     username: 'Bob',
     recommended: true,
@@ -126,6 +135,7 @@ const detailedIndividualReviews = [
     reviewId: 10,
     score: 4,
     date: '2020-05-05T22:07:57.603Z',
+    title: 'Ut a lectus non nibh ornare facilisis',
     review: 'Fusce quis erat ornare, tincidunt odio eget, tempor velit. Donec placerat vestibulum diam. Maecenas molestie congue mauris.',
     username: 'ElGatoSupreme',
     recommended: true,
@@ -138,6 +148,7 @@ const detailedIndividualReviews = [
     reviewId: 11,
     score: 4,
     date: '2020-02-06T22:07:57.603Z',
+    title: 'Lorem ipsum dolor sit amet',
     review: 'Praesent justo ante, porta at dui eget, placerat scelerisque ex. In hac habitasse platea dictumst. Maecenas at libero ut dolor.',
     username: 'Winifred',
     recommended: true,
@@ -150,6 +161,7 @@ const detailedIndividualReviews = [
     reviewId: 12,
     score: 3,
     date: '2018-09-06T22:07:57.603Z',
+    title: 'consectetur adipiscing elit',
     review: 'Mauris sit amet risus purus. Aenean sem ex, aliquam non velit a, varius lobortis neque. Donec tincidunt sit amet mauris eget suscipit. Sed eget lectus leo. Praesent condimentum metus lacus, et tincidunt ipsum fringilla eu.',
     username: 'Sarah',
     recommended: true,
@@ -162,6 +174,7 @@ const detailedIndividualReviews = [
     reviewId: 13,
     score: 3,
     date: '2019-07-06T22:07:57.603Z',
+    title: 'Donec in congue diam',
     review: 'Suspendisse mollis in felis non blandit. Proin pellentesque dui sed turpis pharetra, a pretium odio fermentum. In hac habitasse platea dictumst. Etiam cursus augue ut.',
     username: 'Emily',
     recommended: false,
@@ -174,6 +187,7 @@ const detailedIndividualReviews = [
     reviewId: 14,
     score: 3,
     date: '2020-03-24T22:07:57.603Z',
+    title: 'Praesent finibus leo nec nisl auctor luctus',
     review: 'Ut gravida ultrices cursus. Suspendisse potenti. Aenean in mi euismod, tempor ligula vel, ornare nisl. Pellentesque id fringilla urna.',
     username: 'Mary',
     recommended: true,
@@ -186,6 +200,7 @@ const detailedIndividualReviews = [
     reviewId: 15,
     score: 2,
     date: '2020-05-16T22:07:57.603Z',
+    title: 'Lorem ipsum dolor sit amet',
     review: 'Suspendisse ultricies ac ligula et molestie. Quisque nisi ante, maximus in mattis sed, finibus id magna. Pellentesque quis finibus ex, non congue augue.',
     username: 'Binx',
     recommended: false,
@@ -198,6 +213,7 @@ const detailedIndividualReviews = [
     reviewId: 16,
     score: 2,
     date: '2018-05-06T22:07:57.603Z',
+    title: 'consectetur adipiscing elit',
     review: 'Vestibulum dapibus maximus tellus, ac imperdiet diam bibendum nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacus neque, sollicitudin at mauris a, aliquam laoreet enim. Duis turpis urna, auctor at facilisis eleifend, euismod nec odio. Mauris blandit est sed augue lacinia, nec ultricies.',
     username: 'Billy',
     recommended: false,
@@ -210,6 +226,7 @@ const detailedIndividualReviews = [
     reviewId: 17,
     score: 1,
     date: '2019-07-06T22:07:57.603Z',
+    title: 'Nunc vel elit quis sapien porta malesuada',
     review: 'Ut tellus justo, aliquam at libero quis.',
     username: 'Dani',
     recommended: false,
@@ -222,6 +239,7 @@ const detailedIndividualReviews = [
     reviewId: 18,
     score: 1,
     date: '2018-11-01T22:07:57.603Z',
+    title: 'Cras in felis semper',
     review: 'Etiam a est sit amet libero aliquam tristique id at libero. Sed id condimentum risus, nec sollicitudin mauris. Duis.',
     username: 'Max',
     recommended: false,
@@ -234,6 +252,7 @@ const detailedIndividualReviews = [
     reviewId: 19,
     score: 1,
     date: '2020-02-14T22:07:57.603Z',
+    title: 'Lorem ipsum dolor sit amet',
     review: 'Donec eget ligula id mi tempor viverra nec quis felis. Proin in facilisis justo.',
     username: 'Allison',
     recommended: false,
@@ -286,6 +305,20 @@ const generateRecommended = function(score) {
   } else {
     return Math.random() < 0.65;
   }
+};
+
+/////////////////////////////////////
+//ReviewTitle
+/////////////////////////////////////
+const LoremIpsumTitle = new LoremIpsum({
+  wordsPerSentence: {
+    max: 7,
+    min: 1,
+  },
+});
+
+const generateReviewTitle = function() {
+  return LoremIpsumTitle.generateSentences(1);
 };
 
 /////////////////////////////////////
@@ -452,6 +485,7 @@ const generateReview = function() {
   const reviewId = individualReviewCounter;
   const score = generateScore();
   const date = generateDate();
+  const title = generateReviewTitle();
   const review = generateReviewText();
   const username = LoremIpsumText.generateWords(1);
   const recommended = generateRecommended(score);
@@ -464,6 +498,7 @@ const generateReview = function() {
     reviewId,
     score,
     date,
+    title,
     review,
     username,
     recommended,

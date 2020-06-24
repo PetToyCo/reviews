@@ -302,6 +302,18 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar allReviewsReducer = funct
 
 /***/ }),
 
+/***/ "./client/src/ReduxSpecificComponents/Reducers/filterReducer.js":
+/*!**********************************************************************!*\
+  !*** ./client/src/ReduxSpecificComponents/Reducers/filterReducer.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar initialState = {\n  '5': false,\n  '4': false,\n  '3': false,\n  '2': false,\n  '1': false,\n  'MostRecent': true,\n  'MostHelpful': false,\n  'HighToLow': false,\n  'LowToHigh': false\n};\n\nvar filterReducer = function filterReducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  if (action.type === 'UPDATE_FILTER') {\n    var newState = {};\n    Object.assign(newState, state);\n\n    if (action.payload === 'MostRecent' || action.payload === 'MostHelpful' || action.payload === 'HighToLow' || action.payload === 'LowToHigh') {\n      newState['MostRecent'] = false;\n      newState['MostHelpful'] = false;\n      newState['HighToLow'] = false;\n      newState['LowToHigh'] = false;\n      newState[action.payload] = true;\n    } else if (action.payload === 'CANCEL_NUMERICAL_FILTERS') {\n      newState['5'] = false;\n      newState['4'] = false;\n      newState['3'] = false;\n      newState['2'] = false;\n      newState['1'] = false;\n    } else {\n      if (action.option === 'ADD') {\n        newState[action.payload] = true;\n      }\n\n      if (action.option === 'CANCEL') {\n        newState[action.payload] = false;\n      }\n    }\n\n    return newState;\n  } else {\n    return state;\n  }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (filterReducer);\n\n//# sourceURL=webpack:///./client/src/ReduxSpecificComponents/Reducers/filterReducer.js?");
+
+/***/ }),
+
 /***/ "./client/src/ReduxSpecificComponents/Reducers/numberOfReviewsReducer.js":
 /*!*******************************************************************************!*\
   !*** ./client/src/ReduxSpecificComponents/Reducers/numberOfReviewsReducer.js ***!
@@ -326,6 +338,30 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar reviewAverageReducer = fu
 
 /***/ }),
 
+/***/ "./client/src/ReduxSpecificComponents/Reducers/reviewRangeReducer.js":
+/*!***************************************************************************!*\
+  !*** ./client/src/ReduxSpecificComponents/Reducers/reviewRangeReducer.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar reviewRangeReducer = function reviewRangeReducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [0, 7];\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  if (action.type === 'UPDATE_REVIEW_RANGE') {\n    if (action.payload === 'RESET') {\n      return [0, 7];\n    }\n\n    var newState = state.slice();\n\n    if (action.payload === 'PROGRESS') {\n      newState[0] = newState[1] + 1;\n      newState[1] += 30;\n\n      if (newState[1] > action.numberOfReviews) {\n        newState[1] = action.numberOfReviews;\n      }\n    }\n\n    if (action.payload === 'REGRESS') {\n      newState[0] -= 30;\n      newState[1] -= 30;\n\n      if (newState[0] < 0) {\n        newState[0] = 0;\n        newState[1] = 7;\n      }\n    }\n\n    return newState;\n  } else {\n    return state;\n  }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (reviewRangeReducer);\n\n//# sourceURL=webpack:///./client/src/ReduxSpecificComponents/Reducers/reviewRangeReducer.js?");
+
+/***/ }),
+
+/***/ "./client/src/ReduxSpecificComponents/Reducers/showRatingFilterReducer.js":
+/*!********************************************************************************!*\
+  !*** ./client/src/ReduxSpecificComponents/Reducers/showRatingFilterReducer.js ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar showRatingFilterReducer = function showRatingFilterReducer() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  if (action.type === 'UPDATE_SHOW_RATING_FILTER') {\n    return !state;\n  } else {\n    return state;\n  }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (showRatingFilterReducer);\n\n//# sourceURL=webpack:///./client/src/ReduxSpecificComponents/Reducers/showRatingFilterReducer.js?");
+
+/***/ }),
+
 /***/ "./client/src/ReduxSpecificComponents/rootReducer.js":
 /*!***********************************************************!*\
   !*** ./client/src/ReduxSpecificComponents/rootReducer.js ***!
@@ -334,7 +370,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar reviewAverageReducer = fu
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Reducers_reviewAverageReducer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Reducers/reviewAverageReducer.js */ \"./client/src/ReduxSpecificComponents/Reducers/reviewAverageReducer.js\");\n/* harmony import */ var _Reducers_numberOfReviewsReducer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Reducers/numberOfReviewsReducer.js */ \"./client/src/ReduxSpecificComponents/Reducers/numberOfReviewsReducer.js\");\n/* harmony import */ var _Reducers_allReviewsReducer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Reducers/allReviewsReducer.js */ \"./client/src/ReduxSpecificComponents/Reducers/allReviewsReducer.js\");\n\n\n\nvar _Redux = Redux,\n    combineReducers = _Redux.combineReducers;\nvar rootReducer = combineReducers({\n  reviewAverage: _Reducers_reviewAverageReducer_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n  numberOfReviews: _Reducers_numberOfReviewsReducer_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  allReviews: _Reducers_allReviewsReducer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (rootReducer);\n\n//# sourceURL=webpack:///./client/src/ReduxSpecificComponents/rootReducer.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Reducers_reviewAverageReducer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Reducers/reviewAverageReducer.js */ \"./client/src/ReduxSpecificComponents/Reducers/reviewAverageReducer.js\");\n/* harmony import */ var _Reducers_numberOfReviewsReducer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Reducers/numberOfReviewsReducer.js */ \"./client/src/ReduxSpecificComponents/Reducers/numberOfReviewsReducer.js\");\n/* harmony import */ var _Reducers_allReviewsReducer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Reducers/allReviewsReducer.js */ \"./client/src/ReduxSpecificComponents/Reducers/allReviewsReducer.js\");\n/* harmony import */ var _Reducers_filterReducer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Reducers/filterReducer.js */ \"./client/src/ReduxSpecificComponents/Reducers/filterReducer.js\");\n/* harmony import */ var _Reducers_reviewRangeReducer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Reducers/reviewRangeReducer.js */ \"./client/src/ReduxSpecificComponents/Reducers/reviewRangeReducer.js\");\n/* harmony import */ var _Reducers_showRatingFilterReducer_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Reducers/showRatingFilterReducer.js */ \"./client/src/ReduxSpecificComponents/Reducers/showRatingFilterReducer.js\");\n\n\n\n\n\n\nvar _Redux = Redux,\n    combineReducers = _Redux.combineReducers;\nvar rootReducer = combineReducers({\n  reviewAverage: _Reducers_reviewAverageReducer_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n  numberOfReviews: _Reducers_numberOfReviewsReducer_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n  allReviews: _Reducers_allReviewsReducer_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n  filter: _Reducers_filterReducer_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"],\n  reviewRange: _Reducers_reviewRangeReducer_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"],\n  showRatingFilter: _Reducers_showRatingFilterReducer_js__WEBPACK_IMPORTED_MODULE_5__[\"default\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (rootReducer);\n\n//# sourceURL=webpack:///./client/src/ReduxSpecificComponents/rootReducer.js?");
 
 /***/ }),
 
@@ -346,7 +382,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Red
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _rootReducer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rootReducer.js */ \"./client/src/ReduxSpecificComponents/rootReducer.js\");\n\nvar _Redux = Redux,\n    createStore = _Redux.createStore;\nvar store = createStore(_rootReducer_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"], {\n  reviewAverage: '',\n  numberOfReviews: null,\n  allReviews: []\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (store);\n\n//# sourceURL=webpack:///./client/src/ReduxSpecificComponents/store.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _rootReducer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./rootReducer.js */ \"./client/src/ReduxSpecificComponents/rootReducer.js\");\n\nvar _Redux = Redux,\n    createStore = _Redux.createStore;\nvar store = createStore(_rootReducer_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"], {\n  reviewAverage: '',\n  numberOfReviews: null,\n  allReviews: [],\n  filter: {\n    '5': false,\n    '4': false,\n    '3': false,\n    '2': false,\n    '1': false,\n    'MostRecent': true,\n    'MostHelpful': false,\n    'HighToLow': false,\n    'LowToHigh': false\n  },\n  reviewRange: [0, 7],\n  showRatingFilter: false\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (store);\n\n//# sourceURL=webpack:///./client/src/ReduxSpecificComponents/store.js?");
 
 /***/ }),
 

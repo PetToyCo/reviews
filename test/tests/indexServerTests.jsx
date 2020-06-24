@@ -67,11 +67,27 @@ describe('Reviews Service Server tests', () => {
           console.log(err);
         });
     });
+
+    it('correctly retrieves the reviews for item 100 such that the reviews are in chronological order, newest to oldest', (done) => {
+      axios.get('/reviews/100')
+        .then((res) => {
+          const { allReviews } = res.data;
+          const usernames = ['Binx', 'ChonkyCat', 'ElGatoSupreme', 'Mary', 'CatButt', 'Allison', 'Winifred', 'CVCat', 'catdude', 'NotACatLady', 'Dani', 'Emily', 'TummyScratcher', 'PikaPika', 'Max', 'Sarah', 'Froggy', 'Billy', 'Bob'];
+
+          for (let i = 0; i < allReviews.length; i++) {
+            expect(allReviews[i].username).to.equal(usernames[i]);
+          }
+        })
+        .then(() => done(), done)
+        .catch((err) => {
+          console.log(err);
+        });
+    });
   });
 
   describe('The server\'s /averageReviews/:itemId endpoint', () => {
     it('correctly retrieves the hardcoded data for item 100', (done) => {
-      axios.get('/reviews/100')
+      axios.get('/averageReviews/100')
         .then((res) => {
           const { reviewAverage, numberOfReviews } = res.data;
           expect(reviewAverage).to.equal('3.5');
@@ -85,7 +101,7 @@ describe('Reviews Service Server tests', () => {
 
     it('correctly retrieves data for an item other than item 100', (done) => {
       const roll = Math.floor(Math.random() * 99 + 100);
-      axios.get(`/reviews/${roll}`)
+      axios.get(`/averageReviews/${roll}`)
         .then((res) => {
           const { reviewAverage, numberOfReviews } = res.data;
           expect(reviewAverage).to.exist;

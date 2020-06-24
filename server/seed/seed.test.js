@@ -448,6 +448,15 @@ describe('The seed.js file', () => {
     //   verified: true,
     //   promotion: false,
     // },
+    it('every review title in every review object is a string with 1 - 7 words in it', () => {
+      detailedIndividualReviews.forEach((reviewObject) => {
+        const { title } = reviewObject;
+        expect(title).to.be.a('string');
+        const titleSplit = title.split(' ');
+        expect(titleSplit.length).to.be.within(1, 7);
+      });
+    });
+
     it('every review in every review object is a string with at least 3 words in it', () => {
       detailedIndividualReviews.forEach((reviewObject) => {
         const { review } = reviewObject;
