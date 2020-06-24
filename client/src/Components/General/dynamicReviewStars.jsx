@@ -23,9 +23,9 @@ class DynamicReviewStars extends React.Component {
     const { reviewAverage } = this.props;
 
     return (
-      <div style={{ height: '30px', width: '60px', position: 'relative' }}>
-        <div style={dynamicStarsGrayStars}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div style={this.modifiedStyleForDynamicStarsGrayStars(dynamicStarsGrayStars, reviewAverage)}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div className='dynamic-stars' style={{ height: '30px', width: '60px', position: 'relative' }}>
+        <div className='empty-stars' style={dynamicStarsGrayStars}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div className='filled-stars' style={this.modifiedStyleForDynamicStarsGrayStars(dynamicStarsGrayStars, reviewAverage)}>&#9733;&#9733;&#9733;&#9733;&#9733;</div>
       </div>
     );
   }
