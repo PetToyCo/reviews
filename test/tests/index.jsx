@@ -219,7 +219,7 @@ describe('Reviews Service tests', () => {
     });
 
     describe('should have an element with id "magnifying-glass" that', function() {
-      it('normally has a background image property set to "url("/searchMagnifyingGlass.png")"', function() {
+      it('normally has a background image property set to "url("http://127.0.0.1:3001/searchMagnifyingGlass.png")"', function() {
         const target = document.getElementById('magnifying-glass');
 
         expect(target.style.backgroundImage).to.equal('url("http://127.0.0.1:3001/searchMagnifyingGlass.png")');
