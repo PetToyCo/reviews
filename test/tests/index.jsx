@@ -84,7 +84,7 @@ describe('Reviews Service tests', () => {
         expect(target.style.color).to.not.equal('rgb(0, 156, 217)');
       });
 
-      it('should have innerHTML equal to "19 Reviews" when numberOfReviews equals 19', function(){
+      it('should have innerHTML equal to "19 Reviews" when numberOfReviews equals 19', function() {
         const target = document.getElementById('header-upper-reviews');
 
         expect(target.innerHTML).to.equal('19 Reviews');
@@ -203,7 +203,7 @@ describe('Reviews Service tests', () => {
     });
 
     describe('should have an element with id "header-upper-review-average" that', function() {
-      it('should have innerHTML equal to "3.5" when reviewAverage equals "3.5"', function(){
+      it('should have innerHTML equal to "3.5" when reviewAverage equals "3.5"', function() {
         const target = document.getElementById('header-upper-review-average');
 
         expect(target.innerHTML).to.equal('3.5');
@@ -211,7 +211,7 @@ describe('Reviews Service tests', () => {
     });
 
     describe('should have an element with id "item-value-reviews" that', function() {
-      it('should have innerHTML equal to "19" when numberOfReviews equals 19', function(){
+      it('should have innerHTML equal to "19" when numberOfReviews equals 19', function() {
         const target = document.getElementById('item-value-reviews');
 
         expect(target.innerHTML).to.equal('19');
@@ -293,6 +293,6 @@ describe('Reviews Service tests', () => {
 
       expect(widths[0]).to.equal(widths[1] / 5 * 3.5);
       expect(widths[2]).to.equal(widths[3] / 5 * 3.5);
-    })
+    });
   });
 });

@@ -50,18 +50,32 @@ class ReviewHeader extends React.Component {
     document.getElementById(id).style.backgroundImage = 'url("/searchMagnifyingGlass.png")';
   }
 
+  smoothScrollReviews(e) {
+    e.preventDefault();
+
+    document.getElementById('review-link').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
+  smoothScrollQuestions(e) {
+    e.preventDefault();
+
+    document.getElementById('place-holder-questions').scrollIntoView({ behavior: 'smooth' });
+  }
+
   render() {
     const { reviewAverage, numberOfReviews } = this.props;
     return (
       <div id="review-header-component" style={reviewHeaderWrapper}>
         <div style={reviewHeaderTopHalf}>
           <div style={{ display: 'flex', marginTop: '3px' }}>
-            <a title={`Read ${numberOfReviews} Reviews`} href='#review-link' style={{ position: 'relative', height: 'inherit', width: 'inherit' }}>
+            <a title={`Read ${numberOfReviews} Reviews`} href='#review-link' onClick={this.smoothScrollReviews} style={{ position: 'relative', height: 'inherit', width: 'inherit' }}>
               <DynamicReviewStars />
             </a>
             <div id='header-upper-review-average' style={reviewHeaderReviewAverage}>{reviewAverage}</div>
             <div style={{ paddingLeft: '10px', marginTop: '2px' }}>
-              <a id='header-upper-reviews' onMouseOut={this.changeColorOnMouseOut} onMouseOver={this.changeColorOnMouseOver} href='#review-link' style={reviewHeaderItemLinkLinklike}>{`${numberOfReviews} Reviews`}</a>
+              <a id='header-upper-reviews' onClick={this.smoothScrollReviews} onMouseOut={this.changeColorOnMouseOut} onMouseOver={this.changeColorOnMouseOver} href='#review-link' style={reviewHeaderItemLinkLinklike}>{`${numberOfReviews} Reviews`}</a>
             </div>
           </div>
         </div>
@@ -72,19 +86,19 @@ class ReviewHeader extends React.Component {
           </div>
           <ul style={reviewHeaderList}>
             <li style={reviewHeaderListItem}>
-              <a href='#review-link' style={reviewHeaderItemLink}>
+              <a href='#review-link' onClick={this.smoothScrollReviews} style={reviewHeaderItemLink}>
                 <span id='item-value-reviews' style={reviewHeaderItemLinkLinkNatureHidden}>{numberOfReviews}</span>
                 <span id='item-link-reviews' onMouseOut={this.changeColorOnMouseOut} onMouseOver={this.changeColorOnMouseOver} style={reviewHeaderItemLinkLinklike}>Reviews</span>
               </a>
             </li>
             <li style={reviewHeaderListItem}>
-              <a href='#place-holder-questions' style={this.modifiedStyleForReviewHeaderItemLink(reviewHeaderItemLink)}>
+              <a href='#place-holder-questions' onClick={this.smoothScrollQuestions} style={this.modifiedStyleForReviewHeaderItemLink(reviewHeaderItemLink)}>
                 <span style={reviewHeaderItemLinkLinkNatureHidden}>0</span>
                 <span id='item-link-questions' onMouseOut={this.changeColorOnMouseOut} onMouseOver={this.changeColorOnMouseOver} style={reviewHeaderItemLinkLinklike}>Questions</span>
               </a>
             </li>
             <li style={reviewHeaderListItem}>
-              <a href='#place-holder-questions' style={reviewHeaderItemLink}>
+              <a href='#place-holder-questions' onClick={this.smoothScrollQuestions} style={reviewHeaderItemLink}>
                 <span style={reviewHeaderItemLinkLinkNatureHidden}>0</span>
                 <span id='item-link-answers' onMouseOut={this.changeColorOnMouseOut} onMouseOver={this.changeColorOnMouseOver} style={reviewHeaderItemLinkLinklike}>Answers</span>
               </a>
