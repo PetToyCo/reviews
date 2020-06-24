@@ -28,7 +28,7 @@ const AggregateReview = mongoose.model('Aggregate_Review', aggregateReviewsSchem
 const IndividualReview = mongoose.model('Individual_Review', individualReviewsSchema);
 
 const retrieveAggregateReview = function(itemId) {
-  return AggregateReview.findOne({ itemId }).exec();
+  return AggregateReview.findOne({ itemId }).select('-_id -itemId -__v').exec();
 };
 
 const retrieveIndividualReviews = function(reviewIds) {

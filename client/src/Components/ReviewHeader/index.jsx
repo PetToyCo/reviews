@@ -1,29 +1,124 @@
 import DynamicReviewStars from '../General/dynamicReviewStars.jsx';
+import {
+  reviewHeaderItemLink,
+  reviewHeaderItemLinkLinklike,
+  reviewHeaderItemLinkLinkNatureHidden,
+  reviewHeaderListItem,
+  reviewHeaderWrapper,
+  reviewHeaderTopHalf,
+  reviewHeaderReviewAverage,
+  reviewHeaderSearchBar,
+  reviewHeaderSearchBarButton,
+  reviewHeaderList,
+} from '../../CSSstyles.js';
+
+const { connect } = ReactRedux;
 
 class ReviewHeader extends React.Component {
-  constructor(props) {
-    super();
+  // constructor() {
+  //   super();
+  // }
+
+  //makes a slighlty modified copy of reviewHeaderItemLink since the middle link need left/right borders
+  modifiedStyleForReviewHeaderItemLink(originalStyle) {
+    const newStyles = {};
+    Object.assign(newStyles, originalStyle);
+    newStyles.borderLeft = '1px solid';
+    newStyles.borderRight = '1px solid';
+    newStyles.borderColor = '#ccc';
+
+    return newStyles;
+  }
+
+  changeColorOnMouseOver(e) {
+    const { id } = e.target;
+    document.getElementById(id).style.color = '#009cd9';
+  }
+
+  changeColorOnMouseOut(e) {
+    const { id } = e.target;
+    document.getElementById(id).style.color = '#005891';
+  }
+
+  changeImageOnMouseOver(e) {
+    const { id } = e.target;
+    document.getElementById(id).style.backgroundImage = 'url("/searchMagnifyingGlassHover.png")';
+  }
+
+  changeImageOnMouseOut(e) {
+    const { id } = e.target;
+    document.getElementById(id).style.backgroundImage = 'url("/searchMagnifyingGlass.png")';
+  }
+
+  smoothScrollReviews(e) {
+    e.preventDefault();
+
+    document.getElementById('review-link').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
+  smoothScrollQuestions(e) {
+    e.preventDefault();
+
+    document.getElementById('place-holder-questions').scrollIntoView({ behavior: 'smooth' });
   }
 
   render() {
+    const { reviewAverage, numberOfReviews } = this.props;
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <div style={{ display: 'flex' }}>
-          <DynamicReviewStars />
-          <div> number score </div>
-          <div> | </div>
-          <div> Number of Reviews</div>
+      <div id="review-header-component" style={reviewHeaderWrapper}>
+        <div style={reviewHeaderTopHalf}>
+          <div style={{ display: 'flex', marginTop: '3px' }}>
+            <a title={`Read ${numberOfReviews} Reviews`} href='#review-link' onClick={this.smoothScrollReviews} style={{ position: 'relative', height: 'inherit', width: 'inherit' }}>
+              <DynamicReviewStars />
+            </a>
+            <div id='header-upper-review-average' style={reviewHeaderReviewAverage}>{reviewAverage}</div>
+            <div style={{ paddingLeft: '10px', marginTop: '2px' }}>
+              <a id='header-upper-reviews' onClick={this.smoothScrollReviews} onMouseOut={this.changeColorOnMouseOut} onMouseOver={this.changeColorOnMouseOver} href='#review-link' style={reviewHeaderItemLinkLinklike}>{`${numberOfReviews} Reviews`}</a>
+            </div>
+          </div>
         </div>
-        <div style={{ display: 'flex' }}>
-          <div>Search bar</div>
-          <div> Number of Reviews </div>
-          <div> Number of Questions </div>
-          <div> Number of Answers</div>
+        <div style={{ display: 'flex', height: '52px' }}>
+          <div style={{ width: '529px', display: 'flex', marginLeft: '10px' }}>
+            <input style={reviewHeaderSearchBar} placeholder='Search topics and reviews' />
+            <button type='button' id='magnifying-glass' onMouseOut={this.changeImageOnMouseOut} onMouseOver={this.changeImageOnMouseOver} style={reviewHeaderSearchBarButton} />
+          </div>
+          <ul style={reviewHeaderList}>
+            <li style={reviewHeaderListItem}>
+              <a href='#review-link' onClick={this.smoothScrollReviews} style={reviewHeaderItemLink}>
+                <span id='item-value-reviews' style={reviewHeaderItemLinkLinkNatureHidden}>{numberOfReviews}</span>
+                <span id='item-link-reviews' onMouseOut={this.changeColorOnMouseOut} onMouseOver={this.changeColorOnMouseOver} style={reviewHeaderItemLinkLinklike}>Reviews</span>
+              </a>
+            </li>
+            <li style={reviewHeaderListItem}>
+              <a href='#place-holder-questions' onClick={this.smoothScrollQuestions} style={this.modifiedStyleForReviewHeaderItemLink(reviewHeaderItemLink)}>
+                <span style={reviewHeaderItemLinkLinkNatureHidden}>0</span>
+                <span id='item-link-questions' onMouseOut={this.changeColorOnMouseOut} onMouseOver={this.changeColorOnMouseOver} style={reviewHeaderItemLinkLinklike}>Questions</span>
+              </a>
+            </li>
+            <li style={reviewHeaderListItem}>
+              <a href='#place-holder-questions' onClick={this.smoothScrollQuestions} style={reviewHeaderItemLink}>
+                <span style={reviewHeaderItemLinkLinkNatureHidden}>0</span>
+                <span id='item-link-answers' onMouseOut={this.changeColorOnMouseOut} onMouseOver={this.changeColorOnMouseOver} style={reviewHeaderItemLinkLinklike}>Answers</span>
+              </a>
+            </li>
+          </ul>
         </div>
-
       </div>
     );
   }
 }
 
-export default ReviewHeader;
+const mapState = function(state) {
+  const { reviewAverage, numberOfReviews } = state;
+
+  return {
+    reviewAverage,
+    numberOfReviews,
+  };
+};
+
+const wrappedReviewHeader = connect(mapState)(ReviewHeader);
+
+export default wrappedReviewHeader;

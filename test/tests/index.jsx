@@ -32,4 +32,267 @@ describe('Reviews Service tests', () => {
       expect(document.getElementById('reviews-module')).to.not.be.null;
     });
   });
+
+  describe('The ReviewHeader component', () => {
+    beforeEach(() => {
+      ReactDOM.unmountComponentAtNode(document.getElementById('REVIEWS_ATTACH_POINT'));
+      ReactDOM.render(
+        <Provider store={store}>
+          <ReviewsModule />
+        </Provider>,
+        document.getElementById('REVIEWS_ATTACH_POINT'),
+      );
+    });
+
+    it('should mount', () => {
+      expect(document.getElementById('review-header-component')).to.not.be.null;
+    });
+
+    describe('should have an element with id "header-upper-reviews" that', function() {
+      it('normally has a text color of "rgb(0, 88, 145)"', function() {
+        const target = document.getElementById('header-upper-reviews');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+      });
+
+      it('changes its text color to "rgb(0, 156, 217)" when the mouse hovers over it', function() {
+        const target = document.getElementById('header-upper-reviews');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+
+        const event = new MouseEvent('mouseover', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 156, 217)');
+      });
+
+      it('changes its text color back to "rgb(0, 88, 145)" after a hovering mouse leaves it', function() {
+        const target = document.getElementById('header-upper-reviews');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+
+        let event = new MouseEvent('mouseover', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 156, 217)');
+        expect(target.style.color).to.not.equal('rgb(0, 88, 145)');
+
+        event = new MouseEvent('mouseout', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+        expect(target.style.color).to.not.equal('rgb(0, 156, 217)');
+      });
+
+      it('should have innerHTML equal to "19 Reviews" when numberOfReviews equals 19', function() {
+        const target = document.getElementById('header-upper-reviews');
+
+        expect(target.innerHTML).to.equal('19 Reviews');
+      });
+    });
+
+    describe('should have an element with id "item-link-reviews" that', function() {
+      it('normally has a text color of "rgb(0, 88, 145)"', function() {
+        const target = document.getElementById('item-link-reviews');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+      });
+
+      it('changes its text color to "rgb(0, 156, 217)" when the mouse hovers over it', function() {
+        const target = document.getElementById('item-link-reviews');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+
+        const event = new MouseEvent('mouseover', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 156, 217)');
+      });
+
+      it('changes its text color back to "rgb(0, 88, 145)" after a hovering mouse leaves it', function() {
+        const target = document.getElementById('item-link-reviews');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+
+        let event = new MouseEvent('mouseover', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 156, 217)');
+        expect(target.style.color).to.not.equal('rgb(0, 88, 145)');
+
+        event = new MouseEvent('mouseout', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+        expect(target.style.color).to.not.equal('rgb(0, 156, 217)');
+      });
+    });
+
+    describe('should have an element with id "item-link-questions" that', function() {
+      it('normally has a text color of "rgb(0, 88, 145)"', function() {
+        const target = document.getElementById('item-link-questions');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+      });
+
+      it('changes its text color to "rgb(0, 156, 217)" when the mouse hovers over it', function() {
+        const target = document.getElementById('item-link-questions');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+
+        const event = new MouseEvent('mouseover', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 156, 217)');
+      });
+
+      it('changes its text color back to "rgb(0, 88, 145)" after a hovering mouse leaves it', function() {
+        const target = document.getElementById('item-link-questions');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+
+        let event = new MouseEvent('mouseover', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 156, 217)');
+        expect(target.style.color).to.not.equal('rgb(0, 88, 145)');
+
+        event = new MouseEvent('mouseout', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+        expect(target.style.color).to.not.equal('rgb(0, 156, 217)');
+      });
+    });
+
+    describe('should have an element with id "item-link-answers" that', function() {
+      it('normally has a text color of "rgb(0, 88, 145)"', function() {
+        const target = document.getElementById('item-link-answers');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+      });
+
+      it('changes its text color to "rgb(0, 156, 217)" when the mouse hovers over it', function() {
+        const target = document.getElementById('item-link-answers');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+
+        const event = new MouseEvent('mouseover', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 156, 217)');
+      });
+
+      it('changes its text color back to "rgb(0, 88, 145)" after a hovering mouse leaves it', function() {
+        const target = document.getElementById('item-link-answers');
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+
+        let event = new MouseEvent('mouseover', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 156, 217)');
+        expect(target.style.color).to.not.equal('rgb(0, 88, 145)');
+
+        event = new MouseEvent('mouseout', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.color).to.equal('rgb(0, 88, 145)');
+        expect(target.style.color).to.not.equal('rgb(0, 156, 217)');
+      });
+    });
+
+    describe('should have an element with id "header-upper-review-average" that', function() {
+      it('should have innerHTML equal to "3.5" when reviewAverage equals "3.5"', function() {
+        const target = document.getElementById('header-upper-review-average');
+
+        expect(target.innerHTML).to.equal('3.5');
+      });
+    });
+
+    describe('should have an element with id "item-value-reviews" that', function() {
+      it('should have innerHTML equal to "19" when numberOfReviews equals 19', function() {
+        const target = document.getElementById('item-value-reviews');
+
+        expect(target.innerHTML).to.equal('19');
+      });
+    });
+
+    describe('should have an element with id "magnifying-glass" that', function() {
+      it('normally has a background image property set to "url("/searchMagnifyingGlass.png")"', function() {
+        const target = document.getElementById('magnifying-glass');
+
+        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlass.png")');
+      });
+
+      it('changes its background image to "url("/searchMagnifyingGlassHover.png")" when the mouse hovers over it', function() {
+        const target = document.getElementById('magnifying-glass');
+
+        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlass.png")');
+
+        const event = new MouseEvent('mouseover', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlassHover.png")');
+      });
+
+      it('changes its background image back to "url("/searchMagnifyingGlass.png")" after a hovering mouse leaves it', function() {
+        const target = document.getElementById('magnifying-glass');
+
+        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlass.png")');
+
+        let event = new MouseEvent('mouseover', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlassHover.png")');
+        expect(target.style.backgroundImage).to.not.equal('url("/searchMagnifyingGlass.png")');
+
+        event = new MouseEvent('mouseout', { bubbles: true });
+        target.dispatchEvent(event);
+
+        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlass.png")');
+        expect(target.style.backgroundImage).to.not.equal('url("/searchMagnifyingGlassHover.png")');
+      });
+    });
+  });
+
+  describe('The DynamicStars component', () => {
+    beforeEach(() => {
+      ReactDOM.unmountComponentAtNode(document.getElementById('REVIEWS_ATTACH_POINT'));
+      ReactDOM.render(
+        <Provider store={store}>
+          <ReviewsModule />
+        </Provider>,
+        document.getElementById('REVIEWS_ATTACH_POINT'),
+      );
+    });
+
+    it('should mount twice', () => {
+      expect(document.getElementsByClassName('dynamic-stars').length).to.equal(2);
+    });
+
+    it('should mount two sets of gray stars', () => {
+      expect(document.getElementsByClassName('empty-stars').length).to.equal(2);
+    });
+
+    it('should mount two sets of black stars', () => {
+      expect(document.getElementsByClassName('filled-stars').length).to.equal(2);
+    });
+
+    it('should have black-stars components with widths that are 3.5/5 that of the grayStars, when the review average is 3.5', function() {
+      const blackStars = document.getElementsByClassName('filled-stars');
+      const grayStars = document.getElementsByClassName('empty-stars');
+
+      const widthStrings = [blackStars[0].style.width, grayStars[0].style.width, blackStars[1].style.width, grayStars[0].style.width];
+      const widths = [];
+
+      widthStrings.forEach((widthString) => {
+        const shavedPx = widthString.split('px');
+        widths.push(Number.parseFloat(shavedPx));
+      });
+
+      expect(widths[0]).to.equal(widths[1] / 5 * 3.5);
+      expect(widths[2]).to.equal(widths[3] / 5 * 3.5);
+    });
+  });
 });
