@@ -5,13 +5,15 @@ import Reviews from './Components/Reviews/index.jsx';
 import updateReviewAverage from './ReduxSpecificComponents/Actions/updateReviewAverage.js';
 import updateNumberOfReviews from './ReduxSpecificComponents/Actions/updateNumberOfReviews.js';
 import updateAllReviews from './ReduxSpecificComponents/Actions/updateAllReviews.js';
+import updateReviewRange from './ReduxSpecificComponents/Actions/updateReviewRange.js';
+import updateFilteredReviews from './ReduxSpecificComponents/Actions/updateFilteredReviews.js';
 
 const { Provider } = ReactRedux;
 
 class ReviewsModule extends React.Component {
-  constructor(props) {
-    super();
-  }
+  // constructor(props) {
+  //   super();
+  // }
 
   componentDidMount() {
     //When working on service, uncomment this axios call and comment-out the axios
@@ -50,6 +52,13 @@ class ReviewsModule extends React.Component {
         store.dispatch(updateReviewAverage(reviewAverage));
         store.dispatch(updateNumberOfReviews(numberOfReviews));
         store.dispatch(updateAllReviews(allReviews));
+        store.dispatch(updateFilteredReviews(allReviews));
+
+        if (numberOfReviews === 0) {
+          store.dispatch(updateReviewRange([0, -1]));
+        } else if (numberOfReviews < 8) {
+          store.dispatch(updateReviewRange([0, numberOfReviews - 1]));
+        }
       })
       .catch((err) => {
         console.log(err);

@@ -19,6 +19,14 @@ const store = createStore(rootReducer, {
   },
   reviewRange: [0, 7],
   showRatingFilter: false,
+  exitedRatingFilter: false,
+  showRatingFilterDropDown: false,
+  enteredRatingFilterDropDown: false,
+  filteredReviews: [],
+  currentNonNumberFilterSetting: 'Most Recent',
+  showNonNumberFilterSetting: false,
+  exitedNonNumberFilterDropDownSource: false,
+  enteredNonNumberFilterSetting: false,
 });
 
 export default store;

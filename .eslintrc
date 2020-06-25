@@ -30,5 +30,8 @@
     "jsx-a11y/mouse-events-have-key-events": 0,
     "no-mixed-operators": 0,
     "dot-notation": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "react/jsx-one-expression-per-line": 0,
   }
 }
