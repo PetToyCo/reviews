@@ -482,26 +482,31 @@ describe('The seed.js file', () => {
       });
     });
 
-    it('every yeses in every review object is a integer between 0-3, except for the first review which is 5', () => {
+    it('every yeses in every review object is a integer between 0-3, except those for item 100', () => {
       detailedIndividualReviews.forEach((reviewObject) => {
         const { yeses } = reviewObject;
 
         expect(Number.isInteger(yeses)).to.be.true;
 
-        if (reviewObject.reviewId === 1) {
-          expect(yeses).to.equal(5);
-        } else {
+        if (reviewObject.reviewId > 19) {
           expect(yeses).to.be.within(0, 3);
+        } else {
+          expect(yeses).to.be.within(0, 20);
         }
       });
     });
 
-    it('every noes in every review object is a 0 or a 1', () => {
+    it('every noes in every review object is a 0 or a 1, except those for item 100', () => {
       detailedIndividualReviews.forEach((reviewObject) => {
         const { noes } = reviewObject;
 
         expect(Number.isInteger(noes)).to.be.true;
-        expect(noes).to.be.within(0, 1);
+
+        if (reviewObject.reviewId > 19) {
+          expect(noes).to.be.within(0, 1);
+        } else {
+          expect(noes).to.be.within(0, 10);
+        }
       });
     });
 
