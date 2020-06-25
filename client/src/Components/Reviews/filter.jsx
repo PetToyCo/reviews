@@ -3,6 +3,7 @@ import updateExitedNonNumberFilterDropDownSource from '../../ReduxSpecificCompon
 import updateFilter from '../../ReduxSpecificComponents/Actions/updateFilter.js';
 import updateShowRatingFilter from '../../ReduxSpecificComponents/Actions/updateShowRatingFilter.js';
 import RatingsFilter from './ratingsFilter.jsx';
+import ActiveFilters from './activeFilters.jsx';
 
 const { connect } = ReactRedux;
 
@@ -106,7 +107,7 @@ class Filter extends React.Component {
           <div onClick={this.handleClickMenuExpansionButton.bind(this)}> menu expansion button</div>
         </div>
         {RatingFilter}
-        <div>Active Filters</div>
+        <ActiveFilters />
       </div>
     );
   }
