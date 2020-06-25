@@ -2,6 +2,7 @@ import Filter from './filter.jsx';
 import Navigation from './navigation.jsx';
 import IndividualReview from './individualReview.jsx';
 import NonNumberFilterSettings from './nonNumberFilterSettings.jsx';
+import CalculateFilteredReviews from './calculateFilteredReviews.jsx';
 
 const { connect } = ReactRedux;
 
@@ -30,6 +31,7 @@ class Reviews extends React.Component {
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <Filter />
         {nonNumberFilterSettings}
+        <CalculateFilteredReviews />
         <IndividualReview />
         <IndividualReview />
         <IndividualReview />
