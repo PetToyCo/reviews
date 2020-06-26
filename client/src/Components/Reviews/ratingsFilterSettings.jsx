@@ -53,9 +53,9 @@ class RatingsFilterSettings extends React.Component {
 
     for (let i = 1; i <= 5; i++) {
       if (filter[i.toString()]) {
-        dropDownList.push(<div onClick={this.handleClickDropDownMenuItem.bind(this, `${i}`, 'CANCEL')}>CheckSymbol {i} star</div>);
+        dropDownList.push(<div onClick={this.handleClickDropDownMenuItem.bind(this, `${i}`, 'CANCEL')}>&#9679; &#10004; {i} star</div>);
       } else {
-        dropDownList.push(<div onClick={this.handleClickDropDownMenuItem.bind(this, `${i}`, 'ADD')}>PlusSymbol {i} star</div>);
+        dropDownList.push(<div onClick={this.handleClickDropDownMenuItem.bind(this, `${i}`, 'ADD')}>&#9679;+ {i} star</div>);
       }
     }
 

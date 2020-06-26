@@ -75,7 +75,7 @@ class RatingsFilter extends React.Component {
           onMouseOut={this.handleExitRatingFilter.bind(this)}
           onClick={this.handleClickRatingFilter.bind(this)}
         >
-          <div>Down triangle</div>
+          <div>&#9662;</div>
           <div>Rating</div>
         </div>
         {RatingFilterDropDown}

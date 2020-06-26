@@ -11,6 +11,7 @@ class Filter extends React.Component {
   // constructor(props) {
   //   super();
   // }
+  // "ϙ"
 
   actuallyDispatchShowNonNumberFilterSetting() {
     const { exitedNonNumberFilterDropDownSource, dispatchUpdateShowNonNumberFilterSetting } = this.props;
@@ -102,9 +103,9 @@ class Filter extends React.Component {
           >
             <div>Sort by:</div>
             <div>{`${currentNonNumberFilterSetting}`}</div>
-            <div>Down triangle</div>
+            <div>&#9662;</div>
           </div>
-          <div onClick={this.handleClickMenuExpansionButton.bind(this)}> menu expansion button</div>
+          <div onClick={this.handleClickMenuExpansionButton.bind(this)}>&#8801;</div>
         </div>
         {RatingFilter}
         <ActiveFilters />

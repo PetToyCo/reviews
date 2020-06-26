@@ -12,7 +12,7 @@ class ReviewsContainer extends React.Component {
     const reviews = [];
 
     for (let i = reviewRange[0]; i <= reviewRange[1]; i++) {
-      reviews.push(<IndividualReview reviewObject={filteredReviews[i]} />);
+      reviews.push(<IndividualReview reviewObject={filteredReviews[i]} indexInCurrentFilteredReviews={i} />);
     }
 
     return (
