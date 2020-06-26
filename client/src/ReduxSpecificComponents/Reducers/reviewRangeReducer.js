@@ -1,12 +1,12 @@
 const reviewRangeReducer = function(state = [0, 7], action) {
   if (action.type === 'UPDATE_REVIEW_RANGE') {
-    if (action.payload === 'RESET') {
-      return [0, 7];
+    if (action.option === 'RESET') {
+      return action.payload;
     }
 
     const newState = state.slice();
 
-    if (action.payload === 'PROGRESS') {
+    if (action.option === 'PROGRESS') {
       newState[0] = newState[1] + 1;
       newState[1] += 30;
 
@@ -15,7 +15,7 @@ const reviewRangeReducer = function(state = [0, 7], action) {
       }
     }
 
-    if (action.payload === 'REGRESS') {
+    if (action.option === 'REGRESS') {
       newState[0] -= 30;
       newState[1] -= 30;
 

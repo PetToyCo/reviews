@@ -1,7 +1,8 @@
-const updateReviewRange = function(data) {
+const updateReviewRange = function(option, data) {
   return {
     type: 'UPDATE_REVIEW_RANGE',
     payload: data,
+    option,
   };
 };
 

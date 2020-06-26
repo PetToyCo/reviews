@@ -1,6 +1,6 @@
 import Filter from './filter.jsx';
 import Navigation from './navigation.jsx';
-import IndividualReview from './individualReview.jsx';
+import ReviewsContainer from './reviewsContainer.jsx';
 import NonNumberFilterSettings from './nonNumberFilterSettings.jsx';
 import CalculateFilteredReviews from './calculateFilteredReviews.jsx';
 
@@ -32,14 +32,7 @@ class Reviews extends React.Component {
         <Filter />
         {nonNumberFilterSettings}
         <CalculateFilteredReviews />
-        <IndividualReview />
-        <IndividualReview />
-        <IndividualReview />
-        <IndividualReview />
-        <IndividualReview />
-        <IndividualReview />
-        <IndividualReview />
-        <IndividualReview />
+        <ReviewsContainer />
         <Navigation />
       </div>
     );

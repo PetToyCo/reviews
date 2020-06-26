@@ -55,9 +55,9 @@ class ReviewsModule extends React.Component {
         store.dispatch(updateFilteredReviews(allReviews));
 
         if (numberOfReviews === 0) {
-          store.dispatch(updateReviewRange([0, -1]));
+          store.dispatch(updateReviewRange('RESET', [0, -1]));
         } else if (numberOfReviews < 8) {
-          store.dispatch(updateReviewRange([0, numberOfReviews - 1]));
+          store.dispatch(updateReviewRange('RESET', [0, numberOfReviews - 1]));
         }
       })
       .catch((err) => {

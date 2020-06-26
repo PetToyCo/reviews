@@ -1,4 +1,5 @@
 import updateFilteredReviews from '../../ReduxSpecificComponents/Actions/updateFilteredReviews.js';
+import updateReviewRange from '../../ReduxSpecificComponents/Actions/updateReviewRange.js';
 
 const { connect } = ReactRedux;
 
@@ -12,7 +13,7 @@ class CalculateFilteredReviews extends React.Component {
 
     allReviews.forEach((review) => {
       if (allowedScores.indexOf(review.score) > -1) {
-        filteredReviews.push(review)
+        filteredReviews.push(review);
       }
     });
 
@@ -69,8 +70,7 @@ class CalculateFilteredReviews extends React.Component {
     allReviews.forEach((review) => {
       const { score } = review;
 
-
-      if (allowedScores.indexOf(score) > - 1) {
+      if (allowedScores.indexOf(score) > -1) {
         const { yeses, noes } = review;
         let option;
         let yesesValue;
@@ -112,7 +112,7 @@ class CalculateFilteredReviews extends React.Component {
 
           specificTrackedArray.splice(indexTrackedArray, 0, yesesValue);
 
-          indexTracker[indexTrackerKey]= [review];
+          indexTracker[indexTrackerKey] = [review];
         }
       }
     });
@@ -120,7 +120,7 @@ class CalculateFilteredReviews extends React.Component {
     for (let j = 1; j <= 5; j++) {
       const specificTrackedArray = mappedTrackedArray[j];
       for (let i = specificTrackedArray.length - 1; i >= 0; i--) {
-        const indexTrackerKey = `${mappedPrefix[j]}${specificTrackedArray[i]}`
+        const indexTrackerKey = `${mappedPrefix[j]}${specificTrackedArray[i]}`;
         filteredReviews = filteredReviews.concat(indexTracker[indexTrackerKey]);
       }
     }
@@ -153,7 +153,7 @@ class CalculateFilteredReviews extends React.Component {
   //   allReviews.forEach((review) => {
   //     const { score } = review;
   //     //if the review object has a score that the user wants to see (or if the user hasn't filtered by score yet)
-  //     if (allowedScores.indexOf(score) > - 1) {
+  //     if (allowedScores.indexOf(score) > -1) {
   //       //then perform all the steps need to properly sort hat review object into its correct spot
   //       const { yeses } = review;
   //       //if indexTracker contains an array for the number of yeses the review object has
@@ -202,13 +202,13 @@ class CalculateFilteredReviews extends React.Component {
     allReviews.forEach((review) => {
       const { score } = review;
 
-      if (allowedScores.indexOf(score) > - 1) {
+      if (allowedScores.indexOf(score) > -1) {
         indexTracker[score].push(review);
       }
     });
 
     if (option === 'HighToLow') {
-      for (let i = 5; i <= 1; i--) {
+      for (let i = 5; i >= 1; i--) {
         filteredReviews = filteredReviews.concat(indexTracker[i]);
       }
     }
@@ -223,7 +223,12 @@ class CalculateFilteredReviews extends React.Component {
   }
 
   render() {
-    const { filter, allReviews, dispatchUpdateFilteredReviews } = this.props;
+    const {
+      filter,
+      allReviews,
+      dispatchUpdateFilteredReviews,
+      dispatchUpdateReviewRange,
+    } = this.props;
 
     let allowedScores = [];
 
@@ -255,6 +260,14 @@ class CalculateFilteredReviews extends React.Component {
       filteredReviews = this.generateBasedOnScore(allowedScores, allReviews, 'LowToHigh');
     }
 
+    if (filteredReviews.length === 0) {
+      dispatchUpdateReviewRange('RESET', [0, -1]);
+    } else if (filteredReviews.length < 8) {
+      dispatchUpdateReviewRange('RESET', [0, filteredReviews.length - 1]);
+    } else {
+      dispatchUpdateReviewRange('RESET', [0, 7]);
+    }
+
     dispatchUpdateFilteredReviews(filteredReviews);
 
     return null;
@@ -268,13 +281,14 @@ const mapState = function(state) {
     filter,
     allReviews,
   };
-}
+};
 
 const mapDispatch = function(dispatch) {
   return {
-    dispatchUpdateFilteredReviews: function(filteredReviews) { dispatch(updateFilteredReviews(filteredReviews)); },
+    dispatchUpdateFilteredReviews: (filteredReviews) => { dispatch(updateFilteredReviews(filteredReviews)); },
+    dispatchUpdateReviewRange: (option, value) => { dispatch(updateReviewRange(option, value)); },
   };
-}
+};
 
 const wrappedCalculateFilteredReviews = connect(mapState, mapDispatch)(CalculateFilteredReviews);
 
