@@ -18,8 +18,12 @@ server.get('/averageReviews/:itemId', (req, res) => {
 
   db.retrieveAggregateReview(itemId)
     .then((data) => {
-      const { reviewAverage, numberOfReviews } = data;
-      res.status(200).send({ reviewAverage, numberOfReviews });
+      if (data) {
+        const { reviewAverage, numberOfReviews } = data;
+        res.status(200).send({ reviewAverage, numberOfReviews });
+      } else {
+        res.status(404);
+      }
     })
     .catch((err) => {
       res.status(500).send(err);
@@ -33,14 +37,21 @@ server.get('/reviews/:itemId', (req, res) => {
 
   db.retrieveAggregateReview(itemId)
     .then((data) => {
-      const { allReviews } = data;
-      aggregateReview = data;
+      if (data) {
+        const { allReviews } = data;
+        aggregateReview = data;
 
-      return db.retrieveIndividualReviews(allReviews);
+        return db.retrieveIndividualReviews(allReviews);
+      } else {
+        res.status(404);
+        return null;
+      }
     })
     .then((data) => {
-      const { reviewAverage, numberOfReviews } = aggregateReview;
-      res.status(200).send({ reviewAverage, numberOfReviews, allReviews: data });
+      if (data) {
+        const { reviewAverage, numberOfReviews } = aggregateReview;
+        res.status(200).send({ reviewAverage, numberOfReviews, allReviews: data });
+      }
     })
     .catch((err) => {
       res.status(500).send(err);
