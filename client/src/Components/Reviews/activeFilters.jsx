@@ -40,7 +40,15 @@ class ActiveFilters extends React.Component {
         filterOptions.push(
           <div onClick={this.handleFilterOptionClick.bind(this, filterOption)} style={{ display: 'flex' }}>
             <div>{`${filterOption} star${filterOption === '1' ? '' : 's'}`}</div>
-            <div>&#9679; x</div>
+            <div style={{ display: 'flex', position: 'relative' }}>
+              <div style={{ position: 'absolute', top: '0', bottom: '0' }}>&#9679;</div>
+              <div style={{
+                position: 'absolute',
+                top: '0',
+                bottom: '0',
+                color: 'white',
+              }}>x</div>
+            </div>
           </div>,
         );
       });
@@ -48,7 +56,15 @@ class ActiveFilters extends React.Component {
       filterOptions.push(
         <div onClick={this.handleCancelOptionClick.bind(this)} style={{ display: 'flex' }}>
           <div>Cancel</div>
-          <div>&#9679; x</div>
+          <div style={{ display: 'flex', position: 'relative' }}>
+            <div style={{ position: 'absolute', top: '0', bottom: '0' }}>&#9679;</div>
+            <div style={{
+              position: 'absolute',
+              top: '0',
+              bottom: '0',
+              color: 'white',
+            }}>x</div>
+          </div>
         </div>,
       );
     } else {

@@ -1,6 +1,5 @@
 import SolidReviewStars from '../General/solidReviewStars.jsx';
 import Helpful from './helpful.jsx';
-import { isAbsolute } from 'path';
 
 class IndividualReview extends React.Component {
   // constructor(props) {
@@ -8,6 +7,7 @@ class IndividualReview extends React.Component {
   // }
 
   render() {
+    const { indexInCurrentFilteredReviews, reviewObject } = this.props;
     const {
       username,
       title,
@@ -20,9 +20,7 @@ class IndividualReview extends React.Component {
       verified,
       promotion,
       disabled,
-    } = this.props.reviewObject;
-
-    const { indexInCurrentFilteredReviews } =  this.props;
+    } = reviewObject;
 
     const dateSplit = date.split('T');
     dateSplit[1] = dateSplit[1].substring(0, 12);
@@ -31,11 +29,11 @@ class IndividualReview extends React.Component {
     const specialStamps = [];
 
     if (promotion) {
-      specialStamps.push(<img style={{ maxHeight: '25px', maxWidth: '100%' }} src='https://display.ugc.bazaarvoice.com/static/PETCO/main_site/533/3554/en_US/images/badgeImages/sweepstakesoptinyes.jpeg'></img>);
+      specialStamps.push(<img style={{ maxHeight: '25px', maxWidth: '100%' }} src='https://display.ugc.bazaarvoice.com/static/PETCO/main_site/533/3554/en_US/images/badgeImages/sweepstakesoptinyes.jpeg' />);
     }
 
     if (verified) {
-      specialStamps.push(<img style={{ maxHeight: '25px', maxWidth: '100%' }} src='https://display.ugc.bazaarvoice.com/static/PETCO/main_site/533/3554/en_US/images/badgeImages/verifiedpurchaser_1yes.jpeg'></img>);
+      specialStamps.push(<img style={{ maxHeight: '25px', maxWidth: '100%' }} src='https://display.ugc.bazaarvoice.com/static/PETCO/main_site/533/3554/en_US/images/badgeImages/verifiedpurchaser_1yes.jpeg' />);
     }
 
     const recommendedOrNot = [];
@@ -43,24 +41,44 @@ class IndividualReview extends React.Component {
     if (recommended) {
       recommendedOrNot.push(
         <div style={{ display: 'flex' }}>
-          <div style={{ position: 'relative' }} >
-            <div style={{ position: 'absolute', top: '-10px', bottom: '0', fontSize: '30px' }} >&#9679;</div>
-            <div style={{ position: 'absolute', top: '0', bottom: '0', color: 'white' }} >&#10004;</div>
+          <div style={{ position: 'relative' }}>
+            <div style={{
+              position: 'absolute',
+              top: '-10px',
+              bottom: '0',
+              fontSize: '30px',
+            }}>&#9679;</div>
+            <div style={{
+              position: 'absolute',
+              top: '0',
+              bottom: '0',
+              color: 'white',
+            }}>&#10004;</div>
           </div>
           <div>Yes</div>
           <div>, I recommend this product.</div>
-        </div>
+        </div>,
       );
     } else {
       recommendedOrNot.push(
         <div style={{ display: 'flex' }}>
-          <div style={{ position: 'relative' }} >
-            <div style={{ position: 'absolute', top: '-10px', bottom: '0', fontSize: '30px' }} >&#9679;</div>
-            <div style={{ position: 'absolute', top: '0', bottom: '0', color: 'white' }} >x</div>
+          <div style={{ position: 'relative' }}>
+            <div style={{
+              position: 'absolute',
+              top: '-10px',
+              bottom: '0',
+              fontSize: '30px',
+            }}>&#9679;</div>
+            <div style={{
+              position: 'absolute',
+              top: '0',
+              bottom: '0',
+              color: 'white',
+            }}>x</div>
           </div>
           <div>No</div>
           <div>, I do not recommend this product.</div>
-        </div>
+        </div>,
       );
     }
 

@@ -20,7 +20,7 @@ const handleClickYesOrNoButton = function(indexInCurrentFilteredReviews, option)
     yesTarget.style.color = 'green';
     noTarget.style.color = 'red';
   }
-}
+};
 
 class Helpful extends React.Component {
   // constructor(props) {
@@ -43,16 +43,16 @@ class Helpful extends React.Component {
         <div style={{ display: 'flex' }}>
           <div>Yes</div>
           <div>&#183;</div>
-          <div style={{ color: 'green' }} >{yeses}</div>
-        </div>
+          <div style={{ color: 'green' }}>{yeses}</div>
+        </div>,
       );
 
       noButton.push(
         <div style={{ display: 'flex' }}>
           <div>No</div>
           <div>&#183;</div>
-          <div style={{ color: 'red' }} >{noes}</div>
-        </div>
+          <div style={{ color: 'red' }}>{noes}</div>
+        </div>,
       );
     } else {
       yesButton.push(
@@ -60,7 +60,7 @@ class Helpful extends React.Component {
           <div>Yes</div>
           <div>&#183;</div>
           <div id={`yes-button-${indexInCurrentFilteredReviews}`}>{yeses}</div>
-        </button>
+        </button>,
       );
 
       noButton.push(
@@ -68,7 +68,7 @@ class Helpful extends React.Component {
           <div>No</div>
           <div>&#183;</div>
           <div id={`no-button-${indexInCurrentFilteredReviews}`}>{noes}</div>
-        </button>
+        </button>,
       );
     }
 

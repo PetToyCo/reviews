@@ -56,14 +56,14 @@ Without this tag, the Reviews module will not be able to mount itself in the DOM
 5. To retrieve the Reviews Module, make a GET request to http://127.0.0.1:3001/app.js
 6. This service also has the following endpoints (where :itemId can be a value from 100-199):
 
-Endpoint: /averageReviews/:itemId 
+Endpoint: /averageReviews/:itemId
 Server Response:
 {
   reviewAverage: “String between 0-5 representing average number of stars for that item”,
   numberOfReviews: “Integer number representing number of reviews for that item”
 }
 
-Endpoint: /reviews/:itemId 
+Endpoint: /reviews/:itemId
 Server Response:
 {
   reviewAverage: “String representing float number between 0-5 representing average number of stars for that item”,

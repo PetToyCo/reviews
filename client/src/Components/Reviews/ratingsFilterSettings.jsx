@@ -53,9 +53,35 @@ class RatingsFilterSettings extends React.Component {
 
     for (let i = 1; i <= 5; i++) {
       if (filter[i.toString()]) {
-        dropDownList.push(<div onClick={this.handleClickDropDownMenuItem.bind(this, `${i}`, 'CANCEL')}>&#9679; &#10004; {i} star</div>);
+        dropDownList.push(
+          <div style={{ display: 'flex' }} onClick={this.handleClickDropDownMenuItem.bind(this, `${i}`, 'CANCEL')}>
+            <div style={{ position: 'relative' }}>
+              <div style={{ position: 'absolute', top: '0', left: '0' }}>&#9679;</div>
+              <div style={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                color: 'white',
+              }}>&#10004;</div>
+            </div>
+            <div>{i} star{i === 1 ? '' : 's'}</div>
+          </div>,
+        );
       } else {
-        dropDownList.push(<div onClick={this.handleClickDropDownMenuItem.bind(this, `${i}`, 'ADD')}>&#9679;+ {i} star</div>);
+        dropDownList.push(
+          <div style={{ display: 'flex' }} onClick={this.handleClickDropDownMenuItem.bind(this, `${i}`, 'ADD')}>
+            <div style={{ position: 'relative' }}>
+              <div style={{ position: 'absolute', top: '0', left: '0' }}>&#9679;</div>
+              <div style={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                color: 'white',
+              }}>+</div>
+            </div>
+            <div>{i} star{i === 1 ? '' : 's'}</div>
+          </div>,
+        );
       }
     }
 

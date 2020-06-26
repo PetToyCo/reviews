@@ -1,7 +1,7 @@
 class SolidReviewStars extends React.Component {
-  constructor(props) {
-    super();
-  }
+  // constructor(props) {
+  //   super();
+  // }
 
   render() {
     const { score } = this.props;
@@ -11,18 +11,18 @@ class SolidReviewStars extends React.Component {
     let numberOfBlackStars = score;
 
     while (numberOfBlackStars > 0) {
-      scoreDisplay.push(<div>&#9733;</div>)
+      scoreDisplay.push(<div>&#9733;</div>);
       numberOfGrayStars--;
       numberOfBlackStars--;
     }
 
     while (numberOfGrayStars > 0) {
-      scoreDisplay.push(<div style={{ color: 'gray' }}>&#9733;</div>)
+      scoreDisplay.push(<div style={{ color: 'gray' }}>&#9733;</div>);
       numberOfGrayStars--;
     }
 
     return (
-      <div style={{ display: 'flex' }} >
+      <div style={{ display: 'flex' }}>
         {scoreDisplay}
       </div>
     );
