@@ -68,15 +68,37 @@ class RatingsFilter extends React.Component {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', margin: '5px 0 16px 20px' }}>
         <div
-          style={{ display: 'flex' }}
+          style={{
+            display: 'flex',
+            width: '60px',
+            height: '23px',
+            backgroundColor: '#ededed',
+            padding: '3px 10px 5px 11px'
+          }}
           onMouseOver={this.handleEnterRatingFilter.bind(this)}
           onMouseOut={this.handleExitRatingFilter.bind(this)}
           onClick={this.handleClickRatingFilter.bind(this)}
         >
-          <div>&#9662;</div>
-          <div>Rating</div>
+          <div
+            style={{
+              margin: '3px 6px 0 0',
+              fontSize: '16px',
+              color: '#333',
+              fontWeight: '700',
+            }}
+          >&#9662;</div>
+          <div
+            style={{
+              fontStyle: 'italic',
+              fontSize: '13px',
+              fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+              fontWeight: '700',
+              color: '#333',
+              margin: '6px 0 0 0',
+            }}
+          >Rating</div>
         </div>
         {RatingFilterDropDown}
       </div>

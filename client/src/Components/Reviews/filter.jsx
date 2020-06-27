@@ -190,7 +190,7 @@ class Filter extends React.Component {
           </div>
           <button
             id='btn-number-filter-expansion'
-              style={{
+            style={{
               margin: '6px 10px 5px 9px',
               height: '32px',
               width: '36px',
@@ -206,6 +206,9 @@ class Filter extends React.Component {
               // outlineColor: 'transparent',
               outlineWidth: '0',
             }}
+            onClick={this.handleClickMenuExpansionButton.bind(this)}
+            onMouseOver={this.handleMouseOverMenuExpansionButton.bind(this)}
+            onMouseOut={this.handleMouseOutMenuExpansionButton.bind(this)}
           >&#8801;</button>
         </div>
         {RatingFilter}

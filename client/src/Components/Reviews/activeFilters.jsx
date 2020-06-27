@@ -72,7 +72,7 @@ class ActiveFilters extends React.Component {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#f7f7f7' }}>
         <div>Active Filters</div>
         <div style={{ display: 'flex' }}>
           {filterOptions}
