@@ -28,7 +28,7 @@ class Reviews extends React.Component {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', position: 'relative' }}>
         <Filter />
         {nonNumberFilterSettings}
         <CalculateFilteredReviews />

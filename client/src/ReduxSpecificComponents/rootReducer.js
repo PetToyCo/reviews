@@ -5,7 +5,6 @@ import filterReducer from './Reducers/filterReducer.js';
 import reviewRangeReducer from './Reducers/reviewRangeReducer.js';
 import showRatingFilterReducer from './Reducers/showRatingFilterReducer.js';
 import filteredReviewsReducer from './Reducers/filteredReviewsReducer';
-import currentNonNumberFilterSettingReducer from './Reducers/currentNonNumberFilterSettingReducer.js';
 import showNonNumberFilterSettingReducer from './Reducers/showNonNumberFilterSettingReducer.js';
 import exitedNonNumberFilterDropDownSourceReducer from './Reducers/exitedNonNumberFilterDropDownSourceReducer.js';
 import enteredNonNumberFilterSettingReducer from './Reducers/enteredNonNumberFilterSettingReducer.js';
@@ -23,7 +22,6 @@ const rootReducer = combineReducers({
   reviewRange: reviewRangeReducer,
   showRatingFilter: showRatingFilterReducer,
   filteredReviews: filteredReviewsReducer,
-  currentNonNumberFilterSetting: currentNonNumberFilterSettingReducer,
   showNonNumberFilterSetting: showNonNumberFilterSettingReducer,
   exitedNonNumberFilterDropDownSource: exitedNonNumberFilterDropDownSourceReducer,
   enteredNonNumberFilterSetting: enteredNonNumberFilterSettingReducer,

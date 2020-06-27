@@ -22,7 +22,9 @@ class Filter extends React.Component {
   }
 
   handleEnterNonNumberDropDownSource() {
-    const { showNonNumberFilterSetting } = this.props;
+    const { showNonNumberFilterSetting, dispatchUpdateExitedNonNumberFilterDropDownSource } = this.props;
+
+    dispatchUpdateExitedNonNumberFilterDropDownSource(false);
 
     if (!showNonNumberFilterSetting) {
       setTimeout(this.actuallyDispatchShowNonNumberFilterSetting.bind(this), 150);
@@ -36,9 +38,9 @@ class Filter extends React.Component {
   }
 
   actuallyDispatchHideNonNumberFilterSetting() {
-    const { enteredNonNumberFilterSetting, dispatchUpdateShowNonNumberFilterSetting } = this.props;
+    const { enteredNonNumberFilterSetting, exitedNonNumberFilterDropDownSource, dispatchUpdateShowNonNumberFilterSetting } = this.props;
 
-    if (!enteredNonNumberFilterSetting) {
+    if (!enteredNonNumberFilterSetting && exitedNonNumberFilterDropDownSource) {
       dispatchUpdateShowNonNumberFilterSetting(false);
     }
   }
@@ -65,18 +67,60 @@ class Filter extends React.Component {
     dispatchUpdateShowRatingFilter(!showRatingFilter);
   }
 
+  handleMouseOverMenuExpansionButton() {
+    const target = document.getElementById('btn-number-filter-expansion');
+
+    target.style.backgroundColor = '#ddd';
+    target.style.boxShadow = 'inset 0 0 5px 0 rgba(0, 0, 0, .2)'
+    target.style.margin = '5px 10px 6px 9px';
+  }
+
+  handleMouseOutMenuExpansionButton() {
+    const target = document.getElementById('btn-number-filter-expansion');
+
+    target.style.backgroundColor = '#ededed';
+    target.style.boxShadow = 'none';
+    target.style.margin = '6px 10px 5px 9px';
+  }
+
+  handleMouseOverReviewRange() {
+    const { dispatchUpdateExitedNonNumberFilterDropDownSource } = this.props;
+
+    dispatchUpdateExitedNonNumberFilterDropDownSource(true);
+
+    setTimeout(this.actuallyDispatchHideNonNumberFilterSetting.bind(this), 250);
+  }
+
   render() {
     const {
       filteredReviews,
       reviewRange,
       numberOfReviews,
-      currentNonNumberFilterSetting,
       showRatingFilter,
+      filter,
     } = this.props;
 
     // If there is only one review, the filter component does not display
     if (numberOfReviews === 1) {
       return <div />;
+    }
+
+    let displayCurrentNonNumberedFilterSetting;
+
+    if (filter['MostRecent']) {
+      displayCurrentNonNumberedFilterSetting = 'Most Recent'
+    }
+
+    if (filter['MostHelpful']) {
+      displayCurrentNonNumberedFilterSetting = 'Most Helpful'
+    }
+
+    if (filter['HighToLow']) {
+      displayCurrentNonNumberedFilterSetting = 'Highest To Lowest Rating'
+    }
+
+    if (filter['LowToHigh']) {
+      displayCurrentNonNumberedFilterSetting = 'Lowest To Highest Rating'
     }
 
     let reviewRangeHeader = '';
@@ -92,20 +136,73 @@ class Filter extends React.Component {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <div style={{ display: 'flex' }}>
-          <div>{reviewRangeHeader}</div>
-          <div
-            style={{ display: 'flex' }}
-            onMouseOver={this.handleEnterNonNumberDropDownSource.bind(this)}
-            onMouseOut={this.handleExitNonNumberDropDownSource.bind(this)}
-            onClick={this.handleClickNonNumberDropDownSource.bind(this)}
+      <div
+        style={{ display: 'flex', flexDirection: 'column' }}
+        onMouseOver={this.handleEnterNonNumberDropDownSource.bind(this)}
+        onMouseOut={this.handleExitNonNumberDropDownSource.bind(this)}
+        onClick={this.handleClickNonNumberDropDownSource.bind(this)}
+      >
+        <div style={{
+          display: 'flex',
+          width: '1075px',
+          height: '43.375px',
+          margin: '0 10px 10px 10px',
+          color: '#333',
+          fontSize: ' 14px',
+          fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+          fontWeight: '400',
+          background: '#f7f7f7',
+          position: 'relative',
+          }}>
+          <div style={{
+            padding: '10px',
+            position: 'relative',
+            float: 'left',
+            color: 'inherit',
+            marginTop: '3px',
+            marginRight: 'auto',
+            fontFamily: 'inherit',
+            fontSize: 'inherit',
+            fontWeight: 'inherit',
+            }}
+            onMouseOver={this.handleMouseOverReviewRange.bind(this)}
           >
-            <div>Sort by:</div>
-            <div>{`${currentNonNumberFilterSetting}`}</div>
-            <div>&#9662;</div>
+            {reviewRangeHeader}
           </div>
-          <div onClick={this.handleClickMenuExpansionButton.bind(this)}>&#8801;</div>
+          <div
+            style={{
+              display: 'flex',
+              padding: '10px',
+              position: 'relative',
+              float: 'none',
+              color: 'inherit',
+              marginTop: '3px',
+              fontFamily: 'inherit',
+              fontSize: 'inherit',
+              fontWeight: 'inherit'
+            }}
+          >
+            <div style={{ marginRight: '5px' }}>Sort by:</div>
+            <div style={{ marginRight: '5px' }}>{displayCurrentNonNumberedFilterSetting}</div>
+            <div style={{ color: '#000' }}>&#9662;</div>
+          </div>
+          <button id='btn-number-filter-expansion' style={{
+            margin: '6px 10px 5px 9px',
+            height: '32px',
+            width: '36px',
+            border: '0',
+            color: '#000',
+            fontWeight: '700',
+            lineHeight: '24px',
+            fontSize: '24px',
+            fontFamily: 'inherit',
+            float: 'right',
+            backgroundColor: '#ededed',
+            cursor: 'pointer',
+            // outlineColor: 'transparent',
+            outlineWidth: '0',
+            }}
+          >&#8801;</button>
         </div>
         {RatingFilter}
         <ActiveFilters />
@@ -119,22 +216,22 @@ const mapState = function(state) {
     filteredReviews,
     reviewRange,
     numberOfReviews,
-    currentNonNumberFilterSetting,
     enteredNonNumberFilterSetting,
     exitedNonNumberFilterDropDownSource,
     showNonNumberFilterSetting,
     showRatingFilter,
+    filter,
   } = state;
 
   return {
     filteredReviews,
     reviewRange,
     numberOfReviews,
-    currentNonNumberFilterSetting,
     enteredNonNumberFilterSetting,
     exitedNonNumberFilterDropDownSource,
     showNonNumberFilterSetting,
     showRatingFilter,
+    filter,
   };
 };
 

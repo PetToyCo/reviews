@@ -23,7 +23,6 @@ const store = createStore(rootReducer, {
   showRatingFilterDropDown: false,
   enteredRatingFilterDropDown: false,
   filteredReviews: [],
-  currentNonNumberFilterSetting: 'Most Recent',
   showNonNumberFilterSetting: false,
   exitedNonNumberFilterDropDownSource: false,
   enteredNonNumberFilterSetting: false,
