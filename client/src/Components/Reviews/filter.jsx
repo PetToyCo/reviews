@@ -7,6 +7,10 @@ import ActiveFilters from './activeFilters.jsx';
 
 const { connect } = ReactRedux;
 
+document.getElementsByTagName('body')[0].addEventListener('click', () => {
+  document.getElementById('dotted-target').style.borderColor = 'transparent';
+});
+
 class Filter extends React.Component {
   // constructor(props) {
   //   super();
@@ -24,6 +28,7 @@ class Filter extends React.Component {
   handleEnterNonNumberDropDownSource() {
     const { showNonNumberFilterSetting, dispatchUpdateExitedNonNumberFilterDropDownSource } = this.props;
 
+    document.getElementById('dotted-target').style.borderColor = 'hsl(206, 61%, 39%)';
     dispatchUpdateExitedNonNumberFilterDropDownSource(false);
 
     if (!showNonNumberFilterSetting) {
@@ -31,17 +36,17 @@ class Filter extends React.Component {
     }
   }
 
-  resetExitNonNumberedDropDownSourceToFalse() {
-    const { dispatchUpdateExitedNonNumberFilterDropDownSource } = this.props;
-
-    dispatchUpdateExitedNonNumberFilterDropDownSource(false);
-  }
-
   actuallyDispatchHideNonNumberFilterSetting() {
-    const { enteredNonNumberFilterSetting, exitedNonNumberFilterDropDownSource, dispatchUpdateShowNonNumberFilterSetting } = this.props;
+    const {
+      enteredNonNumberFilterSetting,
+      exitedNonNumberFilterDropDownSource,
+      dispatchUpdateShowNonNumberFilterSetting,
+      dispatchUpdateExitedNonNumberFilterDropDownSource,
+    } = this.props;
 
     if (!enteredNonNumberFilterSetting && exitedNonNumberFilterDropDownSource) {
       dispatchUpdateShowNonNumberFilterSetting(false);
+      dispatchUpdateExitedNonNumberFilterDropDownSource(false);
     }
   }
 
@@ -50,8 +55,6 @@ class Filter extends React.Component {
 
     dispatchUpdateExitedNonNumberFilterDropDownSource(true);
 
-    setTimeout(this.resetExitNonNumberedDropDownSourceToFalse.bind(this), 125);
-
     setTimeout(this.actuallyDispatchHideNonNumberFilterSetting.bind(this), 250);
   }
 
@@ -59,6 +62,12 @@ class Filter extends React.Component {
     const { showNonNumberFilterSetting, dispatchUpdateShowNonNumberFilterSetting } = this.props;
 
     dispatchUpdateShowNonNumberFilterSetting(!showNonNumberFilterSetting);
+  }
+
+  handleClickNonNumberDropDownSourceDescription() {
+    setTimeout(() => {
+      document.getElementById('dotted-target').style.borderColor = 'hsl(206, 61%, 39%)';
+    }, 3);
   }
 
   handleClickMenuExpansionButton() {
@@ -71,7 +80,7 @@ class Filter extends React.Component {
     const target = document.getElementById('btn-number-filter-expansion');
 
     target.style.backgroundColor = '#ddd';
-    target.style.boxShadow = 'inset 0 0 5px 0 rgba(0, 0, 0, .2)'
+    target.style.boxShadow = 'inset 0 0 5px 0 rgba(0, 0, 0, .2)';
     target.style.margin = '5px 10px 6px 9px';
   }
 
@@ -81,14 +90,6 @@ class Filter extends React.Component {
     target.style.backgroundColor = '#ededed';
     target.style.boxShadow = 'none';
     target.style.margin = '6px 10px 5px 9px';
-  }
-
-  handleMouseOverReviewRange() {
-    const { dispatchUpdateExitedNonNumberFilterDropDownSource } = this.props;
-
-    dispatchUpdateExitedNonNumberFilterDropDownSource(true);
-
-    setTimeout(this.actuallyDispatchHideNonNumberFilterSetting.bind(this), 250);
   }
 
   render() {
@@ -108,19 +109,19 @@ class Filter extends React.Component {
     let displayCurrentNonNumberedFilterSetting;
 
     if (filter['MostRecent']) {
-      displayCurrentNonNumberedFilterSetting = 'Most Recent'
+      displayCurrentNonNumberedFilterSetting = 'Most Recent';
     }
 
     if (filter['MostHelpful']) {
-      displayCurrentNonNumberedFilterSetting = 'Most Helpful'
+      displayCurrentNonNumberedFilterSetting = 'Most Helpful';
     }
 
     if (filter['HighToLow']) {
-      displayCurrentNonNumberedFilterSetting = 'Highest To Lowest Rating'
+      displayCurrentNonNumberedFilterSetting = 'Highest To Lowest Rating';
     }
 
     if (filter['LowToHigh']) {
-      displayCurrentNonNumberedFilterSetting = 'Lowest To Highest Rating'
+      displayCurrentNonNumberedFilterSetting = 'Lowest To Highest Rating';
     }
 
     let reviewRangeHeader = '';
@@ -136,12 +137,7 @@ class Filter extends React.Component {
     }
 
     return (
-      <div
-        style={{ display: 'flex', flexDirection: 'column' }}
-        onMouseOver={this.handleEnterNonNumberDropDownSource.bind(this)}
-        onMouseOut={this.handleExitNonNumberDropDownSource.bind(this)}
-        onClick={this.handleClickNonNumberDropDownSource.bind(this)}
-      >
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div style={{
           display: 'flex',
           width: '1075px',
@@ -153,7 +149,7 @@ class Filter extends React.Component {
           fontWeight: '400',
           background: '#f7f7f7',
           position: 'relative',
-          }}>
+        }}>
           <div style={{
             padding: '10px',
             position: 'relative',
@@ -164,8 +160,7 @@ class Filter extends React.Component {
             fontFamily: 'inherit',
             fontSize: 'inherit',
             fontWeight: 'inherit',
-            }}
-            onMouseOver={this.handleMouseOverReviewRange.bind(this)}
+          }}
           >
             {reviewRangeHeader}
           </div>
@@ -179,28 +174,37 @@ class Filter extends React.Component {
               marginTop: '3px',
               fontFamily: 'inherit',
               fontSize: 'inherit',
-              fontWeight: 'inherit'
+              fontWeight: 'inherit',
             }}
+            onMouseOver={this.handleEnterNonNumberDropDownSource.bind(this)}
+            onMouseOut={this.handleExitNonNumberDropDownSource.bind(this)}
+            onClick={this.handleClickNonNumberDropDownSource.bind(this)}
           >
-            <div style={{ marginRight: '5px' }}>Sort by:</div>
-            <div style={{ marginRight: '5px' }}>{displayCurrentNonNumberedFilterSetting}</div>
+            <div style={{ marginRight: '4px' }}>Sort by:</div>
+            <div
+              id='dotted-target'
+              style={{ marginRight: '5px', border: '1px dotted transparent', height: '16px' }}
+              onClick={this.handleClickNonNumberDropDownSourceDescription.bind(this)}
+            >{displayCurrentNonNumberedFilterSetting}</div>
             <div style={{ color: '#000' }}>&#9662;</div>
           </div>
-          <button id='btn-number-filter-expansion' style={{
-            margin: '6px 10px 5px 9px',
-            height: '32px',
-            width: '36px',
-            border: '0',
-            color: '#000',
-            fontWeight: '700',
-            lineHeight: '24px',
-            fontSize: '24px',
-            fontFamily: 'inherit',
-            float: 'right',
-            backgroundColor: '#ededed',
-            cursor: 'pointer',
-            // outlineColor: 'transparent',
-            outlineWidth: '0',
+          <button
+            id='btn-number-filter-expansion'
+              style={{
+              margin: '6px 10px 5px 9px',
+              height: '32px',
+              width: '36px',
+              border: '0',
+              color: '#333',
+              fontWeight: '700',
+              lineHeight: '24px',
+              fontSize: '24px',
+              fontFamily: 'inherit',
+              float: 'right',
+              backgroundColor: '#ededed',
+              cursor: 'pointer',
+              // outlineColor: 'transparent',
+              outlineWidth: '0',
             }}
           >&#8801;</button>
         </div>

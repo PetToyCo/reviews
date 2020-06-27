@@ -3,6 +3,12 @@ import updateEnteredNonNumberFilterSetting from '../../ReduxSpecificComponents/A
 import updateFilter from '../../ReduxSpecificComponents/Actions/updateFilter.js';
 
 const { connect } = ReactRedux;
+const mapOptions = {
+  'Most Recent': 'MostRecent',
+  'Most Helpful': 'MostHelpful',
+  'Highest To Lowest Rating': 'HighToLow',
+  'Lowest To Highest Rating': 'LowToHigh',
+};
 
 class NonNumberFilterSettings extends React.Component {
   // constructor(props) {
@@ -42,39 +48,64 @@ class NonNumberFilterSettings extends React.Component {
     } = this.props;
     const { innerHTML } = e.target;
 
-    const mapOptions = {
-      'Most Recent': 'MostRecent',
-      'Most Helpful': 'MostHelpful',
-      'Highest To Lowest Rating': 'HighToLow',
-      'Lowest To Highest Rating': 'LowToHigh',
-    };
+    if (innerHTML === 'Highest to Lowest Rating') {
+      dispatchUpdateFilter('HighToLow');
+    } else {
+      dispatchUpdateFilter(mapOptions[innerHTML]);
+    }
 
-    dispatchUpdateFilter(mapOptions[innerHTML]);
     dispatchUpdateShowNonNumberFilterSetting(false);
     dispatchUpdateEnteredNonNumberFilterSetting(false);
   }
 
+  handleMouseOverDropDownMenuItem(id) {
+    const target = document.getElementById(id);
+
+    target.style.backgroundColor = '#005891';
+    target.style.color = 'white';
+  }
+
+  handleMouseOutDropDownMenuItem(id) {
+    const { filter } = this.props;
+    const target = document.getElementById(id);
+    const { innerHTML } = target;
+    const anotherUnnecessaryButTotallyNecessary = filter.HighToLow;
+
+    if (filter[mapOptions[innerHTML]]) {
+      target.style.backgroundColor = '#f7f7f7';
+    } else if (anotherUnnecessaryButTotallyNecessary && innerHTML === 'Highest to Lowest Rating') {
+      target.style.backgroundColor = '#f7f7f7';
+    } else {
+      target.style.backgroundColor = 'white';
+    }
+
+    target.style.color = '#666';
+  }
+
   render() {
     const { filter } = this.props;
-
+    const unnecessaryButTotallyNecessary = filter.HighToLow;
     const unhighlightedStyles = {
-      width: '182px',
+      width: '183px',
       height: '20px',
       backgroundColor: 'white',
       fontSize: 'inherit',
       fontFamily: 'inherit',
-      padding: '8px 0 8px 10px',
-    }
+      padding: '10px 30px 6px 11px',
+      color: '#666',
+      cursor: 'pointer',
+    };
 
     const highlightedStyles = {
-      width: '182px',
+      width: '183px',
       height: '20px',
       backgroundColor: '#f7f7f7',
       fontSize: 'inherit',
       fontFamily: 'inherit',
-      padding: '8px 0 8px 10px',
-
-    }
+      padding: '10px 30px 6px 11px',
+      color: '#666',
+      cursor: 'pointer',
+    };
 
     return (
       <div
@@ -82,11 +113,11 @@ class NonNumberFilterSettings extends React.Component {
           display: 'flex',
           flexDirection: 'column',
           position: 'absolute',
-          top: '40px',
-          left: '850px',
+          top: '43px',
+          left: '801px',
           fontSize: '14px',
           fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
-          border: '1px solid rgb(200, 200, 200)',
+          border: '1px solid rgb(208, 208, 208)',
           borderRadius: '4px',
           zIndex: 10,
         }}
@@ -94,27 +125,41 @@ class NonNumberFilterSettings extends React.Component {
         onMouseOut={this.handleExitNonNumberFilterSetting.bind(this)}
       >
         <div
+          id='most-helpful'
           style={Object.assign(
             {},
             (filter['MostHelpful'] ? highlightedStyles : unhighlightedStyles),
-            {
-              // borderTop: '1px black',
-              // borderRight: '1px black',
-              // borderLeft: '1px black',
-              // borderRadius: '4px 4px 0 0'
-            }
+            { borderRadius: '4px 4px 0 0' },
           )}
           onClick={this.handleClickDropDownMenuItem.bind(this)}
+          onMouseOver={this.handleMouseOverDropDownMenuItem.bind(this, 'most-helpful')}
+          onMouseOut={this.handleMouseOutDropDownMenuItem.bind(this, 'most-helpful')}
         >Most Helpful</div>
         <div
-          style={filter['HightoLow'] ? highlightedStyles : unhighlightedStyles}
+          id='high-to-low'
+          style={unnecessaryButTotallyNecessary ? highlightedStyles : unhighlightedStyles}
           onClick={this.handleClickDropDownMenuItem.bind(this)}
+          onMouseOver={this.handleMouseOverDropDownMenuItem.bind(this, 'high-to-low')}
+          onMouseOut={this.handleMouseOutDropDownMenuItem.bind(this, 'high-to-low')}
         >Highest to Lowest Rating</div>
         <div
+          id='low-to-high'
           style={filter['LowToHigh'] ? highlightedStyles : unhighlightedStyles}
           onClick={this.handleClickDropDownMenuItem.bind(this)}
+          onMouseOver={this.handleMouseOverDropDownMenuItem.bind(this, 'low-to-high')}
+          onMouseOut={this.handleMouseOutDropDownMenuItem.bind(this, 'low-to-high')}
         >Lowest To Highest Rating</div>
-        <div style={filter['MostRecent'] ? highlightedStyles : unhighlightedStyles} onClick={this.handleClickDropDownMenuItem.bind(this)}>Most Recent</div>
+        <div
+          id='most-recent'
+          style={Object.assign(
+            {},
+            (filter['MostRecent'] ? highlightedStyles : unhighlightedStyles),
+            { borderRadius: '0 0 4px 4px' },
+          )}
+          onClick={this.handleClickDropDownMenuItem.bind(this)}
+          onMouseOver={this.handleMouseOverDropDownMenuItem.bind(this, 'most-recent')}
+          onMouseOut={this.handleMouseOutDropDownMenuItem.bind(this, 'most-recent')}
+        >Most Recent</div>
       </div>
     );
   }

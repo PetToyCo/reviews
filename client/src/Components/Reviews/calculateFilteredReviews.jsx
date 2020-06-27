@@ -191,6 +191,7 @@ class CalculateFilteredReviews extends React.Component {
   // }
 
   generateBasedOnScore(allowedScores, allReviews, option) {
+    let filteredReviews = [];
     const indexTracker = {
       '5': [],
       '4': [],
