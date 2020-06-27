@@ -19,24 +19,26 @@ class RatingsFilter extends React.Component {
   }
 
   handleEnterRatingFilter() {
-    const { showRatingFilterDropDown } = this.props;
+    const { showRatingFilterDropDown, dispatchUpdateExitedRatingFilter } = this.props;
+
+    dispatchUpdateExitedRatingFilter(false);
 
     if (!showRatingFilterDropDown) {
       setTimeout(this.actuallyDispatchShowRatingFilterDropDown.bind(this), 150);
     }
   }
 
-  resetExitRatingFilterToFalse() {
-    const { dispatchUpdateExitedRatingFilter } = this.props;
-
-    dispatchUpdateExitedRatingFilter(false);
-  }
-
   actuallyDispatchHideRatingFilter() {
-    const { enteredRatingFilterDropDown, dispatchUpdateShowRatingFilterDropDown } = this.props;
+    const {
+      enteredRatingFilterDropDown,
+      exitedRatingFilter,
+      dispatchUpdateShowRatingFilterDropDown,
+      dispatchUpdateExitedRatingFilter,
+    } = this.props;
 
-    if (!enteredRatingFilterDropDown) {
+    if (!enteredRatingFilterDropDown && exitedRatingFilter) {
       dispatchUpdateShowRatingFilterDropDown(false);
+      dispatchUpdateExitedRatingFilter(false);
     }
   }
 
@@ -44,8 +46,6 @@ class RatingsFilter extends React.Component {
     const { dispatchUpdateExitedRatingFilter } = this.props;
 
     dispatchUpdateExitedRatingFilter(true);
-
-    setTimeout(this.resetExitRatingFilterToFalse.bind(this), 125);
 
     setTimeout(this.actuallyDispatchHideRatingFilter.bind(this), 250);
   }
@@ -75,7 +75,7 @@ class RatingsFilter extends React.Component {
             width: '60px',
             height: '23px',
             backgroundColor: '#ededed',
-            padding: '3px 10px 5px 11px'
+            padding: '3px 10px 5px 11px',
           }}
           onMouseOver={this.handleEnterRatingFilter.bind(this)}
           onMouseOut={this.handleExitRatingFilter.bind(this)}
