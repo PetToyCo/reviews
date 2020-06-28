@@ -5,6 +5,13 @@ import RatingsFilterSettings from './ratingsFilterSettings.jsx';
 
 const { connect } = ReactRedux;
 
+document.getElementsByTagName('body')[0].addEventListener('click', () => {
+  const target = document.getElementById('second-dotted-target');
+  if (target) {
+    target.style.borderColor = 'transparent';
+  }
+});
+
 class RatingsFilter extends React.Component {
   // constructor(props) {
   //   super();
@@ -22,6 +29,8 @@ class RatingsFilter extends React.Component {
     const { showRatingFilterDropDown, dispatchUpdateExitedRatingFilter } = this.props;
 
     dispatchUpdateExitedRatingFilter(false);
+
+    document.getElementById('second-dotted-target').style.borderColor = 'hsl(206, 61%, 39%)';
 
     if (!showRatingFilterDropDown) {
       setTimeout(this.actuallyDispatchShowRatingFilterDropDown.bind(this), 150);
@@ -53,6 +62,10 @@ class RatingsFilter extends React.Component {
   handleClickRatingFilter() {
     const { showRatingFilterDropDown, dispatchUpdateShowRatingFilterDropDown } = this.props;
 
+    setTimeout(() => {
+      document.getElementById('second-dotted-target').style.borderColor = 'hsl(206, 61%, 39%)';
+    }, 3);
+
     dispatchUpdateShowRatingFilterDropDown(!showRatingFilterDropDown);
   }
 
@@ -68,7 +81,15 @@ class RatingsFilter extends React.Component {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', margin: '5px 0 16px 20px' }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          margin: '5px 0 16px 19px',
+          position: 'relative',
+          cursor: 'default',
+        }}
+      >
         <div
           style={{
             display: 'flex',
@@ -83,20 +104,23 @@ class RatingsFilter extends React.Component {
         >
           <div
             style={{
-              margin: '3px 6px 0 0',
+              margin: '4px 4px 0 0',
               fontSize: '16px',
               color: '#333',
               fontWeight: '700',
             }}
           >&#9662;</div>
           <div
+            id='second-dotted-target'
             style={{
               fontStyle: 'italic',
               fontSize: '13px',
               fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
               fontWeight: '700',
               color: '#333',
-              margin: '6px 0 0 0',
+              margin: '4px 0 0 0',
+              padding: '2px 2px 0 2px',
+              border: '1px dotted transparent',
             }}
           >Rating</div>
         </div>
