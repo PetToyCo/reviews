@@ -152,10 +152,10 @@ class RatingsFilterSettings extends React.Component {
                   lineHeight: '9px',
                   width: '9px',
                   height: '9px',
-                  padding: '2px 0 0px 3px',
+                  padding: '2px 0 0px 2px',
                   fontSize: '12px',
                   fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
-                  margin: '5px 5px 0 0',
+                  margin: '5px 6px 0 0',
                 }}
               >+</div>
             </div>

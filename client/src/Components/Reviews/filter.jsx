@@ -142,7 +142,7 @@ class Filter extends React.Component {
           display: 'flex',
           width: '1075px',
           height: '43.375px',
-          margin: '0 10px 10px 10px',
+          margin: '0 10px 0px 10px',
           color: '#333',
           fontSize: ' 14px',
           fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',

@@ -85,7 +85,7 @@ class RatingsFilter extends React.Component {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          margin: '5px 0 16px 19px',
+          margin: '15px 0 16px 20px',
           position: 'relative',
           cursor: 'default',
         }}
