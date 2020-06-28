@@ -11,18 +11,33 @@ class SolidReviewStars extends React.Component {
     let numberOfBlackStars = score;
 
     while (numberOfBlackStars > 0) {
-      scoreDisplay.push(<div>&#9733;</div>);
+      scoreDisplay.push(
+        <div
+          style={{
+            fontSize: '13px',
+            letterSpacing: '-2px',
+          }}
+        >&#9733;</div>,
+      );
       numberOfGrayStars--;
       numberOfBlackStars--;
     }
 
     while (numberOfGrayStars > 0) {
-      scoreDisplay.push(<div style={{ color: 'gray' }}>&#9733;</div>);
+      scoreDisplay.push(
+        <div
+          style={{
+            color: 'gray',
+            fontSize: '13px',
+            letterSpacing: '-2px',
+          }}
+        >&#9733;</div>,
+      );
       numberOfGrayStars--;
     }
 
     return (
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', margin: '7px 7px 0 0' }}>
         {scoreDisplay}
       </div>
     );
