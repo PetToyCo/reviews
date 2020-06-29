@@ -80,7 +80,7 @@ Server Response:
 
 
 Seeding Database:
-1. From preject's root directory in terminal: npm run testSeed
+1. From project's root directory in terminal: npm run testSeed
 2. If all tests pass, run: npm run seedDb
 3. Note: if you try to reseed databse, you will error out. To reseed, you first have to manually drop the PTCReviewsService database from your MongoDB instance and then repeat step2.
 
