@@ -222,36 +222,36 @@ describe('Reviews Service tests', () => {
       it('normally has a background image property set to "url("/searchMagnifyingGlass.png")"', function() {
         const target = document.getElementById('magnifying-glass');
 
-        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlass.png")');
+        expect(target.style.backgroundImage).to.equal('url("http://127.0.0.1:3001/searchMagnifyingGlass.png")');
       });
 
-      it('changes its background image to "url("/searchMagnifyingGlassHover.png")" when the mouse hovers over it', function() {
+      it('changes its background image to "url("http://127.0.0.1:3001/searchMagnifyingGlassHover.png")" when the mouse hovers over it', function() {
         const target = document.getElementById('magnifying-glass');
 
-        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlass.png")');
+        expect(target.style.backgroundImage).to.equal('url("http://127.0.0.1:3001/searchMagnifyingGlass.png")');
 
         const event = new MouseEvent('mouseover', { bubbles: true });
         target.dispatchEvent(event);
 
-        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlassHover.png")');
+        expect(target.style.backgroundImage).to.equal('url("http://127.0.0.1:3001/searchMagnifyingGlassHover.png")');
       });
 
-      it('changes its background image back to "url("/searchMagnifyingGlass.png")" after a hovering mouse leaves it', function() {
+      it('changes its background image back to "url("http://127.0.0.1:3001/searchMagnifyingGlass.png")" after a hovering mouse leaves it', function() {
         const target = document.getElementById('magnifying-glass');
 
-        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlass.png")');
+        expect(target.style.backgroundImage).to.equal('url("http://127.0.0.1:3001/searchMagnifyingGlass.png")');
 
         let event = new MouseEvent('mouseover', { bubbles: true });
         target.dispatchEvent(event);
 
-        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlassHover.png")');
-        expect(target.style.backgroundImage).to.not.equal('url("/searchMagnifyingGlass.png")');
+        expect(target.style.backgroundImage).to.equal('url("http://127.0.0.1:3001/searchMagnifyingGlassHover.png")');
+        expect(target.style.backgroundImage).to.not.equal('url("http://127.0.0.1:3001/searchMagnifyingGlass.png")');
 
         event = new MouseEvent('mouseout', { bubbles: true });
         target.dispatchEvent(event);
 
-        expect(target.style.backgroundImage).to.equal('url("/searchMagnifyingGlass.png")');
-        expect(target.style.backgroundImage).to.not.equal('url("/searchMagnifyingGlassHover.png")');
+        expect(target.style.backgroundImage).to.equal('url("http://127.0.0.1:3001/searchMagnifyingGlass.png")');
+        expect(target.style.backgroundImage).to.not.equal('url("http://127.0.0.1:3001/searchMagnifyingGlassHover.png")');
       });
     });
   });
