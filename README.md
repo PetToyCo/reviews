@@ -3,10 +3,11 @@ Handles all reviews and review-related visuals for PetToyCo
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/PetToyCo/photo-gallery
+  - https://github.com/PetToyCo/description_directions_attributes_
+  - https://github.com/PetToyCo/mainTitle_price
+  - https://github.com/PetToyCo/repo
+  - https://github.com/PetToyCo/repo
 
 ## Table of Contents
 
@@ -31,6 +32,50 @@ http://127.0.0.1:3001/test/ServerSpecRunner.html
 
 
 To connect this service to a proxy server:
+1. Follow steps 1-3 in the above section titled "From project's root folder"
+2. In your proxy's index.html file, make sure there is this tag:
+<div id="REVIEWS_ATTACH_POINT"></div>
+Without this tag, the Reviews module will not be able to mount itself in the DOM.
+
+3. You will also need the following CDN links posted ABOVE the tag in step 2:
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.5/redux.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.0/react-redux.min.js"></script>
+<script crossorigin src="https://momentjs.com/downloads/moment.min.js"></script>
+
+4. To retrieve the Reviews Module, make a GET request to http://127.0.0.1:3001/app.js
+5. This service also has the following endpoints (where :itemId can be a value from 100-199):
+
+Endpoint: /averageReviews/:itemId 
+Server Response:
+{
+  reviewAverage: “String between 0-5 representing average number of stars for that item”,
+  numberOfReviews: “Integer number representing number of reviews for that item”
+}
+
+Endpoint: /reviews/:itemId 
+Server Response:
+{
+  reviewAverage: “String representing float number between 0-5 representing average number of stars for that item”,
+  numberOfReviews: “Integer number representing number of reviews for that item”,
+  allReviews: [array filled with “individual review object”s],
+}
+
+“Individual review object”: {
+  score: “integer number representing number of star 1 - 5”,
+  date : “ISO-8601 timestamp string”,
+  title: “String representing title of review”
+  review: “String representing review”,
+  username: “user who submitted review”,
+  recommended: “boolean whether or not user recommends others buy this product”,
+  yeses: “Integer representing number of users who found this review helpful”,
+  noes: “Integer representing number of users who found this review unhelpful”,
+  verified: “boolean of whether or not reviewer is a verified user”,
+  promotion: “boolean of whether or not review was collected during a promotion”
+}
+
 
 
 
