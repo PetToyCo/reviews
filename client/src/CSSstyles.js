@@ -89,7 +89,7 @@ const reviewHeaderSearchBar = {
 };
 
 const reviewHeaderSearchBarButton = {
-  backgroundImage: 'url("/searchMagnifyingGlass.png")',
+  backgroundImage: 'url("http://127.0.0.1:3001/searchMagnifyingGlass.png")',
   height: '32px',
   width: '88px',
   border: 'none',

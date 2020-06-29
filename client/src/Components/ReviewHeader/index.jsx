@@ -42,19 +42,19 @@ class ReviewHeader extends React.Component {
 
   changeImageOnMouseOver(e) {
     const { id } = e.target;
-    document.getElementById(id).style.backgroundImage = 'url("/searchMagnifyingGlassHover.png")';
+    document.getElementById(id).style.backgroundImage = 'url("http://127.0.0.1:3001/searchMagnifyingGlassHover.png")';
   }
 
   changeImageOnMouseOut(e) {
     const { id } = e.target;
-    document.getElementById(id).style.backgroundImage = 'url("/searchMagnifyingGlass.png")';
+    document.getElementById(id).style.backgroundImage = 'url("http://127.0.0.1:3001/searchMagnifyingGlass.png")';
   }
 
   smoothScrollReviews(e) {
     e.preventDefault();
 
     document.getElementById('review-link').scrollIntoView({
-      behavior: 'smooth'
+      behavior: 'smooth',
     });
   }
 
