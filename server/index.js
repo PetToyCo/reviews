@@ -6,6 +6,10 @@ const db = require('./db.js');
 const server = express();
 
 server.use(morgan('dev'));
+server.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
+  next();
+});
 server.use(serveStatic('./client/public'));
 server.use('/test', serveStatic('./test'));
 

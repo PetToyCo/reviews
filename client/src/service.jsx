@@ -14,7 +14,36 @@ class ReviewsModule extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/reviews/100')
+    //When working on service, uncomment this axios call and comment-out the axios
+    //call just below. Make sure to switch back just before pushing up to repo.
+    //Just make sure to run webpack again so bundle is correct (In repo's cd, run >npm run build)
+    //start of service as standalone
+    // axios.get('http://127.0.0.1:3001/reviews/100')
+    //   .then((results) => {
+    //     const { reviewAverage, numberOfReviews, allReviews } = results.data;
+
+    //     store.dispatch(updateReviewAverage(reviewAverage));
+    //     store.dispatch(updateNumberOfReviews(numberOfReviews));
+    //     store.dispatch(updateAllReviews(allReviews));
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    //end of service as standaline
+
+    //start of service as proxy service
+    const { search } = window.location;
+    const searchSplit = search.split('&');
+    let splitItemID;
+
+    for (let i = 0; i < searchSplit.length; i++) {
+      if (searchSplit[i].includes('itemID')) {
+        splitItemID = searchSplit[i].split('=');
+        break;
+      }
+    }
+
+    axios.get(`http://127.0.0.1:3001/reviews/${splitItemID[1]}`)
       .then((results) => {
         const { reviewAverage, numberOfReviews, allReviews } = results.data;
 
@@ -25,6 +54,7 @@ class ReviewsModule extends React.Component {
       .catch((err) => {
         console.log(err);
       });
+    //end of service as proxy service
   }
 
   render() {
