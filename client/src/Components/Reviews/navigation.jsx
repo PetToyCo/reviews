@@ -10,12 +10,16 @@ class Navigation extends React.Component {
   handleBackButtonClick(numberOfReviews) {
     const { dispatchUpdateReviewRange } = this.props;
 
+    document.getElementById('back-nav-button').style.boxShadow = null;
+
     dispatchUpdateReviewRange('BACK', null, numberOfReviews);
     document.getElementById('review-link').scrollIntoView({ behavior: 'smooth' });
   }
 
   handleForwardButtonClick(numberOfReviews) {
     const { dispatchUpdateReviewRange } = this.props;
+
+    document.getElementById('forward-nav-button').style.boxShadow = null;
 
     dispatchUpdateReviewRange('FORWARD', null, numberOfReviews);
     document.getElementById('review-link').scrollIntoView({ behavior: 'smooth' });
