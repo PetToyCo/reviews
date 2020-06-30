@@ -5,10 +5,6 @@ import Reviews from './Components/Reviews/index.jsx';
 import updateReviewAverage from './ReduxSpecificComponents/Actions/updateReviewAverage.js';
 import updateNumberOfReviews from './ReduxSpecificComponents/Actions/updateNumberOfReviews.js';
 import updateAllReviews from './ReduxSpecificComponents/Actions/updateAllReviews.js';
-import updateReviewRange from './ReduxSpecificComponents/Actions/updateReviewRange.js';
-import updateFilteredReviews from './ReduxSpecificComponents/Actions/updateFilteredReviews.js';
-
-const { Provider } = ReactRedux;
 
 class ReviewsModule extends React.Component {
   // constructor(props) {
@@ -78,12 +74,5 @@ class ReviewsModule extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <Provider store={store}>
-    <ReviewsModule />
-  </Provider>,
-  document.getElementById('REVIEWS_ATTACH_POINT'),
-);
 
 export default ReviewsModule;
