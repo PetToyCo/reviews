@@ -16,6 +16,7 @@ class ReviewsModule extends React.Component {
   componentDidMount() {
     //When working on service, uncomment this axios call and comment-out the axios
     //call just below. Make sure to switch back just before pushing up to repo.
+    //Just make sure to run webpack again so bundle is correct (In repo's cd, run >npm run build)
     // axios.get('http://127.0.0.1:3001/reviews/100')
     //   .then((results) => {
     //     const { reviewAverage, numberOfReviews, allReviews } = results.data;
@@ -28,18 +29,18 @@ class ReviewsModule extends React.Component {
     //     console.log(err);
     //   });
 
-    const { cookie } = document;
-    const paramsSplit = cookie.split(';');
-    let splitCookie;
+    const { search } = window.location;
+    const searchSplit = search.split('&');
+    let splitItemID;
 
-    for (let i = 0; i < paramsSplit.length; i++) {
-      if (paramsSplit[i].includes('PTCItemID')) {
-        splitCookie = paramsSplit[i].split('=');
+    for (let i = 0; i < searchSplit.length; i++) {
+      if (searchSplit[i].includes('itemID')) {
+        splitItemID = searchSplit[i].split('=');
         break;
       }
     }
 
-    axios.get(`http://127.0.0.1:3001/reviews/${splitCookie[1]}`)
+    axios.get(`http://127.0.0.1:3001/reviews/${splitItemID[1]}`)
       .then((results) => {
         const { reviewAverage, numberOfReviews, allReviews } = results.data;
 
