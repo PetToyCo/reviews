@@ -21,13 +21,20 @@ From project's root folder:
 1. In terminal: npm install
 2. If you need to seed database with fake data, follow the "Seeding Database" instructions below.
 3. Once you have seed data in your MongoDB instance, you can start the server with: npm run server
-4. To see the actual service in action, in a browser, type:
-http://127.0.0.1:3001
+4. To see the actual service in action takes some work. Ideally, this service is meant to work out-of-the-box as a service server for a proxy and so, to see the service as a standalone, you have to do the following
+  a. From project's root directory, open the file located at client/src/service.jsx
+  b. Search for the comment "start of service as standalone"
+  c. Uncomment all the code starting below that comment and ending just before the comment "end of service as standalone"
+  d. Just below the code you just uncommented, there is a comment "start of service as proxy service". Comment out all the code below that comment up until you reach the comment "end of service as proxy service"
+  e. Save file
+  f. In terminal, with cd set to project's root directory, run >npm run build
+  g. in a browser, type: http://127.0.0.1:3001/
 Note: service currently hardcoded to only view item 100.
-5. To run the service's test specs, in a browser, type:
-http://127.0.0.1:3001/test/SpecRunner.html
-6. To test the service's server endpoints, in a browser, type:
+5. To test the service's server endpoints, in a browser, type:
 http://127.0.0.1:3001/test/ServerSpecRunner.html
+6. To run the service's test specs, in a browser, type:
+http://127.0.0.1:3001/test/SpecRunner.html (if the steps in Step 4 above were followed)
+http://127.0.0.1:3001/test/SpecRunner.html?itemID=100 (if the steps in Step 4 above were NOT followed)
 
 
 
@@ -36,8 +43,9 @@ To connect this service to a proxy server:
 2. In your proxy's index.html file, make sure there is this tag:
 <div id="REVIEWS_ATTACH_POINT"></div>
 Without this tag, the Reviews module will not be able to mount itself in the DOM.
+3. The proxy server's valid urls must include the search param ?itemID="value 100 to 199 without the quotes."
 
-3. You will also need the following CDN links posted ABOVE the tag in step 2:
+4. You will also need the following CDN links posted ABOVE the tag in step 2:
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
@@ -45,8 +53,8 @@ Without this tag, the Reviews module will not be able to mount itself in the DOM
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.0/react-redux.min.js"></script>
 <script crossorigin src="https://momentjs.com/downloads/moment.min.js"></script>
 
-4. To retrieve the Reviews Module, make a GET request to http://127.0.0.1:3001/app.js
-5. This service also has the following endpoints (where :itemId can be a value from 100-199):
+5. To retrieve the Reviews Module, make a GET request to http://127.0.0.1:3001/app.js
+6. This service also has the following endpoints (where :itemId can be a value from 100-199):
 
 Endpoint: /averageReviews/:itemId 
 Server Response:
