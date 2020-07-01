@@ -16,7 +16,7 @@ class ReviewsContainer extends React.Component {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div id='individual-reviews-container' style={{ display: 'flex', flexDirection: 'column' }}>
         {reviews}
       </div>
     );

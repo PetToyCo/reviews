@@ -138,6 +138,7 @@ class IndividualReview extends React.Component {
 
     return (
       <div
+        className='individual-review'
         style={{
           display: 'flex',
           margin: '20px 0 11px 20px',

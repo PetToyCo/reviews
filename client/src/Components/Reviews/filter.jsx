@@ -137,7 +137,7 @@ class Filter extends React.Component {
     }
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div id='filter-header' style={{ display: 'flex', flexDirection: 'column' }}>
         <div style={{
           display: 'flex',
           width: '1075px',

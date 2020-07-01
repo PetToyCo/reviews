@@ -37,7 +37,7 @@ class SolidReviewStars extends React.Component {
     }
 
     return (
-      <div style={{ display: 'flex', margin: '7px 7px 0 0' }}>
+      <div className='solid-stars' style={{ display: 'flex', margin: '7px 7px 0 0' }}>
         {scoreDisplay}
       </div>
     );

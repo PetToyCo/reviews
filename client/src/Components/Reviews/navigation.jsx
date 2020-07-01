@@ -124,6 +124,7 @@ class Navigation extends React.Component {
 
     return (
       <div
+        id='review-navigation-bar'
         style={{
           display: 'flex',
           margin: '8px 0 0 10px',

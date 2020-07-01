@@ -109,6 +109,7 @@ class NonNumberFilterSettings extends React.Component {
 
     return (
       <div
+        id='non-number-filter-menu'
         style={{
           display: 'flex',
           flexDirection: 'column',

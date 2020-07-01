@@ -247,6 +247,7 @@ class Helpful extends React.Component {
 
     return (
       <div
+        className='helpful-trackers'
         style={{
           display: 'flex',
           margin: '24px 9px 0 1px',

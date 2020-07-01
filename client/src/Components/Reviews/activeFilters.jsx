@@ -140,6 +140,7 @@ class ActiveFilters extends React.Component {
 
     return (
       <div
+        id='active-filters-bar'
         style={{
           display: 'flex',
           flexDirection: 'column',

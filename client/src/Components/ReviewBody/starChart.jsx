@@ -7,7 +7,7 @@ class StarChart extends React.Component {
 
   render() {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div id='star-chart' style={{ display: 'flex', flexDirection: 'column' }}>
         <div>Rating Snapshot</div>
         <div>Select a row below to filter reviews.</div>
         <StarChartRow />

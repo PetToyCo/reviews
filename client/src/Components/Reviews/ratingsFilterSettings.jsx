@@ -175,6 +175,7 @@ class RatingsFilterSettings extends React.Component {
 
     return (
       <div
+        id='score-ratings-filter-menu'
         style={{
           display: 'flex',
           flexDirection: 'column',

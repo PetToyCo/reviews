@@ -5,7 +5,7 @@ class StarChartRow extends React.Component {
 
   render() {
     return (
-      <div>Star Chart Row tbd</div>
+      <div className='star-chart-row'>Star Chart Row tbd</div>
     );
   }
 }

@@ -82,6 +82,7 @@ class RatingsFilter extends React.Component {
 
     return (
       <div
+        id='score-ratings-filter'
         style={{
           display: 'flex',
           flexDirection: 'column',
