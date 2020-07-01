@@ -6,6 +6,8 @@ import updateReviewAverage from './ReduxSpecificComponents/Actions/updateReviewA
 import updateNumberOfReviews from './ReduxSpecificComponents/Actions/updateNumberOfReviews.js';
 import updateAllReviews from './ReduxSpecificComponents/Actions/updateAllReviews.js';
 
+const { connect } = ReactRedux;
+
 class ReviewsModule extends React.Component {
   // constructor(props) {
   //   super();
@@ -75,4 +77,14 @@ class ReviewsModule extends React.Component {
   }
 }
 
-export default ReviewsModule;
+const mapDispatch = function(dispatch) {
+  return {
+    dispatchUpdateReviewAverage: (reviewAverage) => { dispatch(updateReviewAverage(reviewAverage)); },
+    dispatchUpdateNumberOfReviews: (numberOfReviews) => { dispatch(updateNumberOfReviews(numberOfReviews)); },
+    dispatchupdateAllReviews: (allReviews) => { dispatch(updateAllReviews(allReviews)); },
+  };
+};
+
+const wrappedReviewsModule = connect(null, mapDispatch)(ReviewsModule);
+
+export default wrappedReviewsModule;

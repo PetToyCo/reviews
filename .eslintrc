@@ -36,5 +36,6 @@
     "react/jsx-closing-tag-location": 0,
     "jsx-a11y/alt-text": 0,
     "prefer-object-spread": 0,
+    "react/jsx-filename-extension": 0,
   }
 }

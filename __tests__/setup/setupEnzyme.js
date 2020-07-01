@@ -10,6 +10,8 @@ const Redux = require('redux');
 
 Enzyme.configure({ adapter: new Adapter() });
 
+// React.useLayoutEffect = React.useEffect;
+
 global.React = React;
 global.moment = moment;
 global.ReactRedux = ReactRedux;
