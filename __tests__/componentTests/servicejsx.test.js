@@ -159,7 +159,7 @@ describe('The Reviews Module', () => {
         targetComponent = renderedComponent.find('#filter-header-review-range');
 
         expect(targetComponent.text()).toBe('1-8 of 19 Reviews');
-
+        allReviews[0].disabled = false;
         wrapper.unmount();
       });
     });
