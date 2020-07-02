@@ -1,39 +1,399 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import nock from 'nock';
-import configureStore from 'redux-mock-store';
-import ReviewsModule from '../../client/src/service.jsx';
+import { mount } from 'enzyme';
+import generalData from '../../setup/generalData.js';
+import store from '../../../client/src/ReduxSpecificComponents/store.js';
+import Helpful from '../../../client/src/Components/Reviews/helpful.jsx';
+import updateFilteredReviews from '../../../client/src/ReduxSpecificComponnts/Actions/updateFilteredReviews.js';
 
-const itemID100Response = nock('http://127.0.0.1:3000/')
-  .get('/reviews/100')
-  .reply(200, {
-    text: '{"reviewAverage":"3.5","numberOfReviews":19,"allReviews":[{"score":2,"date":"2020-05-16T22:07:57.603Z","title":"Lorem ipsum dolor sit amet","review":"Suspendisse ultricies ac ligula et molestie. Quisque nisi ante, maximus in mattis sed, finibus id magna. Pellentesque quis finibus ex, non congue augue.","username":"Binx","recommended":false,"yeses":0,"noes":0,"verified":true,"promotion":true},{"score":5,"date":"2020-05-06T22:07:57.603Z","title":"Lorem ipsum dolor sit amet","review":"Morbi commodo justo tortor, malesuada imperdiet justo condimentum eget. Nam fringilla orci dui, non semper nisl venenatis eget. Phasellus nec.","username":"ChonkyCat","recommended":true,"yeses":5,"noes":1,"verified":true,"promotion":false},{"score":4,"date":"2020-05-05T22:07:57.603Z","title":"Ut a lectus non nibh ornare facilisis","review":"Fusce quis erat ornare, tincidunt odio eget, tempor velit. Donec placerat vestibulum diam. Maecenas molestie congue mauris.","username":"ElGatoSupreme","recommended":true,"yeses":0,"noes":0,"verified":false,"promotion":true},{"score":3,"date":"2020-03-24T22:07:57.603Z","title":"Praesent finibus leo nec nisl auctor luctus","review":"Ut gravida ultrices cursus. Suspendisse potenti. Aenean in mi euismod, tempor ligula vel, ornare nisl. Pellentesque id fringilla urna.","username":"Mary","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":false},{"score":5,"date":"2020-03-15T22:07:57.603Z","title":"massa vulputate bibendum auctor","review":"Suspendisse bibendum lectus sit amet ante auctor consequat. Sed malesuada urna erat, tempus sollicitudin augue porttitor sit amet. Duis viverra.","username":"CatButt","recommended":true,"yeses":0,"noes":0,"verified":false,"promotion":true},{"score":1,"date":"2020-02-14T22:07:57.603Z","title":"Lorem ipsum dolor sit amet","review":"Donec eget ligula id mi tempor viverra nec quis felis. Proin in facilisis justo.","username":"Allison","recommended":false,"yeses":2,"noes":1,"verified":true,"promotion":true},{"score":4,"date":"2020-02-06T22:07:57.603Z","title":"Lorem ipsum dolor sit amet","review":"Praesent justo ante, porta at dui eget, placerat scelerisque ex. In hac habitasse platea dictumst. Maecenas at libero ut dolor.","username":"Winifred","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":true},{"score":4,"date":"2020-01-21T21:07:57.603Z","title":"consectetur adipiscing elit","review":"Nullam accumsan metus justo, non semper quam iaculis vel. Proin in eros lacus. Integer at velit.","username":"CVCat","recommended":true,"yeses":2,"noes":0,"verified":true,"promotion":false},{"score":5,"date":"2020-01-06T22:07:57.603Z","title":"Lorem ipsum dolor sit amet","review":"Nunc ex massa, porttitor pulvinar pharetra sit amet, consequat quis lorem. Vestibulum efficitur.","username":"catdude","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":false},{"score":5,"date":"2019-12-06T22:07:57.603Z","title":"Ut vestibulum","review":"Aenean semper nunc ac consectetur vestibulum. Morbi et quam placerat, tincidunt lectus in, aliquam sapien. Fusce ultrices nibh in sapien imperdiet, nec semper urna consectetur. Proin accumsan nec mauris ac vehicula. In hac habitasse platea.","username":"NotACatLady","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":false},{"score":1,"date":"2019-07-06T22:07:57.603Z","title":"Nunc vel elit quis sapien porta malesuada","review":"Ut tellus justo, aliquam at libero quis.","username":"Dani","recommended":false,"yeses":0,"noes":0,"verified":true,"promotion":false},{"score":3,"date":"2019-07-06T22:07:57.603Z","title":"Donec in congue diam","review":"Suspendisse mollis in felis non blandit. Proin pellentesque dui sed turpis pharetra, a pretium odio fermentum. In hac habitasse platea dictumst. Etiam cursus augue ut.","username":"Emily","recommended":false,"yeses":0,"noes":0,"verified":false,"promotion":false},{"score":5,"date":"2019-05-06T22:07:57.603Z","title":"consectetur adipiscing elit","review":"Mauris eget libero ex. Nulla facilisis luctus maximus. Proin eget euismod orci. Cras finibus, magna.","username":"TummyScratcher","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":false},{"score":5,"date":"2019-01-30T22:07:57.603Z","title":"eget","review":"Suspendisse arcu dolor, hendrerit ultrices lacus et, vulputate finibus nulla. Cras enim augue, molestie vitae arcu fermentum, commodo egestas nunc. Curabitur massa tellus, iaculis in turpis nec, rutrum scelerisque turpis. Donec mattis, lorem.","username":"PikaPika","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":true},{"score":1,"date":"2018-11-01T22:07:57.603Z","title":"Cras in felis semper","review":"Etiam a est sit amet libero aliquam tristique id at libero. Sed id condimentum risus, nec sollicitudin mauris. Duis.","username":"Max","recommended":false,"yeses":1,"noes":0,"verified":true,"promotion":false},{"score":3,"date":"2018-09-06T22:07:57.603Z","title":"consectetur adipiscing elit","review":"Mauris sit amet risus purus. Aenean sem ex, aliquam non velit a, varius lobortis neque. Donec tincidunt sit amet mauris eget suscipit. Sed eget lectus leo. Praesent condimentum metus lacus, et tincidunt ipsum fringilla eu.","username":"Sarah","recommended":true,"yeses":0,"noes":1,"verified":true,"promotion":false},{"score":5,"date":"2018-07-06T22:07:57.603Z","title":"felis odio accumsan ex","review":"Suspendisse bibendum lectus sit amet ante auctor consequat. Sed malesuada urna erat, tempus sollicitudin augue porttitor sit amet. Duis viverra.","username":"Froggy","recommended":true,"yeses":1,"noes":1,"verified":true,"promotion":true},{"score":2,"date":"2018-05-06T22:07:57.603Z","title":"consectetur adipiscing elit","review":"Vestibulum dapibus maximus tellus, ac imperdiet diam bibendum nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacus neque, sollicitudin at mauris a, aliquam laoreet enim. Duis turpis urna, auctor at facilisis eleifend, euismod nec odio. Mauris blandit est sed augue lacinia, nec ultricies.","username":"Billy","recommended":false,"yeses":0,"noes":0,"verified":false,"promotion":true},{"score":4,"date":"2018-04-06T22:07:57.603Z","title":"Curabitur ultrices tempus lorem","review":"Quisque dapibus, urna ac varius mattis, nisi nunc venenatis urna, a.","username":"Bob","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":false}]}',
-  })
+const { Provider } = ReactRedux;
 
-describe('The Reviews Module', () => {
-  test('renders all its subcomponents', () => {
-    const wrapper = shallow(<ReviewsModule />);
-    const headerComponent = wrapper.find('#review-header-component');
-    const bodyComponent = wrapper.find('#review-body-component');
-    const reviewsComponent = wrapper.find('#review-reviews-component');
+const { allReviews } = generalData;
 
-    expect(headerComponent).not.toBe(null);
-    expect(bodyComponent).not.toBe(null);
-    expect(reviewsComponent).not.toBe(null);
+beforeEach(() => {
+  store.dispatch(updateFilteredReviews(allReviews));
+});
+
+describe('The Helpful component', () => {
+  describe('has, when indexInCurrentFilteredReviews - 1, has a <div> tag with id "yes-tracker-0"', () => {
+    it('should not be there initially', () => {
+      const wrapper = mount(<Provider store={store}><Helpful /></Provider>, { attachTo: document.body });
+
+      let renderedComponent = wrapper.render();
+      let targetComponent = renderedComponent.find('#yes-tracker-0');
+
+      expect(targetComponent).toHaveLength(0);
+
+      wrapper.setProps({
+        yeses: 0,
+        noes: 5,
+        disabled: false,
+        indexInCurrentFilteredReviews: 0,
+      });
+
+      // wrapper.instance().forceUpdate();
+
+      renderedComponent = wrapper.render();
+      targetComponent = renderedComponent.find('#yes-tracker-0');
+
+      expect(targetComponent).toHaveLength(1);
+
+      wrapper.unmount();
+    });
   });
 
-  test('correctly updates the store with new state data after components compnentDidMount axios call completes', () => {
-    // reviewAverage, numberOfReviews, and allReviews
-    const wrapper = shallow(<ReviewsModule />);
-    const headerComponent = wrapper.find('#review-header-component');
-    const bodyComponent = wrapper.find('#review-body-component');
-    const reviewsComponent = wrapper.find('#review-reviews-component');
-    const expectedtofail = wrapper.find('#retestent');
+  // describe('has a subcomponent ActiveFilters that', () => {
+  //   it('should not be there initially', () => {
+  //     const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
 
-    expect(true).toBe(false);
-    expect(headerComponent).not.toBe(null);
-    expect(bodyComponent).not.toBe(null);
-    expect(reviewsComponent).not.toBe(null);
-    expect(expectedtofail).not.toBe(null);
-  });
+  //     const renderedComponent = wrapper.render();
+  //     const targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(0);
+
+  //     wrapper.unmount();
+  //   });
+
+  //   it('should be there if any number key in the store\'s filter state variable is set to true', () => {
+  //     const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+  //     let renderedComponent = wrapper.render();
+  //     let targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(0);
+
+  //     store.dispatch(updateFilter('4', 'ADD'));
+  //     wrapper.update();
+
+  //     renderedComponent = wrapper.render();
+  //     targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(1);
+
+  //     wrapper.unmount();
+  //   });
+
+  //   it('should disappear when a store\'s filter number state variable set to true, is then set to false', () => {
+  //     const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+  //     let renderedComponent = wrapper.render();
+  //     let targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(0);
+
+  //     store.dispatch(updateFilter('4', 'ADD'));
+  //     wrapper.update();
+
+  //     renderedComponent = wrapper.render();
+  //     targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(1);
+
+  //     store.dispatch(updateFilter('4', 'CANCEL'));
+  //     wrapper.update();
+
+  //     renderedComponent = wrapper.render();
+  //     targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(0);
+
+  //     wrapper.unmount();
+  //   });
+
+  //   it('should disappear when a store\'s filter number state variable set to true, is then set to false', () => {
+  //     const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+  //     let renderedComponent = wrapper.render();
+  //     let targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(0);
+
+  //     store.dispatch(updateFilter('4', 'ADD'));
+  //     wrapper.update();
+
+  //     renderedComponent = wrapper.render();
+  //     targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(1);
+
+  //     store.dispatch(updateFilter('4', 'CANCEL'));
+  //     wrapper.update();
+
+  //     renderedComponent = wrapper.render();
+  //     targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(0);
+
+  //     wrapper.unmount();
+  //   });
+
+  //   it('should disappear when multiple number state variables are set to true, and the "Clear All" button is clicked', () => {
+  //     const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+  //     let renderedComponent = wrapper.render();
+  //     let targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(0);
+
+  //     store.dispatch(updateFilter('4', 'ADD'));
+  //     store.dispatch(updateFilter('3', 'ADD'));
+  //     wrapper.update();
+
+  //     renderedComponent = wrapper.render();
+  //     targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(1);
+
+  //     store.dispatch(updateFilter('4', 'CANCEL'));
+  //     wrapper.update();
+
+  //     renderedComponent = wrapper.render();
+  //     targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(1);
+
+  //     store.dispatch(updateFilter('4', 'ADD'));
+
+  //     wrapper.update();
+  //     wrapper.find('#clear-all-number-filters').simulate('click');
+
+  //     wrapper.update();
+
+  //     renderedComponent = wrapper.render();
+  //     targetComponent = renderedComponent.find('#active-filters-bar');
+
+  //     expect(targetComponent).toHaveLength(0);
+
+  //     wrapper.unmount();
+  //   });
+  // });
+
+  // describe('has a NonNumberFilterSettings component that', () => {
+  //   describe('when the option "Highest To Lowest Rating" is selected, causes', () => {
+  //     test('"dotted-target" to now read "Highest to Lowest Rating"', () => {
+  //       const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+  //       let renderedComponent = wrapper.render();
+  //       let targetComponent = renderedComponent.find('#dotted-target');
+
+  //       expect(targetComponent.text()).toBe('Most Recent');
+
+  //       store.dispatch(updateFilter('HighToLow'));
+  //       wrapper.update();
+
+  //       renderedComponent = wrapper.render();
+  //       targetComponent = renderedComponent.find('#dotted-target');
+
+  //       expect(targetComponent.text()).toBe('Highest To Lowest Rating');
+
+  //       wrapper.unmount();
+  //     });
+
+  //     test('ReviewsContainer to now contain "catdude"', () => {
+  //       const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+  //       store.dispatch(updateReviewAverage(reviewAverage));
+  //       store.dispatch(updateNumberOfReviews(numberOfReviews));
+  //       store.dispatch(updateAllReviews(allReviews));
+
+  //       wrapper.update();
+
+  //       let renderedComponent = wrapper.render();
+  //       let targetComponent = renderedComponent.find('#individual-reviews-container');
+
+  //       let text = targetComponent.text();
+
+  //       expect(text).toContain('Binx');
+  //       expect(text).toEqual(expect.not.stringContaining('catdude'));
+
+  //       store.dispatch(updateFilter('HighToLow'));
+  //       wrapper.update();
+
+  //       renderedComponent = wrapper.render();
+  //       targetComponent = renderedComponent.find('#individual-reviews-container');
+
+  //       text = targetComponent.text();
+
+  //       expect(text).toEqual(expect.not.stringContaining('Binx'));
+  //       expect(text).toContain('catdude');
+
+  //       wrapper.unmount();
+  //     });
+  //   });
+
+  //   describe('has a subcomponent RatingsFilter that', () => {
+  //     it('should not be there initially', () => {
+  //       const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+  //       const renderedComponent = wrapper.render();
+  //       const targetComponent = renderedComponent.find('#score-ratings-filter');
+
+  //       expect(targetComponent).toHaveLength(0);
+
+  //       wrapper.unmount();
+  //     });
+
+  //     it('should be there after "btn-number-filter-expansion" is clicked', () => {
+  //       const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+  //       let renderedComponent = wrapper.render();
+  //       let targetComponent = renderedComponent.find('#score-ratings-filter');
+
+  //       expect(targetComponent).toHaveLength(0);
+
+  //       wrapper.find('#btn-number-filter-expansion').simulate('click');
+  //       wrapper.update();
+
+  //       renderedComponent = wrapper.render();
+  //       targetComponent = renderedComponent.find('#score-ratings-filter');
+
+  //       expect(targetComponent).toHaveLength(1);
+
+  //       wrapper.unmount();
+  //     });
+
+  //     test('causes ReviewsContainer to now contain "Dani" after filter by one is selected', () => {
+  //       const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+  //       store.dispatch(updateReviewAverage(reviewAverage));
+  //       store.dispatch(updateNumberOfReviews(numberOfReviews));
+  //       store.dispatch(updateAllReviews(allReviews));
+
+  //       wrapper.update();
+
+  //       let renderedComponent = wrapper.render();
+  //       let targetComponent = renderedComponent.find('#individual-reviews-container');
+
+  //       let text = targetComponent.text();
+
+  //       expect(text).toContain('Binx');
+  //       expect(text).toContain('Allison');
+  //       expect(text).toEqual(expect.not.stringContaining('Dani'));
+
+  //       store.dispatch(updateFilter('1', 'ADD'));
+  //       wrapper.update();
+
+  //       renderedComponent = wrapper.render();
+  //       targetComponent = renderedComponent.find('#individual-reviews-container');
+
+  //       text = targetComponent.text();
+
+  //       expect(text).toEqual(expect.not.stringContaining('Binx'));
+  //       expect(text).toContain('Allison');
+  //       expect(text).toContain('Dani');
+
+  //       wrapper.unmount();
+  //     });
+
+  //     it('has an annoyingly large amount of functionality', (done) => {
+  //       const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+  //       store.dispatch(updateShowRatingFilter(true));
+
+  //       let renderedComponent = wrapper.render();
+  //       let targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //       expect(targetComponent).toHaveLength(0);
+
+  //       wrapper.update();
+  //       wrapper.find('#score-ratings-filter-trigger').simulate('mouseover');
+
+  //       renderedComponent = wrapper.render();
+  //       targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //       expect(targetComponent).toHaveLength(0);
+
+  //       setTimeout(() => {
+  //         wrapper.update();
+
+  //         renderedComponent = wrapper.render();
+  //         targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //         expect(targetComponent).toHaveLength(1);
+
+  //         wrapper.update();
+  //         wrapper.find('#score-ratings-filter-trigger').simulate('mouseout');
+
+  //         renderedComponent = wrapper.render();
+  //         targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //         expect(targetComponent).toHaveLength(1);
+
+  //         setTimeout(() => {
+  //           wrapper.update();
+
+  //           renderedComponent = wrapper.render();
+  //           targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //           expect(targetComponent).toHaveLength(0);
+
+  //           store.dispatch(updateShowRatingFilterDropDown(true));
+
+  //           wrapper.update();
+
+  //           renderedComponent = wrapper.render();
+  //           targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //           expect(targetComponent).toHaveLength(1);
+
+  //           wrapper.find('#score-ratings-filter-trigger').simulate('mouseout');
+  //           wrapper.find('#score-ratings-filter-trigger').simulate('mouseover');
+
+  //           setTimeout(() => {
+  //             wrapper.update();
+
+  //             renderedComponent = wrapper.render();
+  //             targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //             expect(targetComponent).toHaveLength(1);
+
+  //             wrapper.find('#score-ratings-filter-trigger').simulate('mouseout');
+  //             wrapper.find('#score-ratings-filter-menu').simulate('mouseover');
+
+  //             setTimeout(() => {
+  //               wrapper.update();
+
+  //               renderedComponent = wrapper.render();
+  //               targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //               expect(targetComponent).toHaveLength(1);
+
+  //               wrapper.find('#score-ratings-filter-menu').simulate('mouseout');
+  //               wrapper.find('#score-ratings-filter-menu').simulate('mouseover');
+
+  //               setTimeout(() => {
+  //                 wrapper.update();
+
+  //                 renderedComponent = wrapper.render();
+  //                 targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //                 expect(targetComponent).toHaveLength(1);
+
+  //                 wrapper.find('#score-ratings-filter-menu').simulate('mouseout');
+
+  //                 wrapper.update();
+
+  //                 renderedComponent = wrapper.render();
+  //                 targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //                 expect(targetComponent).toHaveLength(1);
+
+  //                 setTimeout(() => {
+  //                   wrapper.update();
+
+  //                   renderedComponent = wrapper.render();
+  //                   targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+  //                   expect(targetComponent).toHaveLength(0);
+
+  //                   wrapper.unmount();
+  //                   done();
+  //                 }, 310);
+  //               }, 310);
+  //             }, 260);
+  //           }, 260);
+  //         }, 260);
+  //       }, 160);
+  //     });
+  //   });
+  // });
 });

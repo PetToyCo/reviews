@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1593711203809" clover="3.2.0">
-  <project timestamp="1593711203809" name="All files">
-    <metrics statements="627" coveredstatements="467" conditionals="230" coveredconditionals="150" methods="150" coveredmethods="119" elements="1007" coveredelements="736" complexity="0" loc="627" ncloc="627" packages="9" files="51" classes="51"/>
+<coverage generated="1593719535665" clover="3.2.0">
+  <project timestamp="1593719535665" name="All files">
+    <metrics statements="627" coveredstatements="498" conditionals="230" coveredconditionals="158" methods="150" coveredmethods="122" elements="1007" coveredelements="778" complexity="0" loc="627" ncloc="627" packages="9" files="51" classes="51"/>
     <package name="__tests__.setup">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="generalData.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/__tests__/setup/generalData.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="5" type="stmt"/>
+        <line num="1" count="6" type="stmt"/>
       </file>
       <file name="storeStartingState.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/__tests__/setup/storeStartingState.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="5" type="stmt"/>
+        <line num="1" count="6" type="stmt"/>
       </file>
     </package>
     <package name="client.src">
@@ -32,17 +32,17 @@
       <file name="service.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/service.jsx">
         <metrics statements="17" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="8"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="27" count="3" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="76" count="5" type="stmt"/>
+        <line num="76" count="6" type="stmt"/>
         <line num="87" count="1" type="stmt"/>
-        <line num="88" count="5" type="stmt"/>
+        <line num="88" count="6" type="stmt"/>
         <line num="89" count="1" type="stmt"/>
         <line num="90" count="1" type="stmt"/>
         <line num="91" count="1" type="stmt"/>
@@ -55,61 +55,61 @@
       <file name="dynamicReviewStars.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/General/dynamicReviewStars.jsx">
         <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="3" count="3" type="stmt"/>
-        <line num="12" count="45" type="stmt"/>
-        <line num="13" count="45" type="stmt"/>
-        <line num="15" count="45" type="stmt"/>
-        <line num="16" count="45" type="stmt"/>
-        <line num="17" count="45" type="stmt"/>
-        <line num="19" count="45" type="stmt"/>
-        <line num="23" count="45" type="stmt"/>
-        <line num="25" count="45" type="stmt"/>
+        <line num="12" count="53" type="stmt"/>
+        <line num="13" count="53" type="stmt"/>
+        <line num="15" count="53" type="stmt"/>
+        <line num="16" count="53" type="stmt"/>
+        <line num="17" count="53" type="stmt"/>
+        <line num="19" count="53" type="stmt"/>
+        <line num="23" count="53" type="stmt"/>
+        <line num="25" count="53" type="stmt"/>
         <line num="34" count="3" type="stmt"/>
-        <line num="35" count="129" type="stmt"/>
-        <line num="37" count="129" type="stmt"/>
+        <line num="35" count="175" type="stmt"/>
+        <line num="37" count="175" type="stmt"/>
         <line num="42" count="3" type="stmt"/>
       </file>
       <file name="solidReviewStars.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/General/solidReviewStars.jsx">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="7" count="225" type="stmt"/>
-        <line num="8" count="225" type="stmt"/>
-        <line num="10" count="225" type="stmt"/>
-        <line num="11" count="225" type="stmt"/>
-        <line num="13" count="225" type="stmt"/>
-        <line num="14" count="758" type="stmt"/>
-        <line num="22" count="758" type="stmt"/>
-        <line num="23" count="758" type="stmt"/>
-        <line num="26" count="225" type="stmt"/>
-        <line num="27" count="367" type="stmt"/>
-        <line num="36" count="367" type="stmt"/>
-        <line num="39" count="225" type="stmt"/>
+        <line num="7" count="393" type="stmt"/>
+        <line num="8" count="393" type="stmt"/>
+        <line num="10" count="393" type="stmt"/>
+        <line num="11" count="393" type="stmt"/>
+        <line num="13" count="393" type="stmt"/>
+        <line num="14" count="1340" type="stmt"/>
+        <line num="22" count="1340" type="stmt"/>
+        <line num="23" count="1340" type="stmt"/>
+        <line num="26" count="393" type="stmt"/>
+        <line num="27" count="625" type="stmt"/>
+        <line num="36" count="625" type="stmt"/>
+        <line num="39" count="393" type="stmt"/>
       </file>
     </package>
     <package name="client.src.Components.ReviewBody">
       <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10"/>
       <file name="averageCustomerRatings.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/ReviewBody/averageCustomerRatings.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="5" count="5" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
       </file>
       <file name="highlightedReviews.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/ReviewBody/highlightedReviews.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="5" count="5" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
       </file>
       <file name="index.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/ReviewBody/index.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="7" count="5" type="stmt"/>
-        <line num="11" count="5" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
       </file>
       <file name="starChart.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/ReviewBody/starChart.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="5" count="5" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
       </file>
       <file name="starChartRow.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/ReviewBody/starChartRow.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="3" count="25" type="stmt"/>
-        <line num="7" count="25" type="stmt"/>
+        <line num="3" count="30" type="stmt"/>
+        <line num="7" count="30" type="stmt"/>
       </file>
     </package>
     <package name="client.src.Components.ReviewHeader">
@@ -117,12 +117,12 @@
       <file name="index.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/ReviewHeader/index.jsx">
         <metrics statements="25" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="7"/>
         <line num="15" count="2" type="stmt"/>
-        <line num="24" count="40" type="stmt"/>
-        <line num="25" count="40" type="stmt"/>
-        <line num="26" count="40" type="stmt"/>
-        <line num="27" count="40" type="stmt"/>
-        <line num="28" count="40" type="stmt"/>
-        <line num="30" count="40" type="stmt"/>
+        <line num="24" count="47" type="stmt"/>
+        <line num="25" count="47" type="stmt"/>
+        <line num="26" count="47" type="stmt"/>
+        <line num="27" count="47" type="stmt"/>
+        <line num="28" count="47" type="stmt"/>
+        <line num="30" count="47" type="stmt"/>
         <line num="34" count="8" type="stmt"/>
         <line num="35" count="8" type="stmt"/>
         <line num="39" count="4" type="stmt"/>
@@ -135,49 +135,49 @@
         <line num="56" count="0" type="stmt"/>
         <line num="62" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
-        <line num="68" count="40" type="stmt"/>
-        <line num="69" count="40" type="stmt"/>
+        <line num="68" count="47" type="stmt"/>
+        <line num="69" count="47" type="stmt"/>
         <line num="150" count="2" type="stmt"/>
-        <line num="151" count="74" type="stmt"/>
-        <line num="153" count="74" type="stmt"/>
+        <line num="151" count="97" type="stmt"/>
+        <line num="153" count="97" type="stmt"/>
         <line num="159" count="2" type="stmt"/>
       </file>
     </package>
     <package name="client.src.Components.Reviews">
-      <metrics statements="422" coveredstatements="267" conditionals="168" coveredconditionals="90" methods="92" coveredmethods="64"/>
+      <metrics statements="422" coveredstatements="298" conditionals="168" coveredconditionals="98" methods="92" coveredmethods="67"/>
       <file name="activeFilters.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/activeFilters.jsx">
         <metrics statements="25" coveredstatements="23" conditionals="8" coveredconditionals="8" methods="7" coveredmethods="6"/>
-        <line num="3" count="3" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="26" count="44" type="stmt"/>
-        <line num="27" count="44" type="stmt"/>
-        <line num="29" count="44" type="stmt"/>
-        <line num="30" count="220" type="stmt"/>
-        <line num="31" count="220" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="58" type="stmt"/>
+        <line num="27" count="58" type="stmt"/>
+        <line num="29" count="58" type="stmt"/>
+        <line num="30" count="290" type="stmt"/>
+        <line num="31" count="290" type="cond" truecount="2" falsecount="0"/>
         <line num="32" count="10" type="stmt"/>
-        <line num="36" count="44" type="stmt"/>
-        <line num="38" count="44" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="58" type="stmt"/>
+        <line num="38" count="58" type="cond" truecount="2" falsecount="0"/>
         <line num="39" count="8" type="stmt"/>
         <line num="40" count="10" type="stmt"/>
         <line num="89" count="8" type="stmt"/>
-        <line num="139" count="36" type="stmt"/>
+        <line num="139" count="50" type="stmt"/>
         <line num="142" count="8" type="stmt"/>
-        <line num="177" count="3" type="stmt"/>
-        <line num="178" count="341" type="stmt"/>
-        <line num="179" count="341" type="stmt"/>
-        <line num="184" count="3" type="stmt"/>
-        <line num="185" count="31" type="stmt"/>
+        <line num="177" count="4" type="stmt"/>
+        <line num="178" count="437" type="stmt"/>
+        <line num="179" count="437" type="stmt"/>
+        <line num="184" count="4" type="stmt"/>
+        <line num="185" count="45" type="stmt"/>
         <line num="186" count="1" type="stmt"/>
-        <line num="190" count="3" type="stmt"/>
+        <line num="190" count="4" type="stmt"/>
       </file>
       <file name="calculateFilteredReviews.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/calculateFilteredReviews.jsx">
         <metrics statements="96" coveredstatements="47" conditionals="50" coveredconditionals="21" methods="11" coveredmethods="9"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="8" count="63" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="55" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="8" count="93" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="85" type="stmt"/>
         <line num="12" count="8" type="stmt"/>
         <line num="14" count="8" type="stmt"/>
         <line num="15" count="19" type="cond" truecount="2" falsecount="0"/>
@@ -241,41 +241,41 @@
         <line num="218" count="0" type="stmt"/>
         <line num="219" count="0" type="stmt"/>
         <line num="223" count="2" type="stmt"/>
-        <line num="232" count="65" type="stmt"/>
-        <line num="234" count="65" type="stmt"/>
-        <line num="236" count="65" type="stmt"/>
-        <line num="237" count="325" type="cond" truecount="2" falsecount="0"/>
+        <line num="232" count="95" type="stmt"/>
+        <line num="234" count="95" type="stmt"/>
+        <line num="236" count="95" type="stmt"/>
+        <line num="237" count="475" type="cond" truecount="2" falsecount="0"/>
         <line num="238" count="10" type="stmt"/>
-        <line num="242" count="65" type="cond" truecount="2" falsecount="0"/>
-        <line num="243" count="57" type="stmt"/>
-        <line num="248" count="65" type="cond" truecount="2" falsecount="0"/>
-        <line num="249" count="63" type="stmt"/>
-        <line num="252" count="65" type="cond" truecount="1" falsecount="1"/>
+        <line num="242" count="95" type="cond" truecount="2" falsecount="0"/>
+        <line num="243" count="87" type="stmt"/>
+        <line num="248" count="95" type="cond" truecount="2" falsecount="0"/>
+        <line num="249" count="93" type="stmt"/>
+        <line num="252" count="95" type="cond" truecount="1" falsecount="1"/>
         <line num="253" count="0" type="stmt"/>
-        <line num="256" count="65" type="cond" truecount="2" falsecount="0"/>
+        <line num="256" count="95" type="cond" truecount="2" falsecount="0"/>
         <line num="257" count="2" type="stmt"/>
-        <line num="260" count="65" type="cond" truecount="1" falsecount="1"/>
+        <line num="260" count="95" type="cond" truecount="1" falsecount="1"/>
         <line num="261" count="0" type="stmt"/>
-        <line num="264" count="65" type="cond" truecount="2" falsecount="0"/>
-        <line num="265" count="50" type="stmt"/>
-        <line num="266" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="264" count="95" type="cond" truecount="2" falsecount="0"/>
+        <line num="265" count="65" type="stmt"/>
+        <line num="266" count="30" type="cond" truecount="2" falsecount="0"/>
         <line num="267" count="1" type="stmt"/>
-        <line num="269" count="14" type="stmt"/>
-        <line num="272" count="65" type="stmt"/>
-        <line num="274" count="65" type="stmt"/>
-        <line num="278" count="3" type="stmt"/>
-        <line num="279" count="406" type="stmt"/>
-        <line num="281" count="406" type="stmt"/>
-        <line num="287" count="3" type="stmt"/>
-        <line num="288" count="31" type="stmt"/>
-        <line num="289" count="65" type="stmt"/>
-        <line num="290" count="65" type="stmt"/>
-        <line num="294" count="3" type="stmt"/>
+        <line num="269" count="29" type="stmt"/>
+        <line num="272" count="95" type="stmt"/>
+        <line num="274" count="95" type="stmt"/>
+        <line num="278" count="4" type="stmt"/>
+        <line num="279" count="520" type="stmt"/>
+        <line num="281" count="520" type="stmt"/>
+        <line num="287" count="4" type="stmt"/>
+        <line num="288" count="45" type="stmt"/>
+        <line num="289" count="95" type="stmt"/>
+        <line num="290" count="95" type="stmt"/>
+        <line num="294" count="4" type="stmt"/>
       </file>
       <file name="filter.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/filter.jsx">
         <metrics statements="60" coveredstatements="43" conditionals="22" coveredconditionals="18" methods="18" coveredmethods="11"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="10" count="3" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="21" count="9" type="stmt"/>
         <line num="23" count="9" type="cond" truecount="2" falsecount="0"/>
@@ -306,155 +306,155 @@
         <line num="90" count="0" type="stmt"/>
         <line num="91" count="0" type="stmt"/>
         <line num="92" count="0" type="stmt"/>
-        <line num="102" count="313" type="stmt"/>
-        <line num="105" count="313" type="cond" truecount="1" falsecount="1"/>
+        <line num="102" count="379" type="stmt"/>
+        <line num="105" count="379" type="cond" truecount="1" falsecount="1"/>
         <line num="106" count="0" type="stmt"/>
-        <line num="111" count="313" type="cond" truecount="2" falsecount="0"/>
-        <line num="112" count="309" type="stmt"/>
-        <line num="115" count="313" type="cond" truecount="1" falsecount="1"/>
+        <line num="111" count="379" type="cond" truecount="2" falsecount="0"/>
+        <line num="112" count="375" type="stmt"/>
+        <line num="115" count="379" type="cond" truecount="1" falsecount="1"/>
         <line num="116" count="0" type="stmt"/>
-        <line num="119" count="313" type="cond" truecount="2" falsecount="0"/>
+        <line num="119" count="379" type="cond" truecount="2" falsecount="0"/>
         <line num="120" count="4" type="stmt"/>
-        <line num="123" count="313" type="cond" truecount="1" falsecount="1"/>
+        <line num="123" count="379" type="cond" truecount="1" falsecount="1"/>
         <line num="124" count="0" type="stmt"/>
-        <line num="127" count="313" type="stmt"/>
-        <line num="129" count="313" type="cond" truecount="2" falsecount="0"/>
-        <line num="130" count="40" type="stmt"/>
-        <line num="133" count="313" type="stmt"/>
-        <line num="135" count="313" type="cond" truecount="2" falsecount="0"/>
+        <line num="127" count="379" type="stmt"/>
+        <line num="129" count="379" type="cond" truecount="2" falsecount="0"/>
+        <line num="130" count="73" type="stmt"/>
+        <line num="133" count="379" type="stmt"/>
+        <line num="135" count="379" type="cond" truecount="2" falsecount="0"/>
         <line num="136" count="2" type="stmt"/>
-        <line num="139" count="313" type="stmt"/>
-        <line num="223" count="3" type="stmt"/>
-        <line num="233" count="406" type="stmt"/>
-        <line num="235" count="406" type="stmt"/>
-        <line num="247" count="3" type="stmt"/>
-        <line num="248" count="31" type="stmt"/>
+        <line num="139" count="379" type="stmt"/>
+        <line num="223" count="4" type="stmt"/>
+        <line num="233" count="520" type="stmt"/>
+        <line num="235" count="520" type="stmt"/>
+        <line num="247" count="4" type="stmt"/>
+        <line num="248" count="45" type="stmt"/>
         <line num="249" count="13" type="stmt"/>
         <line num="250" count="21" type="stmt"/>
         <line num="251" count="0" type="stmt"/>
         <line num="252" count="1" type="stmt"/>
-        <line num="256" count="3" type="stmt"/>
+        <line num="256" count="4" type="stmt"/>
       </file>
       <file name="helpful.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/helpful.jsx">
-        <metrics statements="46" coveredstatements="15" conditionals="14" coveredconditionals="1" methods="5" coveredmethods="2"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="32" count="3" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="45" count="3" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="49" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="69" count="175" type="stmt"/>
-        <line num="71" count="175" type="stmt"/>
-        <line num="72" count="175" type="stmt"/>
-        <line num="74" count="175" type="cond" truecount="1" falsecount="1"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="115" count="0" type="stmt"/>
-        <line num="155" count="175" type="stmt"/>
-        <line num="201" count="175" type="stmt"/>
-        <line num="248" count="175" type="stmt"/>
-        <line num="287" count="3" type="stmt"/>
-        <line num="288" count="424" type="stmt"/>
-        <line num="290" count="424" type="stmt"/>
-        <line num="295" count="3" type="stmt"/>
+        <metrics statements="46" coveredstatements="46" conditionals="14" coveredconditionals="9" methods="5" coveredmethods="5"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="15" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="27" count="6" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="34" count="6" type="stmt"/>
+        <line num="36" count="6" type="cond" truecount="2" falsecount="2"/>
+        <line num="37" count="6" type="stmt"/>
+        <line num="39" count="6" type="stmt"/>
+        <line num="41" count="6" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+        <line num="47" count="3" type="stmt"/>
+        <line num="49" count="3" type="cond" truecount="2" falsecount="2"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="69" count="333" type="stmt"/>
+        <line num="71" count="333" type="stmt"/>
+        <line num="72" count="333" type="stmt"/>
+        <line num="74" count="333" type="cond" truecount="2" falsecount="0"/>
+        <line num="75" count="8" type="stmt"/>
+        <line num="115" count="8" type="stmt"/>
+        <line num="155" count="325" type="stmt"/>
+        <line num="201" count="325" type="stmt"/>
+        <line num="248" count="333" type="stmt"/>
+        <line num="287" count="4" type="stmt"/>
+        <line num="288" count="614" type="stmt"/>
+        <line num="290" count="614" type="stmt"/>
+        <line num="295" count="4" type="stmt"/>
       </file>
       <file name="index.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/index.jsx">
         <metrics statements="12" coveredstatements="11" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="15" count="108" type="stmt"/>
-        <line num="18" count="108" type="cond" truecount="1" falsecount="1"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="15" count="138" type="stmt"/>
+        <line num="18" count="138" type="cond" truecount="1" falsecount="1"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="24" count="108" type="stmt"/>
-        <line num="26" count="108" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="138" type="stmt"/>
+        <line num="26" count="138" type="cond" truecount="2" falsecount="0"/>
         <line num="27" count="32" type="stmt"/>
-        <line num="30" count="108" type="stmt"/>
-        <line num="42" count="3" type="stmt"/>
-        <line num="43" count="406" type="stmt"/>
-        <line num="45" count="406" type="stmt"/>
-        <line num="51" count="3" type="stmt"/>
+        <line num="30" count="138" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="43" count="520" type="stmt"/>
+        <line num="45" count="520" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
       </file>
       <file name="individualReview.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/individualReview.jsx">
         <metrics statements="15" coveredstatements="15" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
-        <line num="10" count="215" type="stmt"/>
-        <line num="23" count="215" type="stmt"/>
-        <line num="25" count="215" type="stmt"/>
-        <line num="26" count="215" type="stmt"/>
-        <line num="27" count="215" type="stmt"/>
-        <line num="29" count="215" type="stmt"/>
-        <line num="31" count="215" type="cond" truecount="2" falsecount="0"/>
-        <line num="32" count="117" type="stmt"/>
-        <line num="35" count="215" type="cond" truecount="2" falsecount="0"/>
-        <line num="36" count="165" type="stmt"/>
-        <line num="39" count="215" type="stmt"/>
-        <line num="41" count="215" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="156" type="stmt"/>
-        <line num="90" count="59" type="stmt"/>
-        <line num="139" count="215" type="stmt"/>
+        <line num="10" count="381" type="stmt"/>
+        <line num="23" count="381" type="stmt"/>
+        <line num="25" count="381" type="stmt"/>
+        <line num="26" count="381" type="stmt"/>
+        <line num="27" count="381" type="stmt"/>
+        <line num="29" count="381" type="stmt"/>
+        <line num="31" count="381" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="213" type="stmt"/>
+        <line num="35" count="381" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="291" type="stmt"/>
+        <line num="39" count="381" type="stmt"/>
+        <line num="41" count="381" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="278" type="stmt"/>
+        <line num="90" count="103" type="stmt"/>
+        <line num="139" count="381" type="stmt"/>
       </file>
       <file name="navigation.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/navigation.jsx">
         <metrics statements="31" coveredstatements="27" conditionals="6" coveredconditionals="6" methods="8" coveredmethods="6"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="41" count="116" type="stmt"/>
-        <line num="43" count="116" type="cond" truecount="2" falsecount="0"/>
-        <line num="44" count="91" type="stmt"/>
-        <line num="47" count="25" type="stmt"/>
-        <line num="49" count="25" type="cond" truecount="2" falsecount="0"/>
-        <line num="50" count="4" type="stmt"/>
-        <line num="70" count="21" type="stmt"/>
-        <line num="87" count="25" type="cond" truecount="2" falsecount="0"/>
-        <line num="88" count="21" type="stmt"/>
-        <line num="108" count="4" type="stmt"/>
-        <line num="125" count="25" type="stmt"/>
-        <line num="150" count="3" type="stmt"/>
-        <line num="151" count="380" type="stmt"/>
-        <line num="153" count="380" type="stmt"/>
-        <line num="159" count="3" type="stmt"/>
-        <line num="160" count="31" type="stmt"/>
-        <line num="161" count="3" type="stmt"/>
-        <line num="165" count="3" type="stmt"/>
+        <line num="41" count="152" type="stmt"/>
+        <line num="43" count="152" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="107" type="stmt"/>
+        <line num="47" count="45" type="stmt"/>
+        <line num="49" count="45" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="6" type="stmt"/>
+        <line num="70" count="39" type="stmt"/>
+        <line num="87" count="45" type="cond" truecount="2" falsecount="0"/>
+        <line num="88" count="39" type="stmt"/>
+        <line num="108" count="6" type="stmt"/>
+        <line num="125" count="45" type="stmt"/>
+        <line num="150" count="4" type="stmt"/>
+        <line num="151" count="480" type="stmt"/>
+        <line num="153" count="480" type="stmt"/>
+        <line num="159" count="4" type="stmt"/>
+        <line num="160" count="45" type="stmt"/>
+        <line num="161" count="5" type="stmt"/>
+        <line num="165" count="4" type="stmt"/>
       </file>
       <file name="nonNumberFilterSettings.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/nonNumberFilterSettings.jsx">
         <metrics statements="44" coveredstatements="23" conditionals="18" coveredconditionals="5" methods="12" coveredmethods="8"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
         <line num="19" count="4" type="stmt"/>
         <line num="21" count="4" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
@@ -488,20 +488,20 @@
         <line num="88" count="54" type="stmt"/>
         <line num="99" count="54" type="stmt"/>
         <line num="110" count="54" type="stmt"/>
-        <line num="169" count="3" type="stmt"/>
+        <line num="169" count="4" type="stmt"/>
         <line num="170" count="89" type="stmt"/>
         <line num="171" count="89" type="stmt"/>
-        <line num="177" count="3" type="stmt"/>
+        <line num="177" count="4" type="stmt"/>
         <line num="178" count="30" type="stmt"/>
         <line num="179" count="2" type="stmt"/>
         <line num="180" count="0" type="stmt"/>
         <line num="181" count="7" type="stmt"/>
-        <line num="185" count="3" type="stmt"/>
+        <line num="185" count="4" type="stmt"/>
       </file>
       <file name="ratingsFilter.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/ratingsFilter.jsx">
         <metrics statements="38" coveredstatements="30" conditionals="12" coveredconditionals="9" methods="13" coveredmethods="9"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="11" count="0" type="stmt"/>
@@ -529,19 +529,19 @@
         <line num="79" count="15" type="cond" truecount="2" falsecount="0"/>
         <line num="80" count="10" type="stmt"/>
         <line num="83" count="15" type="stmt"/>
-        <line num="135" count="3" type="stmt"/>
+        <line num="135" count="4" type="stmt"/>
         <line num="140" count="15" type="stmt"/>
         <line num="142" count="15" type="stmt"/>
-        <line num="149" count="3" type="stmt"/>
+        <line num="149" count="4" type="stmt"/>
         <line num="150" count="2" type="stmt"/>
         <line num="151" count="6" type="stmt"/>
         <line num="152" count="0" type="stmt"/>
         <line num="153" count="2" type="stmt"/>
-        <line num="157" count="3" type="stmt"/>
+        <line num="157" count="4" type="stmt"/>
       </file>
       <file name="ratingsFilterSettings.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/ratingsFilterSettings.jsx">
         <metrics statements="45" coveredstatements="23" conditionals="28" coveredconditionals="13" methods="13" coveredmethods="8"/>
-        <line num="5" count="3" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
@@ -577,236 +577,236 @@
         <line num="82" count="0" type="stmt"/>
         <line num="129" count="30" type="stmt"/>
         <line num="176" count="6" type="stmt"/>
-        <line num="201" count="3" type="stmt"/>
+        <line num="201" count="4" type="stmt"/>
         <line num="202" count="10" type="stmt"/>
         <line num="203" count="10" type="stmt"/>
-        <line num="209" count="3" type="stmt"/>
+        <line num="209" count="4" type="stmt"/>
         <line num="210" count="2" type="stmt"/>
         <line num="211" count="1" type="stmt"/>
         <line num="212" count="4" type="stmt"/>
         <line num="213" count="0" type="stmt"/>
-        <line num="217" count="3" type="stmt"/>
+        <line num="217" count="4" type="stmt"/>
       </file>
       <file name="reviewsContainer.jsx" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/Components/Reviews/reviewsContainer.jsx">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="11" count="116" type="stmt"/>
-        <line num="12" count="116" type="stmt"/>
-        <line num="14" count="116" type="stmt"/>
-        <line num="15" count="215" type="stmt"/>
-        <line num="18" count="116" type="stmt"/>
-        <line num="26" count="3" type="stmt"/>
-        <line num="27" count="380" type="stmt"/>
-        <line num="29" count="380" type="stmt"/>
-        <line num="35" count="3" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="11" count="152" type="stmt"/>
+        <line num="12" count="152" type="stmt"/>
+        <line num="14" count="152" type="stmt"/>
+        <line num="15" count="381" type="stmt"/>
+        <line num="18" count="152" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="480" type="stmt"/>
+        <line num="29" count="480" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
       </file>
     </package>
     <package name="client.src.ReduxSpecificComponents">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="rootReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/rootReducer.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="17" count="5" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
       </file>
       <file name="store.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/store.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="5" type="stmt"/>
-        <line num="5" count="5" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
       </file>
     </package>
     <package name="client.src.ReduxSpecificComponents.Actions">
       <metrics statements="26" coveredstatements="26" conditionals="1" coveredconditionals="1" methods="13" coveredmethods="13"/>
       <file name="updateAllReviews.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateAllReviews.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="39" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="67" type="stmt"/>
       </file>
       <file name="updateEnteredNonNumberFilterSetting.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateEnteredNonNumberFilterSetting.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="18" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="31" type="stmt"/>
       </file>
       <file name="updateEnteredRatingFilterDropDown.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateEnteredRatingFilterDropDown.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="15" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="28" type="stmt"/>
       </file>
       <file name="updateExitedNonNumberFilterDropDownSource.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateExitedNonNumberFilterDropDownSource.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="32" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="45" type="stmt"/>
       </file>
       <file name="updateExitedRatingFilter.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateExitedRatingFilter.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="17" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="30" type="stmt"/>
       </file>
       <file name="updateFilter.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateFilter.js">
         <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="35" type="stmt"/>
+        <line num="1" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="61" type="stmt"/>
       </file>
       <file name="updateFilteredReviews.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateFilteredReviews.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="66" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="96" type="stmt"/>
       </file>
       <file name="updateNumberOfReviews.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateNumberOfReviews.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="57" type="stmt"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="2" count="85" type="stmt"/>
       </file>
       <file name="updateReviewAverage.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateReviewAverage.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="stmt"/>
-        <line num="2" count="59" type="stmt"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="2" count="87" type="stmt"/>
       </file>
       <file name="updateReviewRange.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateReviewRange.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="68" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="100" type="stmt"/>
       </file>
       <file name="updateShowNonNumberFilterSetting.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateShowNonNumberFilterSetting.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="42" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="55" type="stmt"/>
       </file>
       <file name="updateShowRatingFilter.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateShowRatingFilter.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="13" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="26" type="stmt"/>
       </file>
       <file name="updateShowRatingFilterDropDown.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Actions/updateShowRatingFilterDropDown.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="2" count="15" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="28" type="stmt"/>
       </file>
     </package>
     <package name="client.src.ReduxSpecificComponents.Reducers">
       <metrics statements="85" coveredstatements="85" conditionals="61" coveredconditionals="59" methods="13" coveredmethods="13"/>
       <file name="allReviewsReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/allReviewsReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="39" type="stmt"/>
-        <line num="5" count="452" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="67" type="stmt"/>
+        <line num="5" count="690" type="stmt"/>
       </file>
       <file name="enteredNonNumberFilterSettingReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/enteredNonNumberFilterSettingReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="18" type="stmt"/>
-        <line num="5" count="473" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="31" type="stmt"/>
+        <line num="5" count="726" type="stmt"/>
       </file>
       <file name="enteredRatingFilterDropDownReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/enteredRatingFilterDropDownReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="15" type="stmt"/>
-        <line num="5" count="476" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="28" type="stmt"/>
+        <line num="5" count="729" type="stmt"/>
       </file>
       <file name="exitedNonNumberFilterDropDownSourceReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/exitedNonNumberFilterDropDownSourceReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="32" type="stmt"/>
-        <line num="5" count="459" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="45" type="stmt"/>
+        <line num="5" count="712" type="stmt"/>
       </file>
       <file name="exitedRatingFilterReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/exitedRatingFilterReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="17" type="stmt"/>
-        <line num="5" count="474" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="30" type="stmt"/>
+        <line num="5" count="727" type="stmt"/>
       </file>
       <file name="filterReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/filterReducer.js">
         <metrics statements="23" coveredstatements="23" conditionals="15" coveredconditionals="15" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="stmt"/>
-        <line num="13" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="15" count="35" type="stmt"/>
-        <line num="16" count="35" type="stmt"/>
-        <line num="18" count="35" type="cond" truecount="6" falsecount="0"/>
-        <line num="19" count="13" type="stmt"/>
-        <line num="20" count="13" type="stmt"/>
-        <line num="21" count="13" type="stmt"/>
-        <line num="22" count="13" type="stmt"/>
-        <line num="24" count="13" type="stmt"/>
-        <line num="25" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="26" count="12" type="stmt"/>
-        <line num="27" count="12" type="stmt"/>
-        <line num="28" count="12" type="stmt"/>
-        <line num="29" count="12" type="stmt"/>
-        <line num="30" count="12" type="stmt"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="13" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="61" type="stmt"/>
+        <line num="16" count="61" type="stmt"/>
+        <line num="18" count="61" type="cond" truecount="6" falsecount="0"/>
+        <line num="19" count="26" type="stmt"/>
+        <line num="20" count="26" type="stmt"/>
+        <line num="21" count="26" type="stmt"/>
+        <line num="22" count="26" type="stmt"/>
+        <line num="24" count="26" type="stmt"/>
+        <line num="25" count="35" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="25" type="stmt"/>
+        <line num="27" count="25" type="stmt"/>
+        <line num="28" count="25" type="stmt"/>
+        <line num="29" count="25" type="stmt"/>
+        <line num="30" count="25" type="stmt"/>
         <line num="32" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="7" type="stmt"/>
         <line num="36" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="37" count="3" type="stmt"/>
-        <line num="41" count="35" type="stmt"/>
-        <line num="43" count="456" type="stmt"/>
+        <line num="41" count="61" type="stmt"/>
+        <line num="43" count="696" type="stmt"/>
       </file>
       <file name="filteredReviewsReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/filteredReviewsReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="66" type="stmt"/>
-        <line num="5" count="425" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="96" type="stmt"/>
+        <line num="5" count="661" type="stmt"/>
       </file>
       <file name="numberOfReviewsReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/numberOfReviewsReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="57" type="stmt"/>
-        <line num="5" count="434" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="85" type="stmt"/>
+        <line num="5" count="672" type="stmt"/>
       </file>
       <file name="reviewAverageReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/reviewAverageReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="59" type="stmt"/>
-        <line num="5" count="432" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="87" type="stmt"/>
+        <line num="5" count="670" type="stmt"/>
       </file>
       <file name="reviewRangeReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/reviewRangeReducer.js">
         <metrics statements="18" coveredstatements="18" conditionals="13" coveredconditionals="11" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="68" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="65" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="9" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="13" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="18" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="23" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="30" count="423" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="100" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="95" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="13" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="18" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="22" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="30" count="657" type="stmt"/>
       </file>
       <file name="showNonNumberFilterSettingReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/showNonNumberFilterSettingReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="42" type="stmt"/>
-        <line num="5" count="449" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="55" type="stmt"/>
+        <line num="5" count="702" type="stmt"/>
       </file>
       <file name="showRatingFilterDropDownReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/showRatingFilterDropDownReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="15" type="stmt"/>
-        <line num="5" count="476" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="28" type="stmt"/>
+        <line num="5" count="729" type="stmt"/>
       </file>
       <file name="showRatingFilterReducer.js" path="/Users/nzabalza/Immersive/Sprints/FEC/reviews/client/src/ReduxSpecificComponents/Reducers/showRatingFilterReducer.js">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
-        <line num="1" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="491" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="13" type="stmt"/>
-        <line num="5" count="478" type="stmt"/>
+        <line num="1" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="757" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="26" type="stmt"/>
+        <line num="5" count="731" type="stmt"/>
       </file>
     </package>
   </project>
