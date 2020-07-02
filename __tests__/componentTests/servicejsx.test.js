@@ -100,7 +100,7 @@ describe('The Reviews Module', () => {
 
       wrapper.unmount();
     });
-  })
+  });
 
   describe('has a subcomponent Filter that', () => {
     describe('has a <div> tag with id "filter-header-review-range"', () => {

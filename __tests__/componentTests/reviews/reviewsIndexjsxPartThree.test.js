@@ -50,7 +50,66 @@ beforeEach(() => {
 });
 
 describe('The Reviews component', () => {
-  describe('The Helpful component', () => {
+  describe('has a RatingsFilter component that', () => {
+    it('shows a drop down menu when clicked', () => {
+      const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+      store.dispatch(updateShowRatingFilter(true));
+
+      wrapper.update();
+
+      let renderedComponent = wrapper.render();
+      let targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+      expect(targetComponent).toHaveLength(0);
+
+      wrapper.update();
+      wrapper.find('#score-ratings-filter-trigger').simulate('click');
+      wrapper.update();
+
+      renderedComponent = wrapper.render();
+      targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+      expect(targetComponent).toHaveLength(1);
+
+      wrapper.unmount();
+    });
+
+    it('shows a drop down menu when clicked, then hides it when clicked again', () => {
+      const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+      store.dispatch(updateShowRatingFilter(true));
+
+      wrapper.update();
+
+      let renderedComponent = wrapper.render();
+      let targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+      expect(targetComponent).toHaveLength(0);
+
+      wrapper.update();
+      wrapper.find('#score-ratings-filter-trigger').simulate('click');
+      wrapper.update();
+
+      renderedComponent = wrapper.render();
+      targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+      expect(targetComponent).toHaveLength(1);
+
+      wrapper.update();
+      wrapper.find('#score-ratings-filter-trigger').simulate('click');
+      wrapper.update();
+
+      renderedComponent = wrapper.render();
+      targetComponent = renderedComponent.find('#score-ratings-filter-menu');
+
+      expect(targetComponent).toHaveLength(0);
+
+      wrapper.unmount();
+    });
+  });
+
+  describe('has a Helpful subcomponent that', () => {
     test('has, when indexInCurrentFilteredReviews - 1, has a <div> tag with id "yes-tracker-0"', () => {
       const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
 
@@ -97,8 +156,8 @@ describe('The Reviews component', () => {
       store.dispatch(updateNumberOfReviews(numberOfReviews));
       store.dispatch(updateAllReviews(allReviews));
 
-      let renderedComponent = wrapper.render();
-      let targetComponent = renderedComponent.find('#yes-tracker-0');
+      const renderedComponent = wrapper.render();
+      const targetComponent = renderedComponent.find('#yes-tracker-0');
       const { style } = targetComponent.get(0).attribs;
 
       expect(style).toEqual(expect.not.stringContaining('boxShadow'));
@@ -123,7 +182,7 @@ describe('The Reviews component', () => {
 
       renderedComponent = wrapper.render();
       targetComponent = renderedComponent.find('#yes-tracker-0');
-      style  = targetComponent.get(0).attribs.style;
+      style = targetComponent.get(0).attribs.style;
 
       expect(style).toContain('box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);');
 
@@ -147,7 +206,7 @@ describe('The Reviews component', () => {
 
       renderedComponent = wrapper.render();
       targetComponent = renderedComponent.find('#yes-tracker-0');
-      style  = targetComponent.get(0).attribs.style;
+      style = targetComponent.get(0).attribs.style;
 
       expect(style).toContain('box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);');
 
@@ -156,7 +215,7 @@ describe('The Reviews component', () => {
 
       renderedComponent = wrapper.render();
       targetComponent = renderedComponent.find('#yes-tracker-0');
-      style  = targetComponent.get(0).attribs.style;
+      style = targetComponent.get(0).attribs.style;
 
       expect(style).toEqual(expect.not.stringContaining('box-shadow'));
 
@@ -169,8 +228,8 @@ describe('The Reviews component', () => {
       store.dispatch(updateNumberOfReviews(numberOfReviews));
       store.dispatch(updateAllReviews(allReviews));
 
-      let renderedComponent = wrapper.render();
-      let targetComponent = renderedComponent.find('#no-tracker-0');
+      const renderedComponent = wrapper.render();
+      const targetComponent = renderedComponent.find('#no-tracker-0');
       const { style } = targetComponent.get(0).attribs;
 
       expect(style).toEqual(expect.not.stringContaining('boxShadow'));
@@ -195,7 +254,7 @@ describe('The Reviews component', () => {
 
       renderedComponent = wrapper.render();
       targetComponent = renderedComponent.find('#no-tracker-0');
-      style  = targetComponent.get(0).attribs.style;
+      style = targetComponent.get(0).attribs.style;
 
       expect(style).toContain('box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);');
 
@@ -219,7 +278,7 @@ describe('The Reviews component', () => {
 
       renderedComponent = wrapper.render();
       targetComponent = renderedComponent.find('#no-tracker-0');
-      style  = targetComponent.get(0).attribs.style;
+      style = targetComponent.get(0).attribs.style;
 
       expect(style).toContain('box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);');
 
@@ -228,7 +287,7 @@ describe('The Reviews component', () => {
 
       renderedComponent = wrapper.render();
       targetComponent = renderedComponent.find('#no-tracker-0');
-      style  = targetComponent.get(0).attribs.style;
+      style = targetComponent.get(0).attribs.style;
 
       expect(style).toEqual(expect.not.stringContaining('box-shadow'));
 
@@ -241,8 +300,8 @@ describe('The Reviews component', () => {
       store.dispatch(updateNumberOfReviews(numberOfReviews));
       store.dispatch(updateAllReviews(allReviews));
 
-      let renderedComponent = wrapper.render();
-      let targetComponent = renderedComponent.find('#report-tracker-0');
+      const renderedComponent = wrapper.render();
+      const targetComponent = renderedComponent.find('#report-tracker-0');
       const { style } = targetComponent.get(0).attribs;
 
       expect(style).toEqual(expect.not.stringContaining('boxShadow'));
@@ -267,7 +326,7 @@ describe('The Reviews component', () => {
 
       renderedComponent = wrapper.render();
       targetComponent = renderedComponent.find('#report-tracker-0');
-      style  = targetComponent.get(0).attribs.style;
+      style = targetComponent.get(0).attribs.style;
 
       expect(style).toContain('box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);');
 
@@ -291,7 +350,7 @@ describe('The Reviews component', () => {
 
       renderedComponent = wrapper.render();
       targetComponent = renderedComponent.find('#report-tracker-0');
-      style  = targetComponent.get(0).attribs.style;
+      style = targetComponent.get(0).attribs.style;
 
       expect(style).toContain('box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2);');
 
@@ -300,7 +359,7 @@ describe('The Reviews component', () => {
 
       renderedComponent = wrapper.render();
       targetComponent = renderedComponent.find('#report-tracker-0');
-      style  = targetComponent.get(0).attribs.style;
+      style = targetComponent.get(0).attribs.style;
 
       expect(style).toEqual(expect.not.stringContaining('box-shadow'));
 
