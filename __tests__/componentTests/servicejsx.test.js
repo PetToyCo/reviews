@@ -4,8 +4,22 @@ import nock from 'nock';
 import ReviewsModule from '../../client/src/service.jsx';
 import store from '../../client/src/ReduxSpecificComponents/store.js';
 import generalData from '../setup/generalData.js';
+import storeStartingState from '../setup/storeStartingState.js';
+import updateReviewAverage from '../../client/src/ReduxSpecificComponents/Actions/updateReviewAverage.js';
+import updateNumberOfReviews from '../../client/src/ReduxSpecificComponents/Actions/updateNumberOfReviews.js';
+import updateAllReviews from '../../client/src/ReduxSpecificComponents/Actions/updateAllReviews.js';
+
+const { numberOfReviews, reviewAverage, allReviews } = generalData;
 
 const { Provider } = ReactRedux;
+
+beforeEach(() => {
+  const { numberOfReviews, reviewAverage, allReviews } = storeStartingState;
+
+  store.dispatch(updateReviewAverage(reviewAverage));
+  store.dispatch(updateNumberOfReviews(numberOfReviews));
+  store.dispatch(updateAllReviews(allReviews));
+});
 
 nock('http://127.0.0.1:3001')
   .persist()
@@ -50,5 +64,68 @@ describe('The Reviews Module', () => {
 
       done();
     }, 50);
+  });
+
+  describe('has a subcomponent Filter that', () => {
+    describe('has a <div> tag with id "filter-header-review-range"', () => {
+      test('which reads "9-19 of 19 Reviews" once store state updated with intial server data AND nav forward button clicked', () => {
+        const wrapper = mount(<Provider store={store}><ReviewsModule /></Provider>, { attachTo: document.body });
+
+        store.dispatch(updateReviewAverage(reviewAverage));
+        store.dispatch(updateNumberOfReviews(numberOfReviews));
+        store.dispatch(updateAllReviews(allReviews));
+
+        let renderedComponent = wrapper.render();
+
+        let targetComponent = renderedComponent.find('#filter-header-review-range');
+
+        expect(targetComponent.text()).toBe('1-8 of 19 Reviews');
+
+        wrapper.update();
+        wrapper.find('#forward-nav-button').simulate('click');
+
+        renderedComponent = wrapper.render();
+
+        targetComponent = renderedComponent.find('#filter-header-review-range');
+
+        expect(targetComponent.text()).toBe('9-19 of 19 Reviews');
+
+        wrapper.unmount();
+      });
+
+      test('which reads "1-8 of 19 Reviews" once store state updated with intial server data AND nav forward button clicked FOLLOWED by nav back button being clicked', () => {
+        const wrapper = mount(<Provider store={store}><ReviewsModule /></Provider>, { attachTo: document.body });
+
+        store.dispatch(updateReviewAverage(reviewAverage));
+        store.dispatch(updateNumberOfReviews(numberOfReviews));
+        store.dispatch(updateAllReviews(allReviews));
+
+        let renderedComponent = wrapper.render();
+
+        let targetComponent = renderedComponent.find('#filter-header-review-range');
+
+        expect(targetComponent.text()).toBe('1-8 of 19 Reviews');
+
+        wrapper.update();
+        wrapper.find('#forward-nav-button').simulate('click');
+
+        renderedComponent = wrapper.render();
+
+        targetComponent = renderedComponent.find('#filter-header-review-range');
+
+        expect(targetComponent.text()).toBe('9-19 of 19 Reviews');
+
+        wrapper.update();
+        wrapper.find('#back-nav-button').simulate('click');
+
+        renderedComponent = wrapper.render();
+
+        targetComponent = renderedComponent.find('#filter-header-review-range');
+
+        expect(targetComponent.text()).toBe('1-8 of 19 Reviews');
+
+        wrapper.unmount();
+      });
+    });
   });
 });

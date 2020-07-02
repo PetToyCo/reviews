@@ -4,7 +4,7 @@
   "description": "Service for PetToyCo that mimics the review module of PetCo.",
   "main": "index.js",
   "scripts": {
-    "test": "jest __tests__/componentTests/",
+    "test": "jest __tests__/componentTests/ --runInBand --silent --coverage",
     "testSeed": "jest server/seed/seed.test.js",
     "seedDb": "node server/seedDatabase.js",
     "server": "node server/index.js",
@@ -41,6 +41,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "jest": "^26.1.0",
+    "jest-serial-runner": "^1.1.0",
     "mocha": "^8.0.1",
     "moment": "^2.27.0",
     "pre-commit": "^1.2.2",

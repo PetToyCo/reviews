@@ -10,7 +10,7 @@ const Redux = require('redux');
 
 Enzyme.configure({ adapter: new Adapter() });
 
-// React.useLayoutEffect = React.useEffect;
+window.HTMLElement.prototype.scrollIntoView = function() {};
 
 global.React = React;
 global.moment = moment;

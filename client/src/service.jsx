@@ -1,10 +1,10 @@
-import store from './ReduxSpecificComponents/store.js';
 import ReviewHeader from './Components/ReviewHeader/index.jsx';
 import ReviewBody from './Components/ReviewBody/index.jsx';
 import Reviews from './Components/Reviews/index.jsx';
 import updateReviewAverage from './ReduxSpecificComponents/Actions/updateReviewAverage.js';
 import updateNumberOfReviews from './ReduxSpecificComponents/Actions/updateNumberOfReviews.js';
 import updateAllReviews from './ReduxSpecificComponents/Actions/updateAllReviews.js';
+import updateFilteredReviews from './ReduxSpecificComponents/Actions/updateFilteredReviews.js';
 
 const { connect } = ReactRedux;
 
@@ -14,6 +14,12 @@ class ReviewsModule extends React.Component {
   // }
 
   componentDidMount() {
+    const {
+      dispatchUpdateReviewAverage,
+      dispatchUpdateNumberOfReviews,
+      dispatchUpdateAllReviews,
+      dispatchUpdateFilteredReviews,
+    } = this.props;
     //When working on service, uncomment this axios call and comment-out the axios
     //call just below. Make sure to switch back just before pushing up to repo.
     //Just make sure to run webpack again so bundle is correct (In repo's cd, run >npm run build)
@@ -22,9 +28,10 @@ class ReviewsModule extends React.Component {
       .then((results) => {
         const { reviewAverage, numberOfReviews, allReviews } = results.data;
 
-        store.dispatch(updateReviewAverage(reviewAverage));
-        store.dispatch(updateNumberOfReviews(numberOfReviews));
-        store.dispatch(updateAllReviews(allReviews));
+        dispatchUpdateReviewAverage(reviewAverage);
+        dispatchUpdateNumberOfReviews(numberOfReviews);
+        dispatchUpdateAllReviews(allReviews);
+        dispatchUpdateFilteredReviews(allReviews);
       })
       .catch((err) => {
         console.log(err);
@@ -47,10 +54,10 @@ class ReviewsModule extends React.Component {
     //   .then((results) => {
     //     const { reviewAverage, numberOfReviews, allReviews } = results.data;
 
-    //     store.dispatch(updateReviewAverage(reviewAverage));
-    //     store.dispatch(updateNumberOfReviews(numberOfReviews));
-    //     store.dispatch(updateAllReviews(allReviews));
-    //     store.dispatch(updateFilteredReviews(allReviews));
+    //     dispatchUpdateReviewAverage(reviewAverage);
+    //     dispatchUpdateNumberOfReviews(numberOfReviews);
+    //     dispatchUpdateAllReviews(allReviews);
+    //     dispatchUpdateFilteredReviews(allReviews);
 
     //     if (numberOfReviews === 0) {
     //       store.dispatch(updateReviewRange('RESET', [0, -1]));
@@ -81,7 +88,8 @@ const mapDispatch = function(dispatch) {
   return {
     dispatchUpdateReviewAverage: (reviewAverage) => { dispatch(updateReviewAverage(reviewAverage)); },
     dispatchUpdateNumberOfReviews: (numberOfReviews) => { dispatch(updateNumberOfReviews(numberOfReviews)); },
-    dispatchupdateAllReviews: (allReviews) => { dispatch(updateAllReviews(allReviews)); },
+    dispatchUpdateAllReviews: (allReviews) => { dispatch(updateAllReviews(allReviews)); },
+    dispatchUpdateFilteredReviews: (allReviews) => { dispatch(updateFilteredReviews(allReviews)); },
   };
 };
 

@@ -92,6 +92,7 @@ class RatingsFilter extends React.Component {
         }}
       >
         <div
+          id='score-ratings-filter-trigger'
           style={{
             display: 'flex',
             width: '60px',

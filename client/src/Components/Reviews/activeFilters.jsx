@@ -88,6 +88,7 @@ class ActiveFilters extends React.Component {
 
       filterOptions.push(
         <div
+          id='clear-all-number-filters'
           style={{
             display: 'flex',
             backgroundColor: '#ededed',

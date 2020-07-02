@@ -150,17 +150,19 @@ class Filter extends React.Component {
           background: '#f7f7f7',
           position: 'relative',
         }}>
-          <div style={{
-            padding: '10px',
-            position: 'relative',
-            float: 'left',
-            color: 'inherit',
-            marginTop: '3px',
-            marginRight: 'auto',
-            fontFamily: 'inherit',
-            fontSize: 'inherit',
-            fontWeight: 'inherit',
-          }}
+          <div
+            id='filter-header-review-range'
+            style={{
+              padding: '10px',
+              position: 'relative',
+              float: 'left',
+              color: 'inherit',
+              marginTop: '3px',
+              marginRight: 'auto',
+              fontFamily: 'inherit',
+              fontSize: 'inherit',
+              fontWeight: 'inherit',
+            }}
           >
             {reviewRangeHeader}
           </div>

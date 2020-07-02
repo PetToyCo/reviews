@@ -271,7 +271,7 @@ class CalculateFilteredReviews extends React.Component {
 
     dispatchUpdateFilteredReviews(filteredReviews);
 
-    return null;
+  return <div id='review-calculate-filtered-reviews' hidden>{JSON.stringify(filteredReviews)}</div>;
   }
 }
 

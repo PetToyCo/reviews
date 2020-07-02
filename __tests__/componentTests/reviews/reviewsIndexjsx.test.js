@@ -1,39 +1,392 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import nock from 'nock';
-import configureStore from 'redux-mock-store';
-import ReviewsModule from '../../client/src/service.jsx';
+import { shallow, mount } from 'enzyme';
+import generalData from '../../setup/generalData.js';
+import storeStartingState from '../../setup/storeStartingState.js';
+import store from '../../../client/src/ReduxSpecificComponents/store.js';
+import Reviews from '../../../client/src/Components/Reviews/index.jsx';
+import updateReviewAverage from '../../../client/src/ReduxSpecificComponents/Actions/updateReviewAverage.js';
+import updateNumberOfReviews from '../../../client/src/ReduxSpecificComponents/Actions/updateNumberOfReviews.js';
+import updateAllReviews from '../../../client/src/ReduxSpecificComponents/Actions/updateAllReviews.js';
+import updateShowNonNumberFilterSetting from '../../../client/src/ReduxSpecificComponents/Actions/updateShowNonNumberFilterSetting.js';
 
-const itemID100Response = nock('http://127.0.0.1:3000/')
-  .get('/reviews/100')
-  .reply(200, {
-    text: '{"reviewAverage":"3.5","numberOfReviews":19,"allReviews":[{"score":2,"date":"2020-05-16T22:07:57.603Z","title":"Lorem ipsum dolor sit amet","review":"Suspendisse ultricies ac ligula et molestie. Quisque nisi ante, maximus in mattis sed, finibus id magna. Pellentesque quis finibus ex, non congue augue.","username":"Binx","recommended":false,"yeses":0,"noes":0,"verified":true,"promotion":true},{"score":5,"date":"2020-05-06T22:07:57.603Z","title":"Lorem ipsum dolor sit amet","review":"Morbi commodo justo tortor, malesuada imperdiet justo condimentum eget. Nam fringilla orci dui, non semper nisl venenatis eget. Phasellus nec.","username":"ChonkyCat","recommended":true,"yeses":5,"noes":1,"verified":true,"promotion":false},{"score":4,"date":"2020-05-05T22:07:57.603Z","title":"Ut a lectus non nibh ornare facilisis","review":"Fusce quis erat ornare, tincidunt odio eget, tempor velit. Donec placerat vestibulum diam. Maecenas molestie congue mauris.","username":"ElGatoSupreme","recommended":true,"yeses":0,"noes":0,"verified":false,"promotion":true},{"score":3,"date":"2020-03-24T22:07:57.603Z","title":"Praesent finibus leo nec nisl auctor luctus","review":"Ut gravida ultrices cursus. Suspendisse potenti. Aenean in mi euismod, tempor ligula vel, ornare nisl. Pellentesque id fringilla urna.","username":"Mary","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":false},{"score":5,"date":"2020-03-15T22:07:57.603Z","title":"massa vulputate bibendum auctor","review":"Suspendisse bibendum lectus sit amet ante auctor consequat. Sed malesuada urna erat, tempus sollicitudin augue porttitor sit amet. Duis viverra.","username":"CatButt","recommended":true,"yeses":0,"noes":0,"verified":false,"promotion":true},{"score":1,"date":"2020-02-14T22:07:57.603Z","title":"Lorem ipsum dolor sit amet","review":"Donec eget ligula id mi tempor viverra nec quis felis. Proin in facilisis justo.","username":"Allison","recommended":false,"yeses":2,"noes":1,"verified":true,"promotion":true},{"score":4,"date":"2020-02-06T22:07:57.603Z","title":"Lorem ipsum dolor sit amet","review":"Praesent justo ante, porta at dui eget, placerat scelerisque ex. In hac habitasse platea dictumst. Maecenas at libero ut dolor.","username":"Winifred","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":true},{"score":4,"date":"2020-01-21T21:07:57.603Z","title":"consectetur adipiscing elit","review":"Nullam accumsan metus justo, non semper quam iaculis vel. Proin in eros lacus. Integer at velit.","username":"CVCat","recommended":true,"yeses":2,"noes":0,"verified":true,"promotion":false},{"score":5,"date":"2020-01-06T22:07:57.603Z","title":"Lorem ipsum dolor sit amet","review":"Nunc ex massa, porttitor pulvinar pharetra sit amet, consequat quis lorem. Vestibulum efficitur.","username":"catdude","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":false},{"score":5,"date":"2019-12-06T22:07:57.603Z","title":"Ut vestibulum","review":"Aenean semper nunc ac consectetur vestibulum. Morbi et quam placerat, tincidunt lectus in, aliquam sapien. Fusce ultrices nibh in sapien imperdiet, nec semper urna consectetur. Proin accumsan nec mauris ac vehicula. In hac habitasse platea.","username":"NotACatLady","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":false},{"score":1,"date":"2019-07-06T22:07:57.603Z","title":"Nunc vel elit quis sapien porta malesuada","review":"Ut tellus justo, aliquam at libero quis.","username":"Dani","recommended":false,"yeses":0,"noes":0,"verified":true,"promotion":false},{"score":3,"date":"2019-07-06T22:07:57.603Z","title":"Donec in congue diam","review":"Suspendisse mollis in felis non blandit. Proin pellentesque dui sed turpis pharetra, a pretium odio fermentum. In hac habitasse platea dictumst. Etiam cursus augue ut.","username":"Emily","recommended":false,"yeses":0,"noes":0,"verified":false,"promotion":false},{"score":5,"date":"2019-05-06T22:07:57.603Z","title":"consectetur adipiscing elit","review":"Mauris eget libero ex. Nulla facilisis luctus maximus. Proin eget euismod orci. Cras finibus, magna.","username":"TummyScratcher","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":false},{"score":5,"date":"2019-01-30T22:07:57.603Z","title":"eget","review":"Suspendisse arcu dolor, hendrerit ultrices lacus et, vulputate finibus nulla. Cras enim augue, molestie vitae arcu fermentum, commodo egestas nunc. Curabitur massa tellus, iaculis in turpis nec, rutrum scelerisque turpis. Donec mattis, lorem.","username":"PikaPika","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":true},{"score":1,"date":"2018-11-01T22:07:57.603Z","title":"Cras in felis semper","review":"Etiam a est sit amet libero aliquam tristique id at libero. Sed id condimentum risus, nec sollicitudin mauris. Duis.","username":"Max","recommended":false,"yeses":1,"noes":0,"verified":true,"promotion":false},{"score":3,"date":"2018-09-06T22:07:57.603Z","title":"consectetur adipiscing elit","review":"Mauris sit amet risus purus. Aenean sem ex, aliquam non velit a, varius lobortis neque. Donec tincidunt sit amet mauris eget suscipit. Sed eget lectus leo. Praesent condimentum metus lacus, et tincidunt ipsum fringilla eu.","username":"Sarah","recommended":true,"yeses":0,"noes":1,"verified":true,"promotion":false},{"score":5,"date":"2018-07-06T22:07:57.603Z","title":"felis odio accumsan ex","review":"Suspendisse bibendum lectus sit amet ante auctor consequat. Sed malesuada urna erat, tempus sollicitudin augue porttitor sit amet. Duis viverra.","username":"Froggy","recommended":true,"yeses":1,"noes":1,"verified":true,"promotion":true},{"score":2,"date":"2018-05-06T22:07:57.603Z","title":"consectetur adipiscing elit","review":"Vestibulum dapibus maximus tellus, ac imperdiet diam bibendum nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam lacus neque, sollicitudin at mauris a, aliquam laoreet enim. Duis turpis urna, auctor at facilisis eleifend, euismod nec odio. Mauris blandit est sed augue lacinia, nec ultricies.","username":"Billy","recommended":false,"yeses":0,"noes":0,"verified":false,"promotion":true},{"score":4,"date":"2018-04-06T22:07:57.603Z","title":"Curabitur ultrices tempus lorem","review":"Quisque dapibus, urna ac varius mattis, nisi nunc venenatis urna, a.","username":"Bob","recommended":true,"yeses":0,"noes":0,"verified":true,"promotion":false}]}',
-  })
+const { Provider } = ReactRedux;
 
-describe('The Reviews Module', () => {
-  test('renders all its subcomponents', () => {
-    const wrapper = shallow(<ReviewsModule />);
-    const headerComponent = wrapper.find('#review-header-component');
-    const bodyComponent = wrapper.find('#review-body-component');
-    const reviewsComponent = wrapper.find('#review-reviews-component');
+const { numberOfReviews, reviewAverage, allReviews } = generalData;
 
-    expect(headerComponent).not.toBe(null);
-    expect(bodyComponent).not.toBe(null);
-    expect(reviewsComponent).not.toBe(null);
+beforeEach(() => {
+  const {
+    numberOfReviews,
+    reviewAverage,
+    allReviews,
+    showNonNumberFilterSetting,
+  } = storeStartingState;
+  store.dispatch(updateReviewAverage(reviewAverage));
+  store.dispatch(updateNumberOfReviews(numberOfReviews));
+  store.dispatch(updateAllReviews(allReviews));
+  store.dispatch(updateShowNonNumberFilterSetting(showNonNumberFilterSetting));
+});
+
+describe('The ReviewHeader component', () => {
+  test('renders only 3 subcomponents when state is in its default state', () => {
+    const wrapper = shallow(<Provider store={store}><Reviews /></Provider>);
+    const renderedComponent = wrapper.render();
+
+    expect(renderedComponent.find('#filter-header')).toHaveLength(1);
+    expect(renderedComponent.find('#review-calculate-filtered-reviews')).toHaveLength(1);
+    expect(renderedComponent.find('#individual-reviews-container')).toHaveLength(1);
+    expect(renderedComponent.find('#review-navigation-bar')).toHaveLength(0);
+    expect(renderedComponent.find('#non-number-filter-menu')).toHaveLength(0);
   });
 
-  test('correctly updates the store with new state data after components compnentDidMount axios call completes', () => {
-    // reviewAverage, numberOfReviews, and allReviews
-    const wrapper = shallow(<ReviewsModule />);
-    const headerComponent = wrapper.find('#review-header-component');
-    const bodyComponent = wrapper.find('#review-body-component');
-    const reviewsComponent = wrapper.find('#review-reviews-component');
-    const expectedtofail = wrapper.find('#retestent');
+  test('renders only 4 subcomponents once store has received data from server', () => {
+    const wrapper = mount(<Provider store={store}><Reviews /></Provider>);
 
-    expect(true).toBe(false);
-    expect(headerComponent).not.toBe(null);
-    expect(bodyComponent).not.toBe(null);
-    expect(reviewsComponent).not.toBe(null);
-    expect(expectedtofail).not.toBe(null);
+    store.dispatch(updateReviewAverage(reviewAverage));
+    store.dispatch(updateNumberOfReviews(numberOfReviews));
+    store.dispatch(updateAllReviews(allReviews));
+
+    const renderedComponent = wrapper.render();
+
+    expect(renderedComponent.find('#filter-header')).toHaveLength(1);
+    expect(renderedComponent.find('#review-calculate-filtered-reviews')).toHaveLength(1);
+    expect(renderedComponent.find('#individual-reviews-container')).toHaveLength(1);
+    expect(renderedComponent.find('#review-navigation-bar')).toHaveLength(1);
+    expect(renderedComponent.find('#non-number-filter-menu')).toHaveLength(0);
+  });
+
+  test('renders all 5 subcomponents once store has received data from server AND showNonNumberFilterSetting set to true', () => {
+    const wrapper = mount(<Provider store={store}><Reviews /></Provider>);
+
+    store.dispatch(updateReviewAverage(reviewAverage));
+    store.dispatch(updateNumberOfReviews(numberOfReviews));
+    store.dispatch(updateAllReviews(allReviews));
+    store.dispatch(updateShowNonNumberFilterSetting(true));
+
+    const renderedComponent = wrapper.render();
+
+    expect(renderedComponent.find('#filter-header')).toHaveLength(1);
+    expect(renderedComponent.find('#review-calculate-filtered-reviews')).toHaveLength(1);
+    expect(renderedComponent.find('#individual-reviews-container')).toHaveLength(1);
+    expect(renderedComponent.find('#review-navigation-bar')).toHaveLength(1);
+    expect(renderedComponent.find('#non-number-filter-menu')).toHaveLength(1);
+  });
+
+  describe('has a subcomponent Filter that', () => {
+    describe('has a <div> tag with id "filter-header-review-range"', () => {
+      test('which reads "" initially', () => {
+        const wrapper = shallow(<Provider store={store}><Reviews /></Provider>);
+        const renderedComponent = wrapper.render();
+
+        const targetComponent = renderedComponent.find('#filter-header-review-range');
+
+        expect(targetComponent.text()).toBe('');
+      });
+
+      test('which reads "1-8 of 19 Reviews" once store state updated with intial server data', () => {
+        const wrapper = mount(<Provider store={store}><Reviews /></Provider>);
+
+        store.dispatch(updateReviewAverage(reviewAverage));
+        store.dispatch(updateNumberOfReviews(numberOfReviews));
+        store.dispatch(updateAllReviews(allReviews));
+
+        const renderedComponent = wrapper.render();
+
+        const targetComponent = renderedComponent.find('#filter-header-review-range');
+
+        expect(targetComponent.text()).toBe('1-8 of 19 Reviews');
+      });
+    });
+
+    describe('has a <div> tag with id "dotted-target"', () => {
+      test('which reads "Most Recent" initially', () => {
+        const wrapper = shallow(<Provider store={store}><Reviews /></Provider>);
+        const renderedComponent = wrapper.render();
+
+        const targetComponent = renderedComponent.find('#dotted-target');
+
+        expect(targetComponent.text()).toBe('Most Recent');
+      });
+
+      test('which doesn\'t make its drop down menu appear immediately after mouseover', () => {
+        const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+        wrapper.find('#dotted-target').simulate('mouseover');
+
+        const renderedComponent = wrapper.render();
+
+        const targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+        expect(targetComponent).toHaveLength(0);
+
+        wrapper.unmount();
+      });
+
+      test('which does make its drop down menu appear after 150ms, after mouseover', (done) => {
+        const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+        wrapper.find('#dotted-target').simulate('mouseover');
+
+        let renderedComponent = wrapper.render();
+
+        let targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+        expect(targetComponent).toHaveLength(0);
+
+        setTimeout(() => {
+          wrapper.update();
+
+          renderedComponent = wrapper.render();
+          targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+          expect(targetComponent).toHaveLength(1);
+
+          wrapper.unmount();
+          done();
+        }, 160);
+      });
+
+      test('which doesn\'t make its drop down menu appear after 150ms, after mouseover, if mouseout occurs first', (done) => {
+        const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+        wrapper.find('#dotted-target').simulate('mouseover');
+
+        let renderedComponent = wrapper.render();
+
+        let targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+        expect(targetComponent).toHaveLength(0);
+
+        wrapper.update();
+        wrapper.find('#dotted-target').simulate('mouseout');
+
+        setTimeout(() => {
+          wrapper.update();
+
+          renderedComponent = wrapper.render();
+          targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+          expect(targetComponent).toHaveLength(0);
+
+          wrapper.unmount();
+          done();
+        }, 160);
+      });
+
+      test('which, after its drop down menu appears, doesn\'t cause it to disappear immediately after mouseout', (done) => {
+        const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+        wrapper.find('#dotted-target').simulate('mouseover');
+
+        let renderedComponent = wrapper.render();
+
+        let targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+        expect(targetComponent).toHaveLength(0);
+
+        setTimeout(() => {
+          wrapper.update();
+
+          renderedComponent = wrapper.render();
+          targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+          expect(targetComponent).toHaveLength(1);
+
+          wrapper.update();
+          wrapper.find('#dotted-target').simulate('mouseout');
+
+          renderedComponent = wrapper.render();
+          targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+          expect(targetComponent).toHaveLength(1);
+
+          wrapper.unmount();
+          done();
+        }, 160);
+      });
+
+      test('which, after its drop down menu appears, does cause it to disappear after 250ms, after mouseout', (done) => {
+        const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+        wrapper.find('#dotted-target').simulate('mouseover');
+
+        let renderedComponent = wrapper.render();
+
+        let targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+        expect(targetComponent).toHaveLength(0);
+
+        setTimeout(() => {
+          wrapper.update();
+
+          renderedComponent = wrapper.render();
+          targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+          expect(targetComponent).toHaveLength(1);
+
+          wrapper.update();
+          wrapper.find('#dotted-target').simulate('mouseout');
+
+          setTimeout(() => {
+            wrapper.update();
+
+            renderedComponent = wrapper.render();
+            targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+            expect(targetComponent).toHaveLength(0);
+
+            wrapper.unmount();
+            done();
+          }, 260);
+        }, 160);
+      });
+
+      test('which, after its drop down menu appears, doesn\'t cause it to disappear after 250ms, after mouseout, IF mouseover the drop down', (done) => {
+        const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+        wrapper.find('#dotted-target').simulate('mouseover');
+
+        let renderedComponent = wrapper.render();
+
+        let targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+        expect(targetComponent).toHaveLength(0);
+
+        setTimeout(() => {
+          wrapper.update();
+
+          renderedComponent = wrapper.render();
+          targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+          expect(targetComponent).toHaveLength(1);
+
+          wrapper.update();
+          wrapper.find('#dotted-target').simulate('mouseout');
+          wrapper.find('#non-number-filter-menu').simulate('mouseover');
+
+          setTimeout(() => {
+            wrapper.update();
+
+            renderedComponent = wrapper.render();
+            targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+            expect(targetComponent).toHaveLength(1);
+
+            wrapper.unmount();
+            done();
+          }, 260);
+        }, 160);
+      });
+    });
+  });
+
+  describe('has a NonNumberFilterSettings component that', () => {
+    test('doesn\'t disappear immediately after mouseout', (done) => {
+      const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+      wrapper.find('#dotted-target').simulate('mouseover');
+
+      setTimeout(() => {
+        wrapper.update();
+
+        let renderedComponent = wrapper.render();
+        let targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+        expect(targetComponent).toHaveLength(1);
+
+        wrapper.update();
+        wrapper.find('#dotted-target').simulate('mouseout');
+        wrapper.find('#non-number-filter-menu').simulate('mouseover');
+
+        setTimeout(() => {
+          wrapper.update();
+          wrapper.find('#non-number-filter-menu').simulate('mouseout');
+          wrapper.update();
+
+          renderedComponent = wrapper.render();
+          targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+          expect(targetComponent).toHaveLength(1);
+
+          wrapper.unmount();
+          done();
+        }, 50);
+      }, 160);
+    });
+
+    test('does disappear after mouseout, after 250ms', (done) => {
+      setTimeout(() => {
+        const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+        wrapper.find('#dotted-target').simulate('mouseover');
+
+        setTimeout(() => {
+          wrapper.update();
+
+          let renderedComponent = wrapper.render();
+          let targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+          expect(targetComponent).toHaveLength(1);
+
+          wrapper.update();
+          wrapper.find('#dotted-target').simulate('mouseout');
+          wrapper.find('#non-number-filter-menu').simulate('mouseover');
+
+          setTimeout(() => {
+            wrapper.update();
+            wrapper.find('#non-number-filter-menu').simulate('mouseout');
+
+            setTimeout(() => {
+              wrapper.update();
+
+              renderedComponent = wrapper.render();
+              targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+              expect(targetComponent).toHaveLength(0);
+
+              wrapper.unmount();
+              done();
+            }, 260);
+          }, 50);
+        }, 160);
+      }, 200);
+    });
+
+    test('doesn\'t disappear after mouseout, after 250ms, if mouseover occurs again', (done) => {
+      setTimeout(() => {
+        const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });
+
+        wrapper.find('#dotted-target').simulate('mouseover');
+
+        setTimeout(() => {
+          wrapper.update();
+
+          let renderedComponent = wrapper.render();
+          let targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+          expect(targetComponent).toHaveLength(1);
+
+          wrapper.update();
+          wrapper.find('#dotted-target').simulate('mouseout');
+          wrapper.find('#non-number-filter-menu').simulate('mouseover');
+
+          setTimeout(() => {
+            wrapper.update();
+            wrapper.find('#non-number-filter-menu').simulate('mouseout');
+
+            setTimeout(() => {
+              wrapper.update();
+
+              renderedComponent = wrapper.render();
+              targetComponent = renderedComponent.find('#non-number-filter-menu');
+
+              expect(targetComponent).toHaveLength(0);
+
+              wrapper.unmount();
+              done();
+            }, 260);
+          }, 50);
+        }, 160);
+      }, 200);
+    });
   });
 });
