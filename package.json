@@ -4,8 +4,8 @@
   "description": "Service for PetToyCo that mimics the review module of PetCo.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "testSeed": "mocha server/seed/seed.test.js",
+    "test": "jest __tests__/componentTests/",
+    "testSeed": "jest server/seed/seed.test.js",
     "seedDb": "node server/seedDatabase.js",
     "server": "node server/index.js",
     "lint": "eslint . --ext .js,.jsx",

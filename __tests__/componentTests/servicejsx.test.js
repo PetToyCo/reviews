@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme';
 import nock from 'nock';
 import ReviewsModule from '../../client/src/service.jsx';
 import store from '../../client/src/ReduxSpecificComponents/store.js';
-import generalData from './generalData.js';
+import generalData from '../setup/generalData.js';
 
 const { Provider } = ReactRedux;
 
@@ -23,7 +23,16 @@ describe('The Reviews Module', () => {
     expect(renderedComponent.find('#review-reviews-component')).toHaveLength(1);
   });
 
-  test('correctly updates the store with new state data after components compnentDidMount axios call completes', (done) => {
+  test('renders two sets of DynamicReviewStars Components', () => {
+    const wrapper = shallow(<Provider store={store}><ReviewsModule /></Provider>);
+    const renderedComponent = wrapper.render();
+
+    expect(renderedComponent.find('.dynamic-stars')).toHaveLength(2);
+    expect(renderedComponent.find('.empty-stars')).toHaveLength(2);
+    expect(renderedComponent.find('.filled-stars')).toHaveLength(2);
+  });
+
+  test('correctly updates the store with new state data after components componentDidMount axios call completes', (done) => {
     const wrapper = mount(<Provider store={store}><ReviewsModule /></Provider>);
 
     setTimeout(() => {

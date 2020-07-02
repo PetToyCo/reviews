@@ -37,5 +37,6 @@
     "jsx-a11y/alt-text": 0,
     "prefer-object-spread": 0,
     "react/jsx-filename-extension": 0,
+    "no-shadow": 0,
   }
 }

@@ -30,11 +30,7 @@ From project's root folder:
   f. In terminal, with cd set to project's root directory, run >npm run build
   g. in a browser, type: http://127.0.0.1:3001/
 Note: service currently hardcoded to only view item 100.
-5. To test the service's server endpoints, in a browser, type:
-http://127.0.0.1:3001/test/ServerSpecRunner.html
-6. To run the service's test specs, in a browser, type:
-http://127.0.0.1:3001/test/SpecRunner.html (if the steps in Step 4 above were followed)
-http://127.0.0.1:3001/test/SpecRunner.html?itemID=100 (if the steps in Step 4 above were NOT followed)
+5. To run the service's tests, make sure you followed the steps in number 4, then run from project's root directory in terminal >npm run test.
 
 
 
