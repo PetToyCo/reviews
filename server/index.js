@@ -22,7 +22,7 @@ server.get('/averageReviews/:itemId', (req, res) => {
         const { reviewAverage, numberOfReviews } = data;
         res.status(200).send({ reviewAverage, numberOfReviews });
       } else {
-        res.status(404);
+        res.status(404).send('Item does not exist');
       }
     })
     .catch((err) => {
@@ -43,7 +43,7 @@ server.get('/reviews/:itemId', (req, res) => {
 
         return db.retrieveIndividualReviews(allReviews);
       } else {
-        res.status(404);
+        res.status(404).send('Item does not exist');
         return null;
       }
     })

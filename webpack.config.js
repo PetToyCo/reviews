@@ -5,7 +5,6 @@ module.exports = {
   mode: 'development',
   entry: {
     './client/public/app.js': path.resolve(__dirname, 'client', 'src', 'index.jsx'),
-    './test/bundleServerTests.js': path.resolve(__dirname, 'test', 'tests', 'indexServerTests.jsx'),
   },
   output: {
     path: path.resolve(__dirname),
