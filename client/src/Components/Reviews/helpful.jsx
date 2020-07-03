@@ -7,22 +7,9 @@ const handleClickYesOrNoButton = function(indexInCurrentFilteredReviews, option,
   const { disabled } = objectInCurrentFilteredReviews;
 
   if (!disabled) {
-    // objectInCurrentFilteredReviews.disabled = true;
-    dispatchUpdateFilteredReviews(indexInCurrentFilteredReviews);
-    objectInCurrentFilteredReviews[option]++;
+    dispatchUpdateFilteredReviews(indexInCurrentFilteredReviews, option);
 
-    const yesTarget = document.getElementById(`yes-button-${indexInCurrentFilteredReviews}`);
-    const noTarget = document.getElementById(`no-button-${indexInCurrentFilteredReviews}`);
     const buttons = document.getElementsByClassName(`helpful-tracker-${indexInCurrentFilteredReviews}`);
-
-    if (option === 'yeses') {
-      yesTarget.innerHTML = objectInCurrentFilteredReviews.yeses;
-    } else {
-      noTarget.innerHTML = objectInCurrentFilteredReviews.noes;
-    }
-
-    yesTarget.style.color = 'rgb(41, 120, 38)';
-    noTarget.style.color = 'rgb(180, 48, 52)';
 
     for (let i = 0; i < buttons.length; i++) {
       const target = buttons[i];
@@ -298,7 +285,7 @@ const mapState = function(state) {
 
 const mapDispatch = function(dispatch) {
   return {
-    dispatchUpdateFilteredReviews: (index) => { dispatch(updateFilteredReviews(index, 'UPDATE_REVIEW_OBJECT')); },
+    dispatchUpdateFilteredReviews: (index, yesOrNo) => { dispatch(updateFilteredReviews(index, yesOrNo, 'UPDATE_REVIEW_OBJECT')); },
   };
 };
 
