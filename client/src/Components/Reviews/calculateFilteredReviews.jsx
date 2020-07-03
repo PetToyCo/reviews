@@ -261,6 +261,16 @@ class CalculateFilteredReviews extends React.Component {
       filteredReviews = this.generateBasedOnScore(allowedScores, allReviews, 'LowToHigh');
     }
 
+    // if (filteredReviews.length === 0) {
+    //   dispatchUpdateReviewRange('RESET', [0, -1]);
+    // } else if (filteredReviews.length < 8) {
+    //   dispatchUpdateReviewRange('RESET', [0, filteredReviews.length - 1]);
+    // } else {
+    //   dispatchUpdateReviewRange('RESET', [0, 7]);
+    // }
+
+    dispatchUpdateFilteredReviews(filteredReviews);
+
     if (filteredReviews.length === 0) {
       dispatchUpdateReviewRange('RESET', [0, -1]);
     } else if (filteredReviews.length < 8) {
@@ -268,8 +278,6 @@ class CalculateFilteredReviews extends React.Component {
     } else {
       dispatchUpdateReviewRange('RESET', [0, 7]);
     }
-
-    dispatchUpdateFilteredReviews(filteredReviews);
 
     return <div id='review-calculate-filtered-reviews' hidden>{JSON.stringify(filteredReviews)}</div>;
   }

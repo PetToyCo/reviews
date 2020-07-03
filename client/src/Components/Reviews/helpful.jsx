@@ -1,11 +1,14 @@
+import updateFilteredReviews from '../../ReduxSpecificComponents/Actions/updateFilteredReviews';
+
 const { connect } = ReactRedux;
 
-const handleClickYesOrNoButton = function(indexInCurrentFilteredReviews, option) {
+const handleClickYesOrNoButton = function(indexInCurrentFilteredReviews, option, dispatchUpdateFilteredReviews) {
   const objectInCurrentFilteredReviews = this.props.filteredReviews[indexInCurrentFilteredReviews];
   const { disabled } = objectInCurrentFilteredReviews;
 
   if (!disabled) {
-    objectInCurrentFilteredReviews.disabled = true;
+    // objectInCurrentFilteredReviews.disabled = true;
+    dispatchUpdateFilteredReviews(indexInCurrentFilteredReviews);
     objectInCurrentFilteredReviews[option]++;
 
     const yesTarget = document.getElementById(`yes-button-${indexInCurrentFilteredReviews}`);
@@ -66,6 +69,7 @@ class Helpful extends React.Component {
       noes,
       disabled,
       indexInCurrentFilteredReviews,
+      dispatchUpdateFilteredReviews,
     } = this.props;
 
     const yesButton = [];
@@ -163,7 +167,7 @@ class Helpful extends React.Component {
             margin: '-4px 5px 0 0',
             cursor: 'pointer',
           }}
-          onClick={handleClickYesOrNoButton.bind(this, indexInCurrentFilteredReviews, 'yeses')}
+          onClick={handleClickYesOrNoButton.bind(this, indexInCurrentFilteredReviews, 'yeses', dispatchUpdateFilteredReviews)}
           onMouseOver={handleMouseOverYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'yes')}
           onMouseOut={handleMouseOutYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'yes')}
         >
@@ -209,7 +213,7 @@ class Helpful extends React.Component {
             margin: '-4px 5px 0 0',
             cursor: 'pointer',
           }}
-          onClick={handleClickYesOrNoButton.bind(this, indexInCurrentFilteredReviews, 'noes')}
+          onClick={handleClickYesOrNoButton.bind(this, indexInCurrentFilteredReviews, 'noes', dispatchUpdateFilteredReviews)}
           onMouseOver={handleMouseOverYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'no')}
           onMouseOut={handleMouseOutYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'no')}
         >
@@ -292,6 +296,12 @@ const mapState = function(state) {
   };
 };
 
-const wrappedHelpful = connect(mapState)(Helpful);
+const mapDispatch = function(dispatch) {
+  return {
+    dispatchUpdateFilteredReviews: (index) => { dispatch(updateFilteredReviews(index, 'UPDATE_REVIEW_OBJECT')); },
+  };
+};
+
+const wrappedHelpful = connect(mapState, mapDispatch)(Helpful);
 
 export default wrappedHelpful;
