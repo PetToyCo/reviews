@@ -1,23 +1,20 @@
-const { expect } = chai;
-
 describe('Reviews Service Server tests', () => {
   describe('The server\'s /review/:itemId endpoint', () => {
-    it('correctly retrieves the hardcoded data for item 100', (done) => {
-      axios.get('/reviews/100')
+    test('correctly retrieves the hardcoded data for item 100', () => {
+      return axios.get('http://127.0.0.1:3001/reviews/100')
         .then((res) => {
           const { reviewAverage, numberOfReviews, allReviews } = res.data;
           expect(reviewAverage).to.equal('3.5');
           expect(numberOfReviews).to.equal(19);
           expect(allReviews.length).to.equal(19);
         })
-        .then(() => done(), done)
         .catch((err) => {
           console.log(err);
         });
     });
 
-    it('correctly retrieves the hardcoded reviews data for item 100', (done) => {
-      axios.get('/reviews/100')
+    test('correctly retrieves the hardcoded reviews data for item 100', () => {
+      return axios.get('http://127.0.0.1:3001/reviews/100')
         .then((res) => {
           const { allReviews } = res.data;
           const validUsernames = {
@@ -47,22 +44,45 @@ describe('Reviews Service Server tests', () => {
             validUsernames[username]++;
           });
         })
-        .then(() => done(), done)
         .catch((err) => {
           console.log(err);
         });
     });
 
-    it('correctly retrieves data for an item other than item 100', (done) => {
+    test('correctly retrieves data for an item other than item 100', () => {
       const roll = Math.floor(Math.random() * 99 + 100);
-      axios.get(`/reviews/${roll}`)
+      return axios.get(`http://127.0.0.1:3001/reviews/${roll}`)
         .then((res) => {
           const { reviewAverage, numberOfReviews, allReviews } = res.data;
           expect(reviewAverage).to.exist;
           expect(numberOfReviews).to.not.equal(19);
           expect(allReviews).to.exist;
         })
-        .then(() => done(), done)
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+
+    test('correctly retrieves the reviews for item 100 such that the reviews are in chronological order, newest to oldest', () => {
+      return axios.get('http://127.0.0.1:3001/reviews/100')
+        .then((res) => {
+          const { allReviews } = res.data;
+          const usernames = ['Binx', 'ChonkyCat', 'ElGatoSupreme', 'Mary', 'CatButt', 'Allison', 'Winifred', 'CVCat', 'catdude', 'NotACatLady', 'Dani', 'Emily', 'TummyScratcher', 'PikaPika', 'Max', 'Sarah', 'Froggy', 'Billy', 'Bob'];
+
+          for (let i = 0; i < allReviews.length; i++) {
+            expect(allReviews[i].username).to.equal(usernames[i]);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+
+    test('sends back "Item does not exist" for invalid item number', () => {
+      return axios.get('http://127.0.0.1:3001/reviews/99')
+        .then((res) => {
+          expect(res).to.not.equal('Item does not exist');
+        })
         .catch((err) => {
           console.log(err);
         });
@@ -70,28 +90,36 @@ describe('Reviews Service Server tests', () => {
   });
 
   describe('The server\'s /averageReviews/:itemId endpoint', () => {
-    it('correctly retrieves the hardcoded data for item 100', (done) => {
-      axios.get('/reviews/100')
+    test('correctly retrieves the hardcoded data for item 100', () => {
+      return axios.get('http://127.0.0.1:3001/averageReviews/100')
         .then((res) => {
           const { reviewAverage, numberOfReviews } = res.data;
           expect(reviewAverage).to.equal('3.5');
           expect(numberOfReviews).to.equal(19);
         })
-        .then(() => done(), done)
         .catch((err) => {
           console.log(err);
         });
     });
 
-    it('correctly retrieves data for an item other than item 100', (done) => {
+    test('correctly retrieves data for an item other than item 100', () => {
       const roll = Math.floor(Math.random() * 99 + 100);
-      axios.get(`/reviews/${roll}`)
+      return axios.get(`http://127.0.0.1:3001/averageReviews/${roll}`)
         .then((res) => {
           const { reviewAverage, numberOfReviews } = res.data;
           expect(reviewAverage).to.exist;
           expect(numberOfReviews).to.not.equal(19);
         })
-        .then(() => done(), done)
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+
+    test('sends back "Item does not exist" for invalid item number', () => {
+      return axios.get('http://127.0.0.1:3001/averageReviews/99')
+        .then((res) => {
+          expect(res).to.not.equal('Item does not exist');
+        })
         .catch((err) => {
           console.log(err);
         });

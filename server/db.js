@@ -15,6 +15,7 @@ const individualReviewsSchema = new mongoose.Schema({
   reviewId: Number,
   score: Number,
   date: String,
+  title: String,
   review: String,
   username: String,
   recommended: Boolean,
@@ -32,7 +33,7 @@ const retrieveAggregateReview = function(itemId) {
 };
 
 const retrieveIndividualReviews = function(reviewIds) {
-  return IndividualReview.find({ reviewId: { $in: reviewIds } }).select('-_id -reviewId -__v').exec();
+  return IndividualReview.find({ reviewId: { $in: reviewIds } }).select('-_id -reviewId -__v').sort({ date: -1 }).exec();
 };
 
 module.exports.db = db;

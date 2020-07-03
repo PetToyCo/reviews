@@ -30,11 +30,8 @@ From project's root folder:
   f. In terminal, with cd set to project's root directory, run >npm run build
   g. in a browser, type: http://127.0.0.1:3001/
 Note: service currently hardcoded to only view item 100.
-5. To test the service's server endpoints, in a browser, type:
-http://127.0.0.1:3001/test/ServerSpecRunner.html
-6. To run the service's test specs, in a browser, type:
-http://127.0.0.1:3001/test/SpecRunner.html (if the steps in Step 4 above were followed)
-http://127.0.0.1:3001/test/SpecRunner.html?itemID=100 (if the steps in Step 4 above were NOT followed)
+5. To run server endpoint tests, in terminal and project's root directory as cd >npm run testServer
+6. To run the service's tests, make sure you followed the steps in number 4, then run from project's root directory in terminal >npm run test.
 
 
 
@@ -56,14 +53,14 @@ Without this tag, the Reviews module will not be able to mount itself in the DOM
 5. To retrieve the Reviews Module, make a GET request to http://127.0.0.1:3001/app.js
 6. This service also has the following endpoints (where :itemId can be a value from 100-199):
 
-Endpoint: /averageReviews/:itemId 
+Endpoint: /averageReviews/:itemId
 Server Response:
 {
   reviewAverage: “String between 0-5 representing average number of stars for that item”,
   numberOfReviews: “Integer number representing number of reviews for that item”
 }
 
-Endpoint: /reviews/:itemId 
+Endpoint: /reviews/:itemId
 Server Response:
 {
   reviewAverage: “String representing float number between 0-5 representing average number of stars for that item”,

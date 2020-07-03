@@ -7,7 +7,7 @@ class HighlightedReviews extends React.Component {
 
   render() {
     return (
-      <div style={{ display: 'flex' }}>
+      <div id='highlighted-reviews' style={{ display: 'flex' }}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div>Most Helpful Favorable Review</div>
           <SolidReviewStars />

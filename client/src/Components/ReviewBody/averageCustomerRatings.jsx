@@ -7,7 +7,7 @@ class AverageCustomerRatings extends React.Component {
 
   render() {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div id='average-review-stars' style={{ display: 'flex', flexDirection: 'column' }}>
         <div>Average Customer Ratings</div>
         <div style={{ display: 'flex' }}>
           <div>Overall</div>

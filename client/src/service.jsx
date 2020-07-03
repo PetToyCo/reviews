@@ -1,19 +1,25 @@
-import store from './ReduxSpecificComponents/store.js';
 import ReviewHeader from './Components/ReviewHeader/index.jsx';
 import ReviewBody from './Components/ReviewBody/index.jsx';
 import Reviews from './Components/Reviews/index.jsx';
 import updateReviewAverage from './ReduxSpecificComponents/Actions/updateReviewAverage.js';
 import updateNumberOfReviews from './ReduxSpecificComponents/Actions/updateNumberOfReviews.js';
 import updateAllReviews from './ReduxSpecificComponents/Actions/updateAllReviews.js';
+import updateFilteredReviews from './ReduxSpecificComponents/Actions/updateFilteredReviews.js';
 
-const { Provider } = ReactRedux;
+const { connect } = ReactRedux;
 
 class ReviewsModule extends React.Component {
-  constructor(props) {
-    super();
-  }
+  // constructor(props) {
+  //   super();
+  // }
 
   componentDidMount() {
+    const {
+      dispatchUpdateReviewAverage,
+      dispatchUpdateNumberOfReviews,
+      dispatchUpdateAllReviews,
+      dispatchUpdateFilteredReviews,
+    } = this.props;
     //When working on service, uncomment this axios call and comment-out the axios
     //call just below. Make sure to switch back just before pushing up to repo.
     //Just make sure to run webpack again so bundle is correct (In repo's cd, run >npm run build)
@@ -22,14 +28,15 @@ class ReviewsModule extends React.Component {
     //   .then((results) => {
     //     const { reviewAverage, numberOfReviews, allReviews } = results.data;
 
-    //     store.dispatch(updateReviewAverage(reviewAverage));
-    //     store.dispatch(updateNumberOfReviews(numberOfReviews));
-    //     store.dispatch(updateAllReviews(allReviews));
+    //     dispatchUpdateReviewAverage(reviewAverage);
+    //     dispatchUpdateNumberOfReviews(numberOfReviews);
+    //     dispatchUpdateAllReviews(allReviews);
+    //     dispatchUpdateFilteredReviews(allReviews);
     //   })
     //   .catch((err) => {
     //     console.log(err);
     //   });
-    //end of service as standaline
+    //end of service as standalone
 
     //start of service as proxy service
     const { search } = window.location;
@@ -47,9 +54,16 @@ class ReviewsModule extends React.Component {
       .then((results) => {
         const { reviewAverage, numberOfReviews, allReviews } = results.data;
 
-        store.dispatch(updateReviewAverage(reviewAverage));
-        store.dispatch(updateNumberOfReviews(numberOfReviews));
-        store.dispatch(updateAllReviews(allReviews));
+        dispatchUpdateReviewAverage(reviewAverage);
+        dispatchUpdateNumberOfReviews(numberOfReviews);
+        dispatchUpdateAllReviews(allReviews);
+        dispatchUpdateFilteredReviews(allReviews);
+
+        if (numberOfReviews === 0) {
+          store.dispatch(updateReviewRange('RESET', [0, -1]));
+        } else if (numberOfReviews < 8) {
+          store.dispatch(updateReviewRange('RESET', [0, numberOfReviews - 1]));
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -70,11 +84,15 @@ class ReviewsModule extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Provider store={store}>
-    <ReviewsModule />
-  </Provider>,
-  document.getElementById('REVIEWS_ATTACH_POINT'),
-);
+const mapDispatch = function(dispatch) {
+  return {
+    dispatchUpdateReviewAverage: (reviewAverage) => { dispatch(updateReviewAverage(reviewAverage)); },
+    dispatchUpdateNumberOfReviews: (numberOfReviews) => { dispatch(updateNumberOfReviews(numberOfReviews)); },
+    dispatchUpdateAllReviews: (allReviews) => { dispatch(updateAllReviews(allReviews)); },
+    dispatchUpdateFilteredReviews: (allReviews) => { dispatch(updateFilteredReviews(allReviews)); },
+  };
+};
 
-export default ReviewsModule;
+const wrappedReviewsModule = connect(null, mapDispatch)(ReviewsModule);
+
+export default wrappedReviewsModule;

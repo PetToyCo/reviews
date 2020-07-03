@@ -9,7 +9,7 @@ class ReviewBody extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='review-body-component'>
         <div id="review-link" style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ display: 'flex' }}>
             <StarChart />
