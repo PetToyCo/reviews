@@ -66,42 +66,6 @@ describe('The Reviews Module', () => {
     }, 50);
   });
 
-  describe('has a Helpful component that', () => {
-    test('has <div> components that disappear when their review is "disabled"', () => {
-      const wrapper = mount(<Provider store={store}><ReviewsModule /></Provider>, { attachTo: document.body });
-      allReviews[0].disabled = false;
-      store.dispatch(updateReviewAverage(reviewAverage));
-      store.dispatch(updateNumberOfReviews(numberOfReviews));
-      store.dispatch(updateAllReviews(allReviews));
-
-      wrapper.update();
-      let renderedComponent = wrapper.render();
-      let targetComponent = renderedComponent.find('#yes-tracker-0');
-      let targetComponentTwo = renderedComponent.find('#no-tracker-0');
-
-      expect(targetComponent).toHaveLength(1);
-      expect(targetComponentTwo).toHaveLength(1);
-
-      wrapper.update();
-      wrapper.find('#no-tracker-0').simulate('click');
-
-      wrapper.update();
-      wrapper.find('#forward-nav-button').simulate('click');
-
-      wrapper.update();
-      wrapper.find('#back-nav-button').simulate('click');
-
-      renderedComponent = wrapper.render();
-      targetComponent = renderedComponent.find('#yes-tracker-0');
-      targetComponentTwo = renderedComponent.find('#no-tracker-0');
-
-      expect(targetComponent).toHaveLength(0);
-      expect(targetComponent).toHaveLength(0);
-
-      wrapper.unmount();
-    });
-  });
-
   describe('has a subcomponent Filter that', () => {
     describe('has a <div> tag with id "filter-header-review-range"', () => {
       test('which reads "9-19 of 19 Reviews" once store state updated with intial server data AND nav forward button clicked', () => {

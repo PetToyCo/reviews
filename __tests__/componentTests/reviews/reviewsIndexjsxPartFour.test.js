@@ -4,6 +4,7 @@ import generalData from '../../setup/generalData.js';
 import storeStartingState from '../../setup/storeStartingState.js';
 import store from '../../../client/src/ReduxSpecificComponents/store.js';
 import Reviews from '../../../client/src/Components/Reviews/index.jsx';
+import ReviewsModule from '../../../client/src/service.jsx';
 import updateReviewAverage from '../../../client/src/ReduxSpecificComponents/Actions/updateReviewAverage.js';
 import updateNumberOfReviews from '../../../client/src/ReduxSpecificComponents/Actions/updateNumberOfReviews.js';
 import updateAllReviews from '../../../client/src/ReduxSpecificComponents/Actions/updateAllReviews.js';
@@ -50,6 +51,67 @@ beforeEach(() => {
 });
 
 describe('The Reviews component', () => {
+  describe('has a Helpful component with yes or no button subcomponents that', () => {
+    it('do not cause the color of other components on the next page to change color, too', () => {
+      const wrapper = mount(<Provider store={store}><ReviewsModule /></Provider>, { attachTo: document.body });
+
+      store.dispatch(updateReviewAverage(reviewAverage));
+      store.dispatch(updateNumberOfReviews(numberOfReviews));
+      store.dispatch(updateAllReviews(allReviews));
+      wrapper.update();
+
+      let renderedComponent = wrapper.render();
+      let targetComponent1 = renderedComponent.find('#yes-button-0');
+      let style1 = targetComponent1.get(0).attribs.style;
+      let targetComponent2 = renderedComponent.find('#no-button-0');
+      let style2 = targetComponent2.get(0).attribs.style;
+
+      expect(style2).toEqual(expect.not.stringContaining('color: rgb(180, 48, 52);'));
+      expect(style1).toEqual(expect.not.stringContaining('color: rgb(41, 120, 38);'));
+
+      wrapper.update();
+      wrapper.find('#yes-tracker-0').simulate('click');
+      wrapper.update();
+
+      renderedComponent = wrapper.render();
+      targetComponent1 = renderedComponent.find('#yes-button-0');
+      style1 = targetComponent1.get(0).attribs.style;
+      targetComponent2 = renderedComponent.find('#no-button-0');
+      style2 = targetComponent2.get(0).attribs.style;
+
+      expect(style2).toContain('color: rgb(180, 48, 52);');
+      expect(style1).toContain('color: rgb(41, 120, 38);');
+
+      wrapper.update();
+      wrapper.find('#forward-nav-button').simulate('click');
+      wrapper.update();
+
+      renderedComponent = wrapper.render();
+      targetComponent1 = renderedComponent.find('#yes-button-8');
+      style1 = targetComponent1.get(0).attribs.style;
+      targetComponent2 = renderedComponent.find('#no-button-8');
+      style2 = targetComponent2.get(0).attribs.style;
+
+      expect(style2).toEqual(expect.not.stringContaining('color: rgb(180, 48, 52);'));
+      expect(style1).toEqual(expect.not.stringContaining('color: rgb(41, 120, 38);'));
+
+      wrapper.update();
+      wrapper.find('#back-nav-button').simulate('click');
+      wrapper.update();
+
+      renderedComponent = wrapper.render();
+      targetComponent1 = renderedComponent.find('#yes-button-0');
+      style1 = targetComponent1.get(0).attribs.style;
+      targetComponent2 = renderedComponent.find('#no-button-0');
+      style2 = targetComponent2.get(0).attribs.style;
+
+      expect(style2).toContain('color: rgb(180, 48, 52);');
+      expect(style1).toContain('color: rgb(41, 120, 38);');
+
+      wrapper.unmount();
+    });
+  });
+
   describe('has a menuExpansion button that', () => {
     it('changes appearance based on mouseover and mouseout', () => {
       const wrapper = mount(<Provider store={store}><Reviews /></Provider>, { attachTo: document.body });

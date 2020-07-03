@@ -65,6 +65,8 @@ class Helpful extends React.Component {
     if (disabled) {
       yesButton.push(
         <div
+          className={`helpful-tracker-${indexInCurrentFilteredReviews}`}
+          id={`yes-tracker-${indexInCurrentFilteredReviews}`}
           style={{
             display: 'flex',
             backgroundColor: 'rgb(237, 237, 237)',
@@ -99,12 +101,15 @@ class Helpful extends React.Component {
               margin: '4px 10px 0 4px',
               fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
             }}
+            id={`yes-button-${indexInCurrentFilteredReviews}`}
           >{yeses}</div>
         </div>,
       );
 
       noButton.push(
         <div
+          className={`helpful-tracker-${indexInCurrentFilteredReviews}`}
+          id={`no-tracker-${indexInCurrentFilteredReviews}`}
           style={{
             display: 'flex',
             backgroundColor: 'rgb(237, 237, 237)',
@@ -139,6 +144,7 @@ class Helpful extends React.Component {
               margin: '4px 10px 0 4px',
               fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
             }}
+            id={`no-button-${indexInCurrentFilteredReviews}`}
           >{noes}</div>
         </div>,
       );
