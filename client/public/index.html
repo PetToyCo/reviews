@@ -9,11 +9,38 @@
     <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.0/react-redux.min.js"></script>
     <script crossorigin src="https://momentjs.com/downloads/moment.min.js"></script>
   </head>
-  <body style="display: flex;">
-    <div style="width: 21.3%;"> </div>
-    <div id="REVIEWS_ATTACH_POINT"></div>
-    <div style="width: 21.3%;"> </div>
+  <body>
+    <div
+      id="MODAL_ATTACH_POINT"
+      style="position: absolute; top: -20px; left: -20px; visibility: hidden; overflow: hidden; background-color: rgba(0, 0, 0, 0.4); z-index: 100;"
+    ></div>
+    <div style="display: flex;">
+      <div style="width: 21.3%;"> </div>
+      <div id="REVIEWS_ATTACH_POINT"></div>
+      <div style="width: 21.3%;"> </div>
+    </div>
   </body>
+
+  <script>
+    const callback = function() {
+      const body = document.body;
+
+      let height = body.scrollHeight + 40;
+      let width = body.scrollWidth + 40;
+
+      const modalAttachPoint = document.getElementById("MODAL_ATTACH_POINT");
+
+      modalAttachPoint.style.height = `${height}px`;
+      modalAttachPoint.style.width = `${width}px`;
+    };
+
+    window.addEventListener('resize', callback);
+
+    const targetNode = document.body;
+    const observer = new MutationObserver(callback);
+    const config = { childList: true, subtree: true, attributes: false };
+    observer.observe(targetNode, config);
+  </script>
 
   <script src="http://127.0.0.1:3001/app.js"></script>
 </html>

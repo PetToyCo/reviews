@@ -14,6 +14,7 @@ class ReviewBody extends React.Component {
           <div style={{ display: 'flex' }}>
             <StarChart />
             <AverageCustomerRatings />
+            <div>Write a review</div>
           </div>
           <HighlightedReviews />
         </div>

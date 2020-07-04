@@ -28,6 +28,13 @@ const filterReducer = function(state = initialState, action) {
       newState['3'] = false;
       newState['2'] = false;
       newState['1'] = false;
+    } else if (action.payload === '1-2-3') {
+      newState['3'] = true;
+      newState['2'] = true;
+      newState['1'] = true;
+    } else if (action.payload === '4-5') {
+      newState['5'] = true;
+      newState['4'] = true;
     } else {
       if (action.option === 'ADD') {
         newState[action.payload] = true;

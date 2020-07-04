@@ -7,7 +7,7 @@ class IndividualReview extends React.Component {
   // }
 
   render() {
-    const { indexInCurrentFilteredReviews, reviewObject } = this.props;
+    const { indexInCurrentFilteredReviews, reviewObject, modal } = this.props;
     const {
       username,
       title,
@@ -205,7 +205,7 @@ class IndividualReview extends React.Component {
           >{review}</div>
           {recommendedOrNot}
           {/* <div> Yes or no if this reviewer recommends the product circle: &#9679; check: &#10004; x: x</div> */}
-          <Helpful disabled={disabled} yeses={yeses} noes={noes} indexInCurrentFilteredReviews={indexInCurrentFilteredReviews} />
+          <Helpful disabled={disabled} yeses={yeses} noes={noes} indexInCurrentFilteredReviews={indexInCurrentFilteredReviews} modal={modal} />
         </div>
       </div>
     );

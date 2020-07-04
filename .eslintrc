@@ -38,5 +38,7 @@
     "prefer-object-spread": 0,
     "react/jsx-filename-extension": 0,
     "no-shadow": 0,
+    "no-lonely-if": 0,
+    "jsx-a11y/anchor-is-valid": 0,
   }
 }

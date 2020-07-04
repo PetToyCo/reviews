@@ -11,6 +11,7 @@ import enteredNonNumberFilterSettingReducer from './Reducers/enteredNonNumberFil
 import exitedRatingFilterReducer from './Reducers/exitedRatingFilterReducer.js';
 import enteredRatingFilterDropDownReducer from './Reducers/enteredRatingFilterDropDownReducer.js';
 import showRatingFilterDropDownReducer from './Reducers/showRatingFilterDropDownReducer.js';
+import modalSavedScrollPositionReducer from './Reducers/modalSavedScrollPositionReducer.js';
 
 const { combineReducers } = Redux;
 
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   exitedRatingFilter: exitedRatingFilterReducer,
   enteredRatingFilterDropDown: enteredRatingFilterDropDownReducer,
   showRatingFilterDropDown: showRatingFilterDropDownReducer,
+  modalSavedScrollPosition: modalSavedScrollPositionReducer,
 });
 
 export default rootReducer;
