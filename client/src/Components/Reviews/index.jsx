@@ -34,7 +34,7 @@ class Reviews extends React.Component {
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',
-          margin: '5px 0 0 0',
+          margin: '7px 0 0 0',
         }}
       >
         <Filter />

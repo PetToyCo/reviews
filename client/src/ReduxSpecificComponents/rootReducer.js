@@ -12,6 +12,8 @@ import exitedRatingFilterReducer from './Reducers/exitedRatingFilterReducer.js';
 import enteredRatingFilterDropDownReducer from './Reducers/enteredRatingFilterDropDownReducer.js';
 import showRatingFilterDropDownReducer from './Reducers/showRatingFilterDropDownReducer.js';
 import modalSavedScrollPositionReducer from './Reducers/modalSavedScrollPositionReducer.js';
+import mostFavorableAnchorTagClickedReducer from './Reducers/mostFavorableAnchorTagClickedReducer.js';
+import mostCriticalAnchorTagClickedReducer from './Reducers/mostCriticalAnchorTagClickedReducer.js';
 
 const { combineReducers } = Redux;
 
@@ -30,6 +32,8 @@ const rootReducer = combineReducers({
   enteredRatingFilterDropDown: enteredRatingFilterDropDownReducer,
   showRatingFilterDropDown: showRatingFilterDropDownReducer,
   modalSavedScrollPosition: modalSavedScrollPositionReducer,
+  mostFavorableAnchorTagClicked: mostFavorableAnchorTagClickedReducer,
+  mostCriticalAnchorTagClicked: mostCriticalAnchorTagClickedReducer,
 });
 
 export default rootReducer;

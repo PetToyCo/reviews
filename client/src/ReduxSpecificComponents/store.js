@@ -27,6 +27,8 @@ const store = createStore(rootReducer, {
   exitedNonNumberFilterDropDownSource: false,
   enteredNonNumberFilterSetting: false,
   modalSavedScrollPosition: [0, 0],
+  mostFavorableAnchorTagClicked: false,
+  mostCriticalAnchorTagClicked: false,
 });
 
 export default store;

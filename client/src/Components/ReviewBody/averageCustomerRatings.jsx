@@ -11,12 +11,33 @@ class AverageCustomerRatings extends React.Component {
     const { reviewAverage } = this.props;
 
     return (
-      <div id='average-review-stars' style={{ display: 'flex', flexDirection: 'column' }}>
-        <div>Average Customer Ratings</div>
+      <div id='average-review-stars' style={{ display: 'flex', flexDirection: 'column', margin: '0 0 0 -10px' }}>
+        <div
+          style={{
+            fontSize: '14px',
+            color: 'rgb(51, 51, 51)',
+            fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+            margin: '0 0 35px 0',
+          }}
+        >Average Customer Ratings</div>
         <div style={{ display: 'flex' }}>
-          <div>Overall</div>
+          <div
+            style={{
+              fontSize: '14px',
+              color: 'rgb(102, 102, 102)',
+              fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+              margin: '-1px 21px 0 0',
+            }}
+          >Overall</div>
           <DynamicReviewStars />
-          <div>{reviewAverage}</div>
+          <div
+            style={{
+              fontSize: '14px',
+              color: 'rgb(102, 102, 102)',
+              fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+              margin: '-1px 0 0 110px',
+            }}
+          >{reviewAverage}</div>
         </div>
       </div>
     );

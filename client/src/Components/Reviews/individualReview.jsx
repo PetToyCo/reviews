@@ -201,6 +201,7 @@ class IndividualReview extends React.Component {
               fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
               color: 'rgb(102, 102, 102)',
               width: '895px',
+              lineHeight: '20px',
             }}
           >{review}</div>
           {recommendedOrNot}

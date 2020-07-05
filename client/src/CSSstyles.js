@@ -8,6 +8,7 @@ const dynamicStarsGrayStars = {
   fontSize: '12px',
   color: '#ccc',
   lineSpacing: '1px',
+  letterSpacing: '-1px',
 };
 
 //////reviewHeader

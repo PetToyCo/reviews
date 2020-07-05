@@ -34,6 +34,7 @@ class StarChart extends React.Component {
           flexDirection: 'column',
           width: '50%',
           padding: '0 0 0 21px',
+          margin: '0 0 31px 0',
         }}
       >
         <div
