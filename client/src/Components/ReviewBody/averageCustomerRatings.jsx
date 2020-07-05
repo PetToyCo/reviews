@@ -3,9 +3,9 @@ import DynamicReviewStars from '../General/dynamicReviewStars.jsx';
 const { connect } = ReactRedux;
 
 class AverageCustomerRatings extends React.Component {
-  constructor(props) {
-    super();
-  }
+  // constructor(props) {
+  //   super();
+  // }
 
   render() {
     const { reviewAverage } = this.props;

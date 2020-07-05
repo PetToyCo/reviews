@@ -15,6 +15,18 @@ class StarChartRow extends React.Component {
     document.getElementById('review-link').scrollIntoView({ behavior: 'smooth' });
   }
 
+  handleMouseOverRow(scoreValue) {
+    const target = document.getElementById(`star-chart-row-${scoreValue}`);
+
+    target.style.backgroundColor = 'rgb(247, 247, 247)';
+  }
+
+  handleMouseOutRow(scoreValue) {
+    const target = document.getElementById(`star-chart-row-${scoreValue}`);
+
+    target.style.backgroundColor = null;
+  }
+
   render() {
     const {
       scoreValue,
@@ -22,41 +34,68 @@ class StarChartRow extends React.Component {
       numberOfReviews,
     } = this.props;
 
-    const width = 200;
-
     return (
       <div
         className='star-chart-row'
+        id={`star-chart-row-${scoreValue}`}
         style={{
           display: 'flex',
+          width: '327px',
+          padding: '2px 0 5px 5px',
+          margin: '0 0 6px 0',
         }}
         onClick={this.handleClickRow.bind(this, `${scoreValue}`)}
+        onMouseOver={this.handleMouseOverRow.bind(this, scoreValue)}
+        onMouseOut={this.handleMouseOutRow.bind(this, scoreValue)}
       >
-        <div>{scoreValue}</div>
-        <div>&#9733;</div>
-        <div style={{ position: 'relative' }}>
+        <div
+          style={{
+            fontSize: '14px',
+            color: 'rgb(102, 102, 102)',
+            fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+            margin: '0 2px 0 0',
+          }}
+        >{scoreValue}</div>
+        <div
+          style={{
+            fontSize: '11px',
+            color: 'rgb(102, 102, 102)',
+            fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+            margin: '0 10px 0 0',
+          }}
+        >&#9733;</div>
+        <div
+          style={{
+            height: '10px',
+            width: '230px',
+            minWidth: '230px',
+            backgroundColor: 'rgb(204, 204, 204)',
+            borderRadius: '2px',
+            backgroundImage: '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.3) 0px, rgba(255, 255, 255, 0) 100%)',
+            margin: '5px 4px 0 0',
+            boxShadow: 'inset 0 0 2px rgba(0,0,0,.25)',
+          }}
+        >
           <div
             style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
               height: '10px',
-              width: `${width}px`,
-              backgroundColor: 'gray',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              height: '10px',
-              width: `${width / numberOfReviews * scoreCount}px`,
-              backgroundColor: 'black',
+              width: `${230 / numberOfReviews * scoreCount}px`,
+              backgroundColor: 'rgb(51, 51, 51)',
+              borderRadius: '2px',
+              backgroundImage: '-webkit-linear-gradient(top, rgba(255, 255, 255, 0.3) 0px, rgba(255, 255, 255, 0) 100%)',
             }}
           />
         </div>
-        <div>{scoreCount}</div>
+        <div
+          style={{
+            fontSize: '12px',
+            color: 'rgb(102, 102, 102)',
+            fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+            width: '64px',
+            textAlign: 'center',
+            margin: '1px 0 0 0',
+          }}
+        >{scoreCount}</div>
       </div>
     );
   }

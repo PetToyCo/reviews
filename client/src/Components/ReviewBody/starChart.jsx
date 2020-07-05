@@ -27,11 +27,33 @@ class StarChart extends React.Component {
     }
 
     return (
-      <div id='star-chart' style={{ display: 'flex', flexDirection: 'column' }}>
-        <div>Rating Snapshot</div>
-        <div>Select a row below to filter reviews.</div>
+      <div
+        id='star-chart'
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '50%',
+          padding: '0 0 0 21px',
+        }}
+      >
+        <div
+          style={{
+            fontSize: '14px',
+            color: 'rgb(51, 51, 51)',
+            fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+            margin: '0 0 14px 0',
+          }}
+        >Rating Snapshot</div>
+        <div
+          style={{
+            fontSize: '14px',
+            color: 'rgb(102, 102, 102)',
+            fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+            margin: '0 0 20px 0',
+          }}
+        >Select a row below to filter reviews.</div>
         <StarChartRow scoreValue={5} scoreCount={scoreCount['5']} numberOfReviews={numberOfReviews} />
-        <StarChartRow scoreValue={5} scoreCount={scoreCount['4']} numberOfReviews={numberOfReviews} />
+        <StarChartRow scoreValue={4} scoreCount={scoreCount['4']} numberOfReviews={numberOfReviews} />
         <StarChartRow scoreValue={3} scoreCount={scoreCount['3']} numberOfReviews={numberOfReviews} />
         <StarChartRow scoreValue={2} scoreCount={scoreCount['2']} numberOfReviews={numberOfReviews} />
         <StarChartRow scoreValue={1} scoreCount={scoreCount['1']} numberOfReviews={numberOfReviews} />

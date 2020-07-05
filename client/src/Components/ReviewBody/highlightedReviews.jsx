@@ -21,6 +21,7 @@ class HighlightedReviews extends React.Component {
     dispatchUpdateModalSavedScrollPosition([currentScrollX, currentScrollY]);
 
     modalAttachPoint.style.visibility = 'visible';
+    modalAttachPoint.style.color = 'rgba(0, 0, 0, 0.4)';
 
     document.body.scrollIntoView({ behavior: 'smooth' });
     ReactDOM.render(<Provider id='modal-with-store' store={store}><FullReviewModal reviewObject={filteredReviews[index]} indexInCurrentFilteredReviews={index} /></Provider>, modalAttachPoint);
@@ -83,7 +84,7 @@ class HighlightedReviews extends React.Component {
     }
 
     return (
-      <div id='highlighted-reviews' style={{ display: 'flex' }} >
+      <div id='highlighted-reviews' style={{ display: 'flex' }}>
         <div
           style={{
             display: 'flex',
