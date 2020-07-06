@@ -24,14 +24,55 @@ class FullReviewModal extends React.Component {
         id='full-review-modal'
         style={{
           position: 'absolute',
-          top: '30px',
-          left: '30px',
+          top: '68px',
+          left: `${(document.body.scrollWidth / 2) - 340 + 28}px`,
           backgroundColor: 'white',
           display: 'flex',
+          maxWidth: '680px',
+          minWidth: '680px',
         }}
       >
         <IndividualReview reviewObject={reviewObject} indexInCurrentFilteredReviews={indexInCurrentFilteredReviews} modal='modal' />
-        <div onClick={this.handleCloseButtonClick.bind(this)}>Close</div>
+        <div
+          style={{
+            position: 'relative',
+            cursor: 'pointer',
+          }}
+          onClick={this.handleCloseButtonClick.bind(this)}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              top: '-1.5px',
+              left: '-6px',
+              borderStyle: 'dotted',
+              borderWidth: '1px',
+              borderColor: 'hsl(203, 62%, 32%)',
+              width: '22px',
+              height: '27px',
+            }}
+          />
+          <div
+            style={{
+              color: 'black',
+              fontSize: '50px',
+              position: 'absolute',
+              top: '-19.5px',
+              left: '-8.4px',
+            }}
+          >&#9679;</div>
+          <div
+            style={{
+              fontSize: '24px',
+              position: 'absolute',
+              color: 'white',
+              fontFamily: '"Nunito", "sans-serif"',
+              fontWeight: 400,
+              top: '-4.6px',
+              left: '-0.2px',
+            }}
+          >x</div>
+        </div>
       </div>
     );
   }

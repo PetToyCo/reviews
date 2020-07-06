@@ -22,6 +22,39 @@ class IndividualReview extends React.Component {
       disabled,
     } = reviewObject;
 
+    let wrapperStyle;
+    let reviewStyle;
+
+    if (modal) {
+      wrapperStyle = {
+        display: 'flex',
+        margin: '10px 0 21px 20px',
+        maxWidth: '640px',
+        minWidth: '640px',
+      };
+      reviewStyle = {
+        fontSize: '14px',
+        fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+        color: 'rgb(102, 102, 102)',
+        maxWidth: '520px',
+        minWidth: '520px',
+        lineHeight: '20px',
+      };
+    } else {
+      wrapperStyle = {
+        display: 'flex',
+        margin: '20px 0 11px 20px',
+        width: '1035px',
+      };
+      reviewStyle = {
+        fontSize: '14px',
+        fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+        color: 'rgb(102, 102, 102)',
+        width: '895px',
+        lineHeight: '20px',
+      };
+    }
+
     const dateSplit = date.split('T');
     dateSplit[1] = dateSplit[1].substring(0, 12);
     const newDate = dateSplit.join(' ');
@@ -139,12 +172,7 @@ class IndividualReview extends React.Component {
     return (
       <div
         className='individual-review'
-        style={{
-          display: 'flex',
-          margin: '20px 0 11px 20px',
-          // padding: '0 40px 0 0',
-          width: '1035px',
-        }}
+        style={wrapperStyle}
       >
         <img
           src='http://127.0.0.1:3001/silhouette.png'
@@ -155,7 +183,7 @@ class IndividualReview extends React.Component {
           }}
         />
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', width: '976px' }}>
+          <div style={{ display: 'flex', width: modal === 'modal' ? '561px' : '976px' }}>
             <SolidReviewStars score={score} />
             <div
               style={{
@@ -193,16 +221,12 @@ class IndividualReview extends React.Component {
               fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
               color: 'rgb(51, 51, 51)',
               margin: '5px 0 14px 0',
+              overflow: 'hidden',
+              width: modal === 'modal' ? '520px' : '895px',
             }}
           >{title}</div>
           <div
-            style={{
-              fontSize: '14px',
-              fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
-              color: 'rgb(102, 102, 102)',
-              width: '895px',
-              lineHeight: '20px',
-            }}
+            style={reviewStyle}
           >{review}</div>
           {recommendedOrNot}
           {/* <div> Yes or no if this reviewer recommends the product circle: &#9679; check: &#10004; x: x</div> */}

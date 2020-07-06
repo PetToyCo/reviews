@@ -37,7 +37,13 @@ class HighlightedReviews extends React.Component {
     modalAttachPoint.style.color = 'rgba(0, 0, 0, 0.4)';
 
     document.body.scrollIntoView({ behavior: 'smooth' });
-    ReactDOM.render(<Provider id='modal-with-store' store={store}><FullReviewModal reviewObject={filteredReviews[index]} indexInCurrentFilteredReviews={index} /></Provider>, modalAttachPoint);
+    ReactDOM.render(<Provider store={store}><FullReviewModal reviewObject={filteredReviews[index]} indexInCurrentFilteredReviews={index} /></Provider>, modalAttachPoint);
+
+    window.addEventListener('resize', () => {
+      const target = document.getElementById('full-review-modal');
+
+      target.style.left = `${(document.body.scrollWidth / 2) - 340 + 28}px`;
+    });
   }
 
   handleLinkMouseOver(id) {
