@@ -30,6 +30,7 @@ class FullReviewModal extends React.Component {
           display: 'flex',
           maxWidth: '680px',
           minWidth: '680px',
+          boxShadow: 'rgba(0, 0, 0, 0.5) 0px 10px 25px 0px',
         }}
       >
         <IndividualReview reviewObject={reviewObject} indexInCurrentFilteredReviews={indexInCurrentFilteredReviews} modal='modal' />
