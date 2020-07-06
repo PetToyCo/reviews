@@ -112,4 +112,7 @@ To upscale mock data:
 
 From within the root directory: npm install
 
+## Images
+The folder client/public contains numerous images. As noted in a text file contined within that folder (imgAttribution.txt), those images were: 
 
+"All images taken from https://www.petco.com/shop/en/petcostore/product/cat/cat-toys/leaps-and-bounds-faux-leather-mouse-cat-toy-with-rattle-and-catnip June/July 2020"

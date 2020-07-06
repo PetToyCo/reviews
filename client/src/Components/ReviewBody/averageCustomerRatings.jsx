@@ -6,6 +6,20 @@ class AverageCustomerRatings extends React.Component {
   // constructor(props) {
   //   super();
   // }
+  componentDidMount() {
+    const parent = document.getElementById('average-customer-ratings-stats');
+    let target;
+
+    for (let i = 0; i < parent.childNodes.length; i++) {
+      if (parent.childNodes[i].className === 'dynamic-stars') {
+        target = parent.childNodes[i];
+      }
+    }
+
+    for (let j = 0; j < target.childNodes.length; j++) {
+      target.childNodes[j].style.fontSize = '14px';
+    }
+  }
 
   render() {
     const { reviewAverage } = this.props;
@@ -20,7 +34,7 @@ class AverageCustomerRatings extends React.Component {
             margin: '0 0 35px 0',
           }}
         >Average Customer Ratings</div>
-        <div style={{ display: 'flex' }}>
+        <div id='average-customer-ratings-stats' style={{ display: 'flex' }}>
           <div
             style={{
               fontSize: '14px',

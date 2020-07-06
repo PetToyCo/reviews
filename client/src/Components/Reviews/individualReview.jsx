@@ -43,7 +43,7 @@ class IndividualReview extends React.Component {
         <div
           style={{
             display: 'flex',
-            margin: '32px 0 0 0',
+            margin: '30px 0 0 0',
           }}
         >
           <div style={{ position: 'relative' }}>
@@ -91,7 +91,7 @@ class IndividualReview extends React.Component {
         <div
           style={{
             display: 'flex',
-            margin: '32px 0 0 0',
+            margin: '30px 0 0 0',
           }}
         >
           <div style={{ position: 'relative' }}>
@@ -192,7 +192,7 @@ class IndividualReview extends React.Component {
               fontWeight: '700',
               fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
               color: 'rgb(51, 51, 51)',
-              margin: '5px 0 16px 0',
+              margin: '5px 0 14px 0',
             }}
           >{title}</div>
           <div

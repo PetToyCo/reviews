@@ -23,9 +23,20 @@ class ReviewHeader extends React.Component {
   modifiedStyleForReviewHeaderItemLink(originalStyle) {
     const newStyles = {};
     Object.assign(newStyles, originalStyle);
-    newStyles.borderLeft = '1px solid';
+    newStyles.marginLeft = '1px';
     newStyles.borderRight = '1px solid';
-    newStyles.borderColor = '#ccc';
+    newStyles.borderRightColor = '#ccc';
+    newStyles.padding = '8px 10px 8px 11px';
+
+    return newStyles;
+  }
+
+  modifiedStyleForReviewHeaderItemLinkLeftMost(originalStyle) {
+    const newStyles = {};
+    Object.assign(newStyles, originalStyle);
+    newStyles.padding = '8px 8px 8px 10px';
+    newStyles.borderRight = '1px solid';
+    newStyles.borderRightColor = '#ccc';
 
     return newStyles;
   }
@@ -66,10 +77,11 @@ class ReviewHeader extends React.Component {
 
   render() {
     const { reviewAverage, numberOfReviews } = this.props;
+
     return (
       <div id="review-header-component" style={reviewHeaderWrapper}>
         <div style={reviewHeaderTopHalf}>
-          <div style={{ display: 'flex', marginTop: '3px' }}>
+          <div style={{ display: 'flex', marginTop: '5px' }}>
             <a
               title={`Read ${numberOfReviews} Reviews`}
               href='#review-link'
@@ -79,7 +91,7 @@ class ReviewHeader extends React.Component {
               <DynamicReviewStars />
             </a>
             <div id='header-upper-review-average' style={reviewHeaderReviewAverage}>{reviewAverage}</div>
-            <div style={{ paddingLeft: '10px', marginTop: '2px' }}>
+            <div style={{ paddingLeft: '10px', marginTop: '1px' }}>
               <a
                 id='header-upper-reviews'
                 onClick={this.smoothScrollReviews}
@@ -91,7 +103,7 @@ class ReviewHeader extends React.Component {
             </div>
           </div>
         </div>
-        <div style={{ display: 'flex', height: '52px' }}>
+        <div style={{ display: 'flex', height: '52px', paddingRight: '1px' }}>
           <div style={{ width: '529px', display: 'flex', marginLeft: '10px' }}>
             <input style={reviewHeaderSearchBar} placeholder='Search topics and reviews' />
             <button
@@ -104,14 +116,14 @@ class ReviewHeader extends React.Component {
           </div>
           <ul style={reviewHeaderList}>
             <li style={reviewHeaderListItem}>
-              <a href='#review-link' onClick={this.smoothScrollReviews} style={reviewHeaderItemLink}>
-                <span id='item-value-reviews' style={reviewHeaderItemLinkLinkNatureHidden}>{numberOfReviews}</span>
+              <a href='#place-holder-questions' onClick={this.smoothScrollQuestions} style={reviewHeaderItemLink}>
+                <span style={reviewHeaderItemLinkLinkNatureHidden}>0</span>
                 <span
-                  id='item-link-reviews'
+                  id='item-link-answers'
                   onMouseOut={this.changeColorOnMouseOut}
                   onMouseOver={this.changeColorOnMouseOver}
                   style={reviewHeaderItemLinkLinklike}
-                >Reviews</span>
+                >Answers</span>
               </a>
             </li>
             <li style={reviewHeaderListItem}>
@@ -130,14 +142,14 @@ class ReviewHeader extends React.Component {
               </a>
             </li>
             <li style={reviewHeaderListItem}>
-              <a href='#place-holder-questions' onClick={this.smoothScrollQuestions} style={reviewHeaderItemLink}>
-                <span style={reviewHeaderItemLinkLinkNatureHidden}>0</span>
+              <a href='#review-link' onClick={this.smoothScrollReviews} style={this.modifiedStyleForReviewHeaderItemLinkLeftMost(reviewHeaderItemLink)}>
+                <span id='item-value-reviews' style={reviewHeaderItemLinkLinkNatureHidden}>{numberOfReviews}</span>
                 <span
-                  id='item-link-answers'
+                  id='item-link-reviews'
                   onMouseOut={this.changeColorOnMouseOut}
                   onMouseOver={this.changeColorOnMouseOver}
                   style={reviewHeaderItemLinkLinklike}
-                >Answers</span>
+                >Reviews</span>
               </a>
             </li>
           </ul>

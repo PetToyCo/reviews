@@ -165,7 +165,7 @@ class HighlightedReviews extends React.Component {
       fontWeight: '700',
       fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
       color: 'rgb(51, 51, 51)',
-      margin: '8px 0 17px 0',
+      margin: '8px 0 15px 0',
       overflow: 'hidden',
       maxHeight: '22px',
     };
