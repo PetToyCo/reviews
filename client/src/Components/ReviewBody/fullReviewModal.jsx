@@ -35,6 +35,7 @@ class FullReviewModal extends React.Component {
       >
         <IndividualReview reviewObject={reviewObject} indexInCurrentFilteredReviews={indexInCurrentFilteredReviews} modal='modal' />
         <div
+          id='highlighted-review-modal-close-button'
           style={{
             position: 'relative',
             cursor: 'pointer',

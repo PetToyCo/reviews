@@ -31,7 +31,11 @@ From project's root folder:
   g. in a browser, type: http://127.0.0.1:3001/
 Note: service currently hardcoded to only view item 100.
 5. To run server endpoint tests, in terminal and project's root directory as cd >npm run testServer
-6. To run the service's tests, make sure you followed the steps in number 4, then run from project's root directory in terminal >npm run test.
+6. To run the service's tests, follow these steps:
+a. make sure you followed the steps in number 4
+b. Also in service.jsx, there is a line of code with 'MODAL_ATTACH_POINT' as part of its code. Uncomment this and save the file. Don't forget to recomment and save if you want to continue exploring the service.
+c. Then run from project's root directory in terminal >npm run test.
+d. NOTE: The coverage report will show all greens in the %stmts column except for one index.jsx file. This is unavoidable. Those lines of code cannot be tested in Jest/Enzyme because they involve lines of codes that set a component's style for backgroundImage to a '--webkit' value. Jest doesn't know how to process this and, while it doesn't error out, that backgroundImage value cannot be found on the component, in Jest. You can visually inspect that these lines of code are working though. On the service or proxy page, on the right hand side is a 'Write Review' button that should darken on mouseover, then lighten back to original color on mouseout.
 
 
 

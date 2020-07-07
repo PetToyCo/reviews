@@ -49,6 +49,7 @@ class StarChartRow extends React.Component {
         onMouseOut={this.handleMouseOutRow.bind(this, scoreValue)}
       >
         <div
+          id={`star-chart-row-type-${scoreValue}`}
           style={{
             fontSize: '14px',
             color: 'rgb(102, 102, 102)',
@@ -77,6 +78,7 @@ class StarChartRow extends React.Component {
           }}
         >
           <div
+            id={`star-chart-row-bar-${scoreValue}`}
             style={{
               height: '10px',
               width: `${230 / numberOfReviews * scoreCount}px`,
@@ -87,6 +89,7 @@ class StarChartRow extends React.Component {
           />
         </div>
         <div
+          id={`star-chart-row-count-${scoreValue}`}
           style={{
             fontSize: '12px',
             color: 'rgb(102, 102, 102)',

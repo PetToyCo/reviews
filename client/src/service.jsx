@@ -75,6 +75,8 @@ class ReviewsModule extends React.Component {
     // console.log('Review freshly mounted')
     return (
       <div id="reviews-module" style={{ display: 'flex', flexDirection: 'column', flexShrink: '0' }}>
+        {/*The tag directly below this is for testing purposes only. Make sure to comment out before building for production*/}
+        {/* <div id='MODAL_ATTACH_POINT'></div> */}
         <ReviewHeader />
         <ReviewBody />
         <Reviews />

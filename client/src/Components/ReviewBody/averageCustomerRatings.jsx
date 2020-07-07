@@ -10,14 +10,17 @@ class AverageCustomerRatings extends React.Component {
     const parent = document.getElementById('average-customer-ratings-stats');
     let target;
 
-    for (let i = 0; i < parent.childNodes.length; i++) {
-      if (parent.childNodes[i].className === 'dynamic-stars') {
-        target = parent.childNodes[i];
+    if (parent) {
+      for (let i = 0; i < parent.childNodes.length; i++) {
+        if (parent.childNodes[i].className === 'dynamic-stars') {
+          target = parent.childNodes[i];
+        }
       }
-    }
 
-    for (let j = 0; j < target.childNodes.length; j++) {
-      target.childNodes[j].style.fontSize = '14px';
+      for (let j = 0; j < target.childNodes.length; j++) {
+        const newTarget = target.childNodes[j];
+        newTarget.style.fontSize = '14px';
+      }
     }
   }
 
@@ -43,8 +46,9 @@ class AverageCustomerRatings extends React.Component {
               margin: '-1px 21px 0 0',
             }}
           >Overall</div>
-          <DynamicReviewStars />
+          <DynamicReviewStars biggerFont={true} />
           <div
+            id='average-customer-ratings-review-average'
             style={{
               fontSize: '14px',
               color: 'rgb(102, 102, 102)',

@@ -247,6 +247,7 @@ class HighlightedReviews extends React.Component {
     if (favorableReview) {
       reviews.push(
         <div
+          id='most-favorable-helpful'
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -288,6 +289,7 @@ class HighlightedReviews extends React.Component {
     if (criticalReview) {
       reviews.push(
         <div
+          id='most-critical-helpful'
           style={{
             display: 'flex',
             flexDirection: 'column',
