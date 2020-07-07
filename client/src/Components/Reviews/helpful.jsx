@@ -2,44 +2,58 @@ import updateFilteredReviews from '../../ReduxSpecificComponents/Actions/updateF
 
 const { connect } = ReactRedux;
 
-const handleClickYesOrNoButton = function(indexInCurrentFilteredReviews, option, dispatchUpdateFilteredReviews) {
+const handleClickYesOrNoButton = function(indexInCurrentFilteredReviews, option, dispatchUpdateFilteredReviews, modal) {
   const objectInCurrentFilteredReviews = this.props.filteredReviews[indexInCurrentFilteredReviews];
   const { disabled } = objectInCurrentFilteredReviews;
 
   if (!disabled) {
     dispatchUpdateFilteredReviews(indexInCurrentFilteredReviews, option);
 
-    const buttons = document.getElementsByClassName(`helpful-tracker-${indexInCurrentFilteredReviews}`);
+    const buttons = document.getElementsByClassName(`helpful-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`);
 
     for (let i = 0; i < buttons.length; i++) {
       const target = buttons[i];
       target.style.cursor = 'default';
       target.style.boxShadow = null;
     }
+
+    if (modal) {
+      const yesTarget = document.getElementById(`yes-button-${indexInCurrentFilteredReviews}-modal`);
+      const noTarget = document.getElementById(`no-button-${indexInCurrentFilteredReviews}-modal`);
+
+      if (option === 'yeses') {
+        yesTarget.innerHTML = Number.parseInt(yesTarget.innerHTML, 10) + 1;
+      } else {
+        noTarget.innerHTML = Number.parseInt(noTarget.innerHTML, 10) + 1;
+      }
+
+      yesTarget.style.color = 'rgb(41, 120, 38)';
+      noTarget.style.color = 'rgb(180, 48, 52)';
+    }
   }
 };
 
-const handleMouseOverYesNoReportButton = function(indexInCurrentFilteredReviews, option) {
+const handleMouseOverYesNoReportButton = function(indexInCurrentFilteredReviews, option, modal) {
   const objectInCurrentFilteredReviews = this.props.filteredReviews[indexInCurrentFilteredReviews];
   const { disabled } = objectInCurrentFilteredReviews;
 
   if (!disabled || option === 'report') {
     objectInCurrentFilteredReviews[option]++;
 
-    const target = document.getElementById(`${option}-tracker-${indexInCurrentFilteredReviews}`);
+    const target = document.getElementById(`${option}-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`);
 
     target.style.boxShadow = 'inset 0px 0px 5px 0px rgba(0, 0, 0, 0.2)';
   }
 };
 
-const handleMouseOutYesNoReportButton = function(indexInCurrentFilteredReviews, option) {
+const handleMouseOutYesNoReportButton = function(indexInCurrentFilteredReviews, option, modal) {
   const objectInCurrentFilteredReviews = this.props.filteredReviews[indexInCurrentFilteredReviews];
   const { disabled } = objectInCurrentFilteredReviews;
 
   if (!disabled || option === 'report') {
     objectInCurrentFilteredReviews[option]++;
 
-    const target = document.getElementById(`${option}-tracker-${indexInCurrentFilteredReviews}`);
+    const target = document.getElementById(`${option}-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`);
 
     target.style.boxShadow = null;
   }
@@ -57,6 +71,7 @@ class Helpful extends React.Component {
       disabled,
       indexInCurrentFilteredReviews,
       dispatchUpdateFilteredReviews,
+      modal,
     } = this.props;
 
     const yesButton = [];
@@ -65,8 +80,8 @@ class Helpful extends React.Component {
     if (disabled) {
       yesButton.push(
         <div
-          className={`helpful-tracker-${indexInCurrentFilteredReviews}`}
-          id={`yes-tracker-${indexInCurrentFilteredReviews}`}
+          className={`helpful-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
+          id={`yes-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
           style={{
             display: 'flex',
             backgroundColor: 'rgb(237, 237, 237)',
@@ -101,15 +116,15 @@ class Helpful extends React.Component {
               margin: '4px 10px 0 4px',
               fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
             }}
-            id={`yes-button-${indexInCurrentFilteredReviews}`}
+            id={`yes-button-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
           >{yeses}</div>
         </div>,
       );
 
       noButton.push(
         <div
-          className={`helpful-tracker-${indexInCurrentFilteredReviews}`}
-          id={`no-tracker-${indexInCurrentFilteredReviews}`}
+          className={`helpful-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
+          id={`no-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
           style={{
             display: 'flex',
             backgroundColor: 'rgb(237, 237, 237)',
@@ -144,15 +159,15 @@ class Helpful extends React.Component {
               margin: '4px 10px 0 4px',
               fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
             }}
-            id={`no-button-${indexInCurrentFilteredReviews}`}
+            id={`no-button-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
           >{noes}</div>
         </div>,
       );
     } else {
       yesButton.push(
         <div
-          className={`helpful-tracker-${indexInCurrentFilteredReviews}`}
-          id={`yes-tracker-${indexInCurrentFilteredReviews}`}
+          className={`helpful-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
+          id={`yes-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
           style={{
             display: 'flex',
             backgroundColor: 'rgb(237, 237, 237)',
@@ -160,9 +175,9 @@ class Helpful extends React.Component {
             margin: '-4px 5px 0 0',
             cursor: 'pointer',
           }}
-          onClick={handleClickYesOrNoButton.bind(this, indexInCurrentFilteredReviews, 'yeses', dispatchUpdateFilteredReviews)}
-          onMouseOver={handleMouseOverYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'yes')}
-          onMouseOut={handleMouseOutYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'yes')}
+          onClick={handleClickYesOrNoButton.bind(this, indexInCurrentFilteredReviews, 'yeses', dispatchUpdateFilteredReviews, modal)}
+          onMouseOver={handleMouseOverYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'yes', modal)}
+          onMouseOut={handleMouseOutYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'yes', modal)}
         >
           <div
             style={{
@@ -190,15 +205,15 @@ class Helpful extends React.Component {
               margin: '4px 10px 0 4px',
               fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
             }}
-            id={`yes-button-${indexInCurrentFilteredReviews}`}
+            id={`yes-button-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
           >{yeses}</div>
         </div>,
       );
 
       noButton.push(
         <div
-          className={`helpful-tracker-${indexInCurrentFilteredReviews}`}
-          id={`no-tracker-${indexInCurrentFilteredReviews}`}
+          className={`helpful-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
+          id={`no-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
           style={{
             display: 'flex',
             backgroundColor: 'rgb(237, 237, 237)',
@@ -206,9 +221,9 @@ class Helpful extends React.Component {
             margin: '-4px 5px 0 0',
             cursor: 'pointer',
           }}
-          onClick={handleClickYesOrNoButton.bind(this, indexInCurrentFilteredReviews, 'noes', dispatchUpdateFilteredReviews)}
-          onMouseOver={handleMouseOverYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'no')}
-          onMouseOut={handleMouseOutYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'no')}
+          onClick={handleClickYesOrNoButton.bind(this, indexInCurrentFilteredReviews, 'noes', dispatchUpdateFilteredReviews, modal)}
+          onMouseOver={handleMouseOverYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'no', modal)}
+          onMouseOut={handleMouseOutYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'no', modal)}
         >
           <div
             style={{
@@ -236,7 +251,7 @@ class Helpful extends React.Component {
               margin: '4px 10px 0 4px',
               fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
             }}
-            id={`no-button-${indexInCurrentFilteredReviews}`}
+            id={`no-button-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
           >{noes}</div>
         </div>,
       );
@@ -261,7 +276,7 @@ class Helpful extends React.Component {
         {yesButton}
         {noButton}
         <div
-          id={`report-tracker-${indexInCurrentFilteredReviews}`}
+          id={`report-tracker-${indexInCurrentFilteredReviews}${modal === undefined ? '' : '-modal'}`}
           style={{
             display: 'flex',
             backgroundColor: 'rgb(237, 237, 237)',
@@ -273,8 +288,8 @@ class Helpful extends React.Component {
             fontWeight: '700',
             fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
           }}
-          onMouseOver={handleMouseOverYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'report')}
-          onMouseOut={handleMouseOutYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'report')}
+          onMouseOver={handleMouseOverYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'report', modal)}
+          onMouseOut={handleMouseOutYesNoReportButton.bind(this, indexInCurrentFilteredReviews, 'report', modal)}
         >Report</div>
       </div>
     );

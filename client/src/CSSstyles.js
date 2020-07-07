@@ -5,9 +5,10 @@ const dynamicStarsGrayStars = {
   left: '0',
   height: 'inherit',
   width: '60px',
-  fontSize: '12px',
+  fontSize: 'inherit',
   color: '#ccc',
   lineSpacing: '1px',
+  letterSpacing: '-1px',
 };
 
 //////reviewHeader
@@ -33,14 +34,15 @@ const reviewHeaderItemLinkLinklike = {
 
 const reviewHeaderItemLinkLinkNatureHidden = {
   color: '#333',
-  fontSize: '17px',
+  fontSize: '15.6px',
   fontWeight: '700',
   fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
+  margin: '0 0 1px 0',
 };
 
 const reviewHeaderListItem = {
   display: 'list-item',
-  float: 'left',
+  float: 'right',
   height: 'auto',
   width: '160px',
   left: 'auto',
@@ -66,26 +68,29 @@ const reviewHeaderTopHalf = {
 };
 
 const reviewHeaderReviewAverage = {
-  paddingLeft: '10px',
-  paddingRight: '10px',
+  padding: '1px 10px 0 7px',
   borderRight: '1px solid #ccc',
   height: '18px',
   color: '#666',
   fontSize: '14px',
   fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
-  marginTop: '2px',
+  margin: '1px -1px 0 0',
 };
 
 const reviewHeaderSearchBar = {
   fontSize: '14px',
-  width: '416px',
+  width: '418px',
   height: '16px',
-  borderColor: '#bbb #ddd #ddd #ddd',
+  borderColor: 'rgb(221, 221, 221)',
+  borderTopColor: 'rgb(187, 187, 187',
+  borderStyle: 'solid',
   margin: '10px 0',
   borderWidth: '1px',
   padding: '7px 10px',
   fontFamily: '"Arial","Helvetica","Helvetica Neue",sans-serif',
-  borderRadius: '0.25em 0 0 0.25em',
+  borderTopLeftRadius: '3.5px',
+  borderBottomLeftRadius: '3.5px',
+  boxShadow: 'rgb(255, 255, 255) 0px 1px 1px 0px',
 };
 
 const reviewHeaderSearchBarButton = {
@@ -103,7 +108,7 @@ const reviewHeaderList = {
   height: '52px',
   width: '480px',
   float: 'right',
-  margin: '0 0 0 36px',
+  margin: '0 0 0 auto',
 };
 
 export {
