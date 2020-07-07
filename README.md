@@ -42,12 +42,42 @@ e. NOTE2: The coverage report shows one yellow in the %stmts column for one inde
 
 To connect this service to a proxy server:
 1. Follow steps 1-3 in the above section titled "From project's root folder"
+
 2. In your proxy's index.html file, make sure there is this tag:
 <div id="REVIEWS_ATTACH_POINT"></div>
 Without this tag, the Reviews module will not be able to mount itself in the DOM.
-3. The proxy server's valid urls must include the search param ?itemID="value 100 to 199 without the quotes."
+You will also need this tag:
+<div
+  id="MODAL_ATTACH_POINT"
+  style="position: absolute; top: -20px; left: -20px; visibility: hidden; overflow: hidden; background-color: rgba(0, 0, 0, 0.4); z-index: 100;"
+></div>
+Recommended you put it directly under the opening <body> tag so there is no unintended side-effects. This tag allows modals to attach in a proxy.
 
-4. You will also need the following CDN links posted ABOVE the tag in step 2:
+3. To complete the modal functionality, you will also need to add the following after the closing </body> tag:
+<script>
+  const callback = function() {
+    const body = document.body;
+
+    let height = body.scrollHeight + 40;
+    let width = body.scrollWidth + 40;
+
+    const modalAttachPoint = document.getElementById("MODAL_ATTACH_POINT");
+
+    modalAttachPoint.style.height = `${height}px`;
+    modalAttachPoint.style.width = `${width}px`;
+  };
+
+  window.addEventListener('resize', callback);
+
+  const targetNode = document.body;
+  const observer = new MutationObserver(callback);
+  const config = { childList: true, subtree: true, attributes: false };
+  observer.observe(targetNode, config);
+</script>
+
+4. The proxy server's valid urls must include the search param ?itemID="value 100 to 199 without the quotes."
+
+5. You will also need the following CDN links posted ABOVE the tag in step 2:
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
@@ -57,6 +87,7 @@ Without this tag, the Reviews module will not be able to mount itself in the DOM
 <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
 5. To retrieve the Reviews Module, make a GET request to http://127.0.0.1:3001/app.js
+
 6. This service also has the following endpoints (where :itemId can be a value from 100-199):
 
 Endpoint: /averageReviews/:itemId
