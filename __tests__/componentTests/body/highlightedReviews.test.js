@@ -51,7 +51,7 @@ beforeEach(() => {
 });
 
 describe('The ReviewBody component', () => {
-  describe('has a HighlightedReviews component where each StarChartRow subcomponent', () => {
+  describe('has a HighlightedReviews component that', () => {
     it('has links that change color on mouseover, mouseout, and click', () => {
       const wrapper = mount(<Provider store={store}><ReviewsModule /></Provider>, { attachTo: document.body });
 

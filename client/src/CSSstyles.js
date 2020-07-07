@@ -5,7 +5,7 @@ const dynamicStarsGrayStars = {
   left: '0',
   height: 'inherit',
   width: '60px',
-  fontSize: '12px',
+  fontSize: 'inherit',
   color: '#ccc',
   lineSpacing: '1px',
   letterSpacing: '-1px',

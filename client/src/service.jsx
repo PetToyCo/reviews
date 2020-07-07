@@ -76,7 +76,7 @@ class ReviewsModule extends React.Component {
     return (
       <div id="reviews-module" style={{ display: 'flex', flexDirection: 'column', flexShrink: '0' }}>
         {/*The tag directly below this is for testing purposes only. Make sure to comment out before building for production*/}
-        {/* <div id='MODAL_ATTACH_POINT'></div> */}
+        <div id='MODAL_ATTACH_POINT' />
         <ReviewHeader />
         <ReviewBody />
         <Reviews />

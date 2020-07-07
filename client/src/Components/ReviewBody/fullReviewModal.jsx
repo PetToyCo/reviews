@@ -64,6 +64,7 @@ class FullReviewModal extends React.Component {
             }}
           >&#9679;</div>
           <div
+            id='highlighted-review-modal-close-button-x'
             style={{
               fontSize: '24px',
               position: 'absolute',
