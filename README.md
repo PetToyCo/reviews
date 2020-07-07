@@ -54,6 +54,7 @@ Without this tag, the Reviews module will not be able to mount itself in the DOM
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.5/redux.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.0/react-redux.min.js"></script>
 <script crossorigin src="https://momentjs.com/downloads/moment.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
 5. To retrieve the Reviews Module, make a GET request to http://127.0.0.1:3001/app.js
 6. This service also has the following endpoints (where :itemId can be a value from 100-199):
