@@ -7,7 +7,14 @@ const server = express();
 
 server.use(morgan('dev'));
 server.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
+  const { referer } = req.headers;
+  if (referer.includes('http://127.0.0.1:3000')) {
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
+  } else if (referer.includes('http://127.0.0.1:3005')) {
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3005');
+  } else if (referer.includes('http://127.0.0.1:3004')) {
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3004');
+  }
   next();
 });
 server.use(serveStatic('./client/public'));
