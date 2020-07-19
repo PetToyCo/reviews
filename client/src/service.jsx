@@ -5,14 +5,12 @@ import updateReviewAverage from './ReduxSpecificComponents/Actions/updateReviewA
 import updateNumberOfReviews from './ReduxSpecificComponents/Actions/updateNumberOfReviews.js';
 import updateAllReviews from './ReduxSpecificComponents/Actions/updateAllReviews.js';
 import updateFilteredReviews from './ReduxSpecificComponents/Actions/updateFilteredReviews.js';
+import enviromentalVariables from './enviromentalVariables.js';
 
+const { IP_ADDRESS } = enviromentalVariables;
 const { connect } = ReactRedux;
 
 class ReviewsModule extends React.Component {
-  // constructor(props) {
-  //   super();
-  // }
-
   componentDidMount() {
     const {
       dispatchUpdateReviewAverage,
@@ -20,37 +18,25 @@ class ReviewsModule extends React.Component {
       dispatchUpdateAllReviews,
       dispatchUpdateFilteredReviews,
     } = this.props;
-    //When working on service, uncomment this axios call and comment-out the axios
-    //call just below. Make sure to switch back just before pushing up to repo.
-    //Just make sure to run webpack again so bundle is correct (In repo's cd, run >npm run build)
-    //start of service as standalone
-    // axios.get('http://127.0.0.1:3001/reviews/100')
-    //   .then((results) => {
-    //     const { reviewAverage, numberOfReviews, allReviews } = results.data;
 
-    //     dispatchUpdateReviewAverage(reviewAverage);
-    //     dispatchUpdateNumberOfReviews(numberOfReviews);
-    //     dispatchUpdateAllReviews(allReviews);
-    //     dispatchUpdateFilteredReviews(allReviews);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-    //end of service as standalone
+    let itemID = '100';
 
-    //start of service as proxy service
     const { search } = window.location;
-    const searchSplit = search.split('&');
-    let splitItemID;
 
-    for (let i = 0; i < searchSplit.length; i++) {
-      if (searchSplit[i].includes('itemID')) {
-        splitItemID = searchSplit[i].split('=');
-        break;
+    if (search !== '') {
+      const searchSplit = search.split('&');
+      let splitItemID;
+
+      for (let i = 0; i < searchSplit.length; i++) {
+        if (searchSplit[i].includes('itemID')) {
+          splitItemID = searchSplit[i].split('=');
+          break;
+        }
       }
+      itemID = splitItemID[1];
     }
 
-    axios.get(`http://127.0.0.1:3001/reviews/${splitItemID[1]}`)
+    axios.get(`http://${IP_ADDRESS}:3001/reviews/${itemID}`)
       .then((results) => {
         const { reviewAverage, numberOfReviews, allReviews } = results.data;
 
@@ -68,7 +54,6 @@ class ReviewsModule extends React.Component {
       .catch((err) => {
         console.log(err);
       });
-    //end of service as proxy service
   }
 
   render() {

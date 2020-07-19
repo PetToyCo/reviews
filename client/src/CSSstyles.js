@@ -1,3 +1,7 @@
+import enviromentalVariables from './enviromentalVariables.js';
+
+const { IP_ADDRESS } = enviromentalVariables;
+
 //////dynamic stars
 const dynamicStarsGrayStars = {
   position: 'absolute',
@@ -94,7 +98,7 @@ const reviewHeaderSearchBar = {
 };
 
 const reviewHeaderSearchBarButton = {
-  backgroundImage: 'url("http://127.0.0.1:3001/searchMagnifyingGlass.png")',
+  backgroundImage: `url("http://${IP_ADDRESS}:3001/searchMagnifyingGlass.png")`,
   height: '32px',
   width: '88px',
   border: 'none',

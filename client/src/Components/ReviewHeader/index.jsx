@@ -11,7 +11,9 @@ import {
   reviewHeaderSearchBarButton,
   reviewHeaderList,
 } from '../../CSSstyles.js';
+import enviromentalVariables from '../../enviromentalVariables.js';
 
+const { IP_ADDRESS } = enviromentalVariables;
 const { connect } = ReactRedux;
 
 class ReviewHeader extends React.Component {
@@ -53,12 +55,12 @@ class ReviewHeader extends React.Component {
 
   changeImageOnMouseOver(e) {
     const { id } = e.target;
-    document.getElementById(id).style.backgroundImage = 'url("http://127.0.0.1:3001/searchMagnifyingGlassHover.png")';
+    document.getElementById(id).style.backgroundImage = `url("http://${IP_ADDRESS}:3001/searchMagnifyingGlassHover.png")`;
   }
 
   changeImageOnMouseOut(e) {
     const { id } = e.target;
-    document.getElementById(id).style.backgroundImage = 'url("http://127.0.0.1:3001/searchMagnifyingGlass.png")';
+    document.getElementById(id).style.backgroundImage = `url("http://${IP_ADDRESS}:3001/searchMagnifyingGlass.png")`;
   }
 
   smoothScrollReviews(e) {

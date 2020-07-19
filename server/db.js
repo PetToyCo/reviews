@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const { DATABASE_LOCAL_ADDRESS } = require('./enviromentalVariables.js');
 
-mongoose.connect('mongodb://localhost/PTCReviewsService');
+mongoose.connect(`mongodb://${DATABASE_LOCAL_ADDRESS}/PTCReviewsService`);
 
 const db = mongoose.connection;
 

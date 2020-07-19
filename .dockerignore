@@ -1,0 +1,9 @@
+node-modules
+__tests__
+coverage
+.git
+webpack.config.js
+.eslintrc
+.eslintrc.txt
+.babelrc.js
+client/src/**/*

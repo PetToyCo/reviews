@@ -1,5 +1,8 @@
 import SolidReviewStars from '../General/solidReviewStars.jsx';
 import Helpful from './helpful.jsx';
+import enviromentalVariables from '../../enviromentalVariables.js';
+
+const { IP_ADDRESS } = enviromentalVariables;
 
 class IndividualReview extends React.Component {
   // constructor(props) {
@@ -175,7 +178,7 @@ class IndividualReview extends React.Component {
         style={wrapperStyle}
       >
         <img
-          src='http://127.0.0.1:3001/silhouette.png'
+          src={`http://${IP_ADDRESS}:3001/silhouette.png`}
           style={{
             height: '48px',
             width: '48px',

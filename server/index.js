@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const serveStatic = require('serve-static');
 const db = require('./db.js');
+const { IP_ADDRESS, IP_ADDRESS_3005 } = require('./enviromentalVariables.js');
 
 const server = express();
 
@@ -10,12 +11,12 @@ server.use(function(req, res, next) {
   const { referer } = req.headers;
 
   if (referer) {
-    if (referer.includes('http://127.0.0.1:3000')) {
-      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
-    } else if (referer.includes('http://127.0.0.1:3005')) {
-      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3005');
-    } else if (referer.includes('http://127.0.0.1:3004')) {
-      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3004');
+    if (referer.includes(`http://${IP_ADDRESS}:3000`)) {
+      res.header('Access-Control-Allow-Origin', `http://${IP_ADDRESS}:3000`);
+    } else if (referer.includes(`http://${IP_ADDRESS_3005}:3005`)) {
+      res.header('Access-Control-Allow-Origin', `http://${IP_ADDRESS_3005}:3005`);
+    } else if (referer.includes(`http://${IP_ADDRESS}:3004`)) {
+      res.header('Access-Control-Allow-Origin', `http://${IP_ADDRESS}:3004`);
     }
   }
   next();
