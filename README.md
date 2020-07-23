@@ -122,6 +122,60 @@ Server Response:
 
 ## Usage as a Deployed Service
 
+You have two options. In ./bashScripts, there are some example bash scripts you can use to semi-automate the process. This is option 1. However, if you have yet to deploy this project before, it is recommended you follow the "Manual Deployment Instructions" for the first deployment.
+
+Semi-automated Deployment Instructions:
+1. In terminal, >cd "project's root directory path, without quotes"
+
+2. I Locate the following two files and open them: ./client/src/enviromentalVariables.js and ./server/enviromentalVariables.js
+
+ Then comment out the "Service and Development mode environmental variables" and uncomment the "Deployment mode environmental variables". You may also have to update the IP address if the AWS instance you will be deploying this service from was stopped or terminated since the last time you followed these instructions. If so, only update the IP_ADDRESS key with the new IP address as its value. And only for the Deployment mode. Also, if the IP address for the service at port 3005 also changed, you wll have to update the Deployment mode IP_ADDRESS_3005
+ 
+ Save all changes
+
+3.  If you already followed this step and steps 4/5, skip to step 6. Otherwise: At ./bashScripts, there are seven files. They each have an extension .example.sh. Duplicate each of these and rename so .example copy.sh is now just .sh.
+
+Example: bashScript4.example copy.sh should now be bashScript4.sh
+
+IMPORTANT: If you do not follow these instructions exactly, the .gitignore and .dockerignore will not properly ignore the files you just duplicated/renamed. To check that you correctly renamed them all, in terminal >git status
+
+If you renamed correctly, none of the files should show up as changes that needed to be staged/committed
+
+4. You will now need to open each file and make changes for each variable. Variables come in the format: variable=[[[Instructions for what this variable value should be changed to]]]
+
+For each variable, you replace all the [ ] brackets and everything inside them with the actual value IMPORTANT: two things: one, some variables will need to be changed everytime you want to deploy a new build. Those are mentioned in comments found within each file AND below in step 6. Two, DO NOT use string brackets around values. This is not javascript and so you do not need '' or ""
+
+5. You will have to make it so three of the files you created can be edited and executed by only the root user on your comp. Do so with the following commands
+>chmod 700 ./bashScripts/bashScript.sh
+>chmod 700 ./bashScripts/bashScript2.sh
+>chmod 700 ./bashScripts/bashScript3.sh
+
+You do not need to do this with the last four files since you won't be executing them directly. 
+
+6. Now follow this process to deploy:
+- Make sure all IP addresses and script tags are accurate(see step 2 above)
+- >./bashScripts/bashScript.sh
+- The above script will build your docker image locally. At the end of the build, it will report the image's id. Copy and paste that to the imageID variable in bashScript2.sh. Also update the version variable in that file.
+- >./bashScripts/bashScript2.sh   You will have to enter your Docker Hub password when prompted
+- While waiting for the above command to finish running, you can open a second terminal window, cd to project's root directory, and run >./bashScripts/bashScript3.sh
+- Once both script 2 and 3 are done running, you will have your image on Docker Hub and you will be logged into your AWS server, in the second terminal window. It is this window that you will use for the remaining steps.
+- If you already have an older image running on the AWS instance. You have to: 1. >docker ps     and then copy and paste the correct container's ID into bashScript4.sh, for the runningContainerID variable. 2. >docker images    and then copy and paste the correct image's ID for the runningImageID variable in the same file. 3. Copy and paste the entire contents of bashScript4.sh into the second terminal, hit enter, then enter y when prompted.
+- To pull the image you built and pushed to Docker Hub, in bashScript5.sh, update the version variable with the same version you gave it, then copy and paste all the code into the second terminal, and hit enter. You will have to enter your Docker Hub password when prompted
+- If you do not already have a MongoDB image running on the AWS instance, you must update and run the code in bashScript7.sh before proceeding to the last step. If the DB is already running, proceed to the last step. 
+
+NOTE: you might already have a network and volume running on the instance. If you do, follow the instructions in bashScript7.sh to acquire them, then copy and paste them to networkName and volumeName variables, respectively. Also make sure, in bashScript6.sh, that the networkName variable matches
+
+NOTE 2. The network alias should match the Deployment DATABASE_LOCAL_ADDRESS variable in server/environmentalVariables.js
+
+NOTE3: the mongo version expected for this project is 4.2.6
+
+- Lastly, use >docker images     to get the Image ID for the image you just pulled, then copy and paste it into bashScript6.sh for the variable  imageID. Then copy and paste the file's entire contents into the second terminal and hit enter. The instance should now be running. Visit http://"your proxy instance's IP address, without quotes":3000/product?itemID=100 to confirm
+
+
+
+
+
+Manual Deployment Instructions
 1. Locate the following two files and open them: ./client/src/enviromentalVariables.js and ./server/enviromentalVariables.js
 2. In each, comment out the "Service and Development mode environmental variables" and uncomment the "Deployment mode environmental variables". You may also have to update the IP address if the AWS instance you will be deploying this service from was stopped or terminated since the last time you followed these instructions. If so, only update the IP_ADDRESS key with the new IP address as its value. And only for the Deployment mode. Also, if the IP address for the service at port 3005 also changed, you wll have to update the Deployment mode IP_ADDRESS_3005
 3. From projects root directory >npm run build
