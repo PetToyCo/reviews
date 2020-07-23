@@ -129,7 +129,7 @@ Semi-automated Deployment Instructions:
 
 2. I Locate the following two files and open them: ./client/src/enviromentalVariables.js and ./server/enviromentalVariables.js
 
- Then comment out the "Service and Development mode environmental variables" and uncomment the "Deployment mode environmental variables". You may also have to update the IP address if the AWS instance you will be deploying this service from was stopped or terminated since the last time you followed these instructions. If so, only update the IP_ADDRESS key with the new IP address as its value. And only for the Deployment mode. Also, if the IP address for the service at port 3005 also changed, you wll have to update the Deployment mode IP_ADDRESS_3005
+ Then comment out the "Service and Development mode environmental variables" and uncomment the "Deployment mode environmental variables". You may also have to update the IP address if the AWS instance you will be deploying this service from was stopped or terminated since the last time you followed these instructions. If so, only update the IP_ADDRESS key with the new IP address as its value. And only for the Deployment mode. Also, if the IP address for IP_ADDRESS_E and/or IP_ADDRESS_K chnaged, you will have to update the appropriate address 
  
  Save all changes
 
@@ -177,7 +177,7 @@ NOTE3: the mongo version expected for this project is 4.2.6
 
 Manual Deployment Instructions
 1. Locate the following two files and open them: ./client/src/enviromentalVariables.js and ./server/enviromentalVariables.js
-2. In each, comment out the "Service and Development mode environmental variables" and uncomment the "Deployment mode environmental variables". You may also have to update the IP address if the AWS instance you will be deploying this service from was stopped or terminated since the last time you followed these instructions. If so, only update the IP_ADDRESS key with the new IP address as its value. And only for the Deployment mode. Also, if the IP address for the service at port 3005 also changed, you wll have to update the Deployment mode IP_ADDRESS_3005
+2. In each, comment out the "Service and Development mode environmental variables" and uncomment the "Deployment mode environmental variables". You may also have to update the IP address if the AWS instance you will be deploying this service from was stopped or terminated since the last time you followed these instructions. If so, only update the IP_ADDRESS key with the new IP address as its value. And only for the Deployment mode. Also, if the IP address for IP_ADDRESS_E and/or IP_ADDRESS_K chnaged, you will have to update the appropriate address 
 3. From projects root directory >npm run build
 4. Now build the docker image with >docker build -t "name of image, without quotes" . (yes, that dot is necessary for the command). If you want to assign a tag, don't forget :tagName after the image name. If you don't supply the tag name, :latest will be automatically appended. I currently use reviews-service as my image name.
 5. If not already done so, create account at hub.docker.com and login. Then create a public repo. The name of the repo I currently use is fec-reviews-service.
