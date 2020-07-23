@@ -10,7 +10,7 @@
     "seedDb": "node server/seedDatabase.js",
     "server": "node server/index.js",
     "lint": "eslint . --ext .js,.jsx",
-    "build": "webpack -D"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
