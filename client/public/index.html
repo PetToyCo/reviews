@@ -8,7 +8,7 @@
     <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.5/redux.min.js"></script>
     <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.0/react-redux.min.js"></script>
     <script crossorigin src="https://momentjs.com/downloads/moment.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet" async>
   </head>
   <body>
     <div
@@ -22,7 +22,7 @@
     </div>
   </body>
 
-  <script>
+  <script async>
     const callback = function() {
       const body = document.body;
 
@@ -43,6 +43,6 @@
     observer.observe(targetNode, config);
   </script>
 
-  <script src="http://127.0.0.1:3001/app.js"></script>
-  <!-- <script src="http://54.183.137.155:3001/app.js"></script> -->
+  <script src="http://127.0.0.1:3001/app.js" async></script>
+  <!-- <script src="http://54.183.137.155:3001/app.js" async></script> -->
 </html>
