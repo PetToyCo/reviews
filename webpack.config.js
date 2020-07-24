@@ -1,10 +1,12 @@
 const path = require('path');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   mode: 'production',
   // mode: 'development',
   entry: {
     './client/public/app.js': path.resolve(__dirname, 'client', 'src', 'index.jsx'),
+    // './client/public/index.html': path.resolve(__dirname, 'client', 'src', 'index.html'),
   },
   output: {
     path: path.resolve(__dirname),
@@ -13,6 +15,15 @@ module.exports = {
   node: {
     fs: 'empty',
   },
+  plugins: [
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/i,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+  ],
   module: {
     rules: [
       {
@@ -29,6 +40,10 @@ module.exports = {
           presets: ['@babel/preset-env'],
         },
       },
+      // {
+      //   test: /\.html$/i,
+      //   loader: 'html-loader',
+      // },
     ],
   },
 };
