@@ -85,9 +85,10 @@ Recommended you put it directly under the opening <body> tag so there is no unin
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.5/redux.min.js"></script>
 <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/7.2.0/react-redux.min.js"></script>
 <script crossorigin src="https://momentjs.com/downloads/moment.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet" async>
 
-5. To retrieve the Reviews Module, make a GET request to http://127.0.0.1:3001/app.js
+5. To retrieve the Reviews Module, use the script tag 
+<script src="http://127.0.0.1:3001/app.js" async></script>
 
 6. This service also has the following endpoints (where :itemId can be a value from 100-199):
 
