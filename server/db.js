@@ -33,6 +33,10 @@ const retrieveAggregateReview = function(itemId) {
   return AggregateReview.findOne({ itemId }).select('-_id -itemId -__v').exec();
 };
 
+const retrieveAggregateReviews = function(itemIds) {
+  return AggregateReview.find({ itemId: { $in: itemIds } }).select('-_id -allReviews -__v').exec();
+};
+
 const retrieveIndividualReviews = function(reviewIds) {
   return IndividualReview.find({ reviewId: { $in: reviewIds } }).select('-_id -reviewId -__v').sort({ date: -1 }).exec();
 };
@@ -40,5 +44,6 @@ const retrieveIndividualReviews = function(reviewIds) {
 module.exports.db = db;
 module.exports.retrieveAggregateReview = retrieveAggregateReview;
 module.exports.retrieveIndividualReviews = retrieveIndividualReviews;
+module.exports.retrieveAggregateReviews = retrieveAggregateReviews;
 module.exports.AggregateReview = AggregateReview;
 module.exports.IndividualReview = IndividualReview;

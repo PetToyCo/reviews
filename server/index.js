@@ -64,20 +64,36 @@ server.use('/test', serveStatic('./test'));
 
 server.get('/averageReviews/:itemId', (req, res) => {
   const { itemId } = req.params;
-
-  db.retrieveAggregateReview(itemId)
-    .then((data) => {
-      if (data) {
-        const { reviewAverage, numberOfReviews } = data;
-        res.status(200).send({ reviewAverage, numberOfReviews });
-      } else {
-        res.status(404).send('Item does not exist');
-      }
-    })
-    .catch((err) => {
-      res.status(500).send(err);
-      console.log(err);
-    });
+  if (itemId.includes('array')) {
+    const itemsInArray = itemId.substring(5);
+    const itemIds = itemsInArray.split(',');
+    db.retrieveAggregateReviews(itemIds)
+      .then((data) => {
+        if (data) {
+          res.status(200).send(data);
+        } else {
+          res.status(404).send('Items do not exist');
+        }
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+        console.log(err);
+      });
+  } else {
+    db.retrieveAggregateReview(itemId)
+      .then((data) => {
+        if (data) {
+          const { reviewAverage, numberOfReviews } = data;
+          res.status(200).send({ reviewAverage, numberOfReviews });
+        } else {
+          res.status(404).send('Item does not exist');
+        }
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+        console.log(err);
+      });
+  }
 });
 
 server.get('/reviews/:itemId', (req, res) => {
