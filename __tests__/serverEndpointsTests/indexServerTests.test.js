@@ -90,6 +90,21 @@ describe('Reviews Service Server tests', () => {
   });
 
   describe('The server\'s /averageReviews/:itemId endpoint', () => {
+    test('correctly retrieves the data for multiple items when passed an "array"', () => {
+      return axios.get('http://127.0.0.1:3001/averageReviews/array154,133,100')
+        .then((res) => {
+          const [item100, item133, item154] = res.data;
+          const { reviewAverage, numberOfReviews } = item100;
+          expect(reviewAverage).to.equal('3.5');
+          expect(numberOfReviews).to.equal(19);
+          expect(item133.itemId).to.equal('133');
+          expect(item154.itemId).to.equal('154');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+
     test('correctly retrieves the hardcoded data for item 100', () => {
       return axios.get('http://127.0.0.1:3001/averageReviews/100')
         .then((res) => {
@@ -119,6 +134,16 @@ describe('Reviews Service Server tests', () => {
       return axios.get('http://127.0.0.1:3001/averageReviews/99')
         .then((res) => {
           expect(res).to.not.equal('Item does not exist');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+
+    test('sends back "Items do not exist" for invalid item number inside an "array"', () => {
+      return axios.get('http://127.0.0.1:3001/averageReviews/array151,133,99')
+        .then((res) => {
+          expect(res).to.not.equal('Items do not exist');
         })
         .catch((err) => {
           console.log(err);

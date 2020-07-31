@@ -99,6 +99,12 @@ Server Response:
   numberOfReviews: “Integer number representing number of reviews for that item”
 }
 
+UNLESS the itemId is in the form: array,number,number,number where "number" is actually a number from 100-199 (however, since they are in a URL, they are string versions of numbers)
+
+THEN server response:
+
+An array filled with objects. Each object is the object that would normally return, but with the additional property "itemId"
+
 Endpoint: /reviews/:itemId
 Server Response:
 {

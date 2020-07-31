@@ -48,7 +48,11 @@
 
       // const N_IP = '54.183.137.155';
 
-      axios.get(`http://${N_IP}:3001/app.js`)
+      const url = `http://${N_IP}:3001/app.js`;
+
+      // const url = 'https://dlxdbr1ckg1lj.cloudfront.net/reviews/app.js';
+
+      axios.get(url)
         .then((response) => {
           eval(response.data)
         })
