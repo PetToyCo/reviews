@@ -8,7 +8,7 @@
     "testServer": "jest __tests__/serverEndpointsTests/ --runInBand --silent --coverage",
     "testSeed": "jest server/seed/seed.test.js --coverage",
     "seedDb": "node server/seedDatabase.js",
-    "server": "node server/index.js",
+    "server": "node index.js",
     "lint": "eslint . --ext .js,.jsx",
     "build": "webpack"
   },

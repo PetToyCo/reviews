@@ -3,8 +3,8 @@ const morgan = require('morgan');
 const serveStatic = require('serve-static');
 // const fs = require('fs');
 // var zlib = require('zlib');
-const db = require('./db.js');
-const { IP_ADDRESS, IP_ADDRESS_E, IP_ADDRESS_K } = require('./enviromentalVariables.js');
+const db = require('./server/db.js');
+const { IP_ADDRESS, IP_ADDRESS_E, IP_ADDRESS_K } = require('./server/enviromentalVariables.js');
 
 const server = express();
 
@@ -60,7 +60,7 @@ server.use('*.js', function (req, res, next) {
 // });
 
 server.use(serveStatic('./client/public'));
-server.use('/test', serveStatic('./test'));
+// server.use('/test', serveStatic('./test'));
 
 server.get('/averageReviews/:itemId', (req, res) => {
   const { itemId } = req.params;
@@ -122,6 +122,17 @@ server.get('/reviews/:itemId', (req, res) => {
       res.status(500).send(err);
       console.log(err);
     });
+});
+
+server.get('/product', (req, res) => {
+  const { itemID } = req.query;
+  const itemIdNumber = Number.parseInt(itemID, 10);
+
+  if (itemIdNumber < 100 || itemIdNumber > 199 || itemIdNumber === undefined) {
+    res.status(404).send('itemID invalid');
+  } else {
+    res.sendFile(`${__dirname}/client/public/index.html`);
+  }
 });
 
 server.listen(3001);
