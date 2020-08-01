@@ -29,7 +29,7 @@ From project's root folder:
 1. In terminal: npm install
 2. If you need to seed database with fake data, follow the "Seeding Database" instructions below.
 3. Once you have seed data in your MongoDB instance, you can start the server with: npm run server. At this point, everything is ready to be used in Service Mode. However, you will have to alter the proxy's html file to take advantage of the service. To do so, see the section below titled "Usage with a proxy server". If you are currently developing (or doing a code review) and want to run tests, continue to step 4.
-4. To see the actual service in action, visit: http://127.0.0.1:3001. This will show the hardcoded data for item 100.
+4. To see the actual service in action, visit: http://127.0.0.1:3001/product?itemID=### where ### is a number 100-199
 5. To run server endpoint tests, in terminal and project's root directory as cd >npm run testServer
 6. To run the service's tests, follow these steps:
 a. Open ./client/src/service.jsx
