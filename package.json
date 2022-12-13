@@ -59,7 +59,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "fs": "0.0.1-security",
     "lorem-ipsum": "^2.0.3",
     "mongoose": "^5.9.19",
